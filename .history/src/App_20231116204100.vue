@@ -5,7 +5,6 @@ ElMessage.success('hhh')
 
 <template>
   <div>
-    <button @click="ElMessage.success('hhh')">按钮</button>
     <router-view></router-view>
   </div>
 </template>

@@ -8,15 +8,7 @@ import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    vue(),
-    AutoImport({
-      resolvers: [ElementPlusResolver()]
-    }),
-    Components({
-      resolvers: [ElementPlusResolver()]
-    })
-  ],
+  plugins: [vue()],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
