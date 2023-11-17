@@ -53,6 +53,18 @@ const router = createRouter({
     },
     {
       path: '/:pathMatch(.*)',
+      //访问主页的时候 重定向到index页面
+      redirect: '/404'
+    },
+    {
+      path: '/404',
+      name: '/404',
+      component: NotFound
+    },
+
+    {
+      path: '*',
+      name: '404',
       component: () => import('@/views/Else/ElsePage.vue')
     }
   ]

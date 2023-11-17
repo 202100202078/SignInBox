@@ -52,7 +52,8 @@ const router = createRouter({
       ]
     },
     {
-      path: '/:pathMatch(.*)',
+      path: '*',
+      name: '404',
       component: () => import('@/views/Else/ElsePage.vue')
     }
   ]

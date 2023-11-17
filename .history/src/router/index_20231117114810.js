@@ -52,7 +52,7 @@ const router = createRouter({
       ]
     },
     {
-      path: '/:pathMatch(.*)',
+      path: '*',
       component: () => import('@/views/Else/ElsePage.vue')
     }
   ]

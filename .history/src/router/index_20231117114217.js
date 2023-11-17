@@ -50,10 +50,6 @@ const router = createRouter({
           component: () => import('@/views/admin/UserPage.vue')
         }
       ]
-    },
-    {
-      path: '/:pathMatch(.*)',
-      component: () => import('@/views/Else/ElsePage.vue')
     }
   ]
 })
