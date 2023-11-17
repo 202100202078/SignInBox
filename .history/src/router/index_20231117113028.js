@@ -37,17 +37,17 @@ const router = createRouter({
         {
           path: '/home/adminInterface',
           name: 'adminInterface',
-          component: () => import('@/views/admin/InterfacePage.vue')
+          component: () => import('@/views/admin/.vue')
         },
         {
           path: '/home/adminRecharge',
           name: 'adminRecharge',
-          component: () => import('@/views/admin/RechargePage.vue')
+          component: () => import('../views/AboutView.vue')
         },
         {
           path: '/home/adminUser',
           name: 'adminUser',
-          component: () => import('@/views/admin/UserPage.vue')
+          component: () => import('../views/AboutView.vue')
         }
       ]
     }

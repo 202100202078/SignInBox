@@ -11,43 +11,43 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: () => import('@/views/layout/LayOutContainer.vue'),
+      component: () => import('../views/AboutView.vue'),
       redirect: '/home/welcome',
       children: [
         {
           path: '/home/welcome',
           name: 'welcome',
-          component: () => import('@/views/home/WelcomePage.vue')
+          component: () => import('../views/AboutView.vue')
         },
         {
           path: '/home/interface',
           name: 'interface',
-          component: () => import('@/views/home/InterfacePage.vue')
+          component: () => import('../views/AboutView.vue')
         },
         {
           path: '/home/recharge',
           name: 'recharge',
-          component: () => import('@/views/home/RechargePage.vue')
+          component: () => import('../views/AboutView.vue')
         },
         {
           path: '/home/order',
-          name: 'order',
-          component: () => import('@/views/home/OrderPage.vue')
+          name: 'recharge',
+          component: () => import('../views/AboutView.vue')
         },
         {
           path: '/home/adminInterface',
-          name: 'adminInterface',
-          component: () => import('@/views/admin/InterfacePage.vue')
+          name: 'adminorder',
+          component: () => import('../views/AboutView.vue')
         },
         {
           path: '/home/adminRecharge',
-          name: 'adminRecharge',
-          component: () => import('@/views/admin/RechargePage.vue')
+          name: 'adminorder',
+          component: () => import('../views/AboutView.vue')
         },
         {
           path: '/home/adminUser',
-          name: 'adminUser',
-          component: () => import('@/views/admin/UserPage.vue')
+          name: 'adminorder',
+          component: () => import('../views/AboutView.vue')
         }
       ]
     }

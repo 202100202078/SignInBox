@@ -27,27 +27,27 @@ const router = createRouter({
         {
           path: '/home/recharge',
           name: 'recharge',
-          component: () => import('@/views/home/RechargePage.vue')
+          component: () => import('../views/AboutView.vue')
         },
         {
           path: '/home/order',
-          name: 'order',
-          component: () => import('@/views/home/OrderPage.vue')
+          name: 'recharge',
+          component: () => import('../views/AboutView.vue')
         },
         {
           path: '/home/adminInterface',
-          name: 'adminInterface',
-          component: () => import('@/views/admin/InterfacePage.vue')
+          name: 'adminorder',
+          component: () => import('../views/AboutView.vue')
         },
         {
           path: '/home/adminRecharge',
-          name: 'adminRecharge',
-          component: () => import('@/views/admin/RechargePage.vue')
+          name: 'adminorder',
+          component: () => import('../views/AboutView.vue')
         },
         {
           path: '/home/adminUser',
-          name: 'adminUser',
-          component: () => import('@/views/admin/UserPage.vue')
+          name: 'adminorder',
+          component: () => import('../views/AboutView.vue')
         }
       ]
     }
