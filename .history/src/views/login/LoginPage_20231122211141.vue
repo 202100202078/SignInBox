@@ -1,11 +1,10 @@
 <script setup>
 import { ref } from 'vue'
-import { Message, Lock, User } from '@element-plus/icons-vue'
-// import { router } from 'vue-router'
+import { Message, Lock } from '@element-plus/icons-vue'
 
 const activeName = ref('byEmail')
 
-const autoLogin = ref(true)
+const isChecked = ref(true)
 </script>
 
 <template>
@@ -45,7 +44,7 @@ const autoLogin = ref(true)
               </el-form-item>
               <el-form-item class="flex">
                 <el-checkbox
-                  v-model="autoLogin"
+                  v-model="isChecked"
                   label="自动登录"
                   size="large"
                 />
@@ -62,7 +61,7 @@ const autoLogin = ref(true)
                 <el-input
                   v-model="emailInput"
                   placeholder="请输入账号"
-                  :prefix-icon="User"
+                  :prefix-icon="Message"
                   size="large"
                   :style="{ width: '100%' }"
                 ></el-input>
@@ -73,18 +72,17 @@ const autoLogin = ref(true)
                   placeholder="请输入密码"
                   :prefix-icon="Lock"
                   size="large"
-                  :style="{ width: '418px' }"
+                  :style="{ width: '308px' }"
                 ></el-input>
+                <el-button size="large">获取验证码</el-button>
               </el-form-item>
               <el-form-item class="flex">
                 <el-checkbox
-                  v-model="autoLogin"
+                  v-model="isChecked"
                   label="自动登录"
                   size="large"
                 />
-                <el-link :underline="false" @click="$router.push('/register')"
-                  >还没账号?点击前往注册</el-link
-                >
+                <el-link :underline="false">还没账号?点击前往注册</el-link>
               </el-form-item>
               <el-form-item>
                 <el-button type="primary" class="btn">登录</el-button>

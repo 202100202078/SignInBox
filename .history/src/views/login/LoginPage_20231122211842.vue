@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { Message, Lock, User } from '@element-plus/icons-vue'
-// import { router } from 'vue-router'
+import { router } from 'vue-router'
 
 const activeName = ref('byEmail')
 
@@ -82,7 +82,7 @@ const autoLogin = ref(true)
                   label="自动登录"
                   size="large"
                 />
-                <el-link :underline="false" @click="$router.push('/register')"
+                <el-link :underline="false" @click="goRegister"
                   >还没账号?点击前往注册</el-link
                 >
               </el-form-item>

@@ -1,11 +1,10 @@
 <script setup>
 import { ref } from 'vue'
-import { Message, Lock, User } from '@element-plus/icons-vue'
-// import { router } from 'vue-router'
+import { Message, Lock } from '@element-plus/icons-vue'
 
 const activeName = ref('byEmail')
 
-const autoLogin = ref(true)
+const isChecked = ref(true)
 </script>
 
 <template>
@@ -33,26 +32,31 @@ const autoLogin = ref(true)
                   :style="{ width: '100%' }"
                 ></el-input>
               </el-form-item>
-              <el-form-item :style="{ height: '40px' }" class="flex">
-                <el-input
-                  v-model="codeInput"
-                  placeholder="请输入验证码"
-                  :prefix-icon="Lock"
-                  size="large"
-                  :style="{ width: '308px' }"
-                ></el-input>
-                <el-button size="large">获取验证码</el-button>
+              <el-form-item :style="{ width: '100%' }">
+                <el-row :gutter="8">
+                  <el-col :span="15">
+                    <el-input
+                      v-model="codeInput"
+                      placeholder="请输入验证码"
+                      :prefix-icon="Lock"
+                      size="large"
+                    ></el-input>
+                  </el-col>
+                  <el-col :span="9">
+                    <el-button size="large">获取验证码</el-button>
+                  </el-col>
+                </el-row>
               </el-form-item>
-              <el-form-item class="flex">
+              <el-form-item>
                 <el-checkbox
-                  v-model="autoLogin"
+                  v-model="isChecked"
                   label="自动登录"
                   size="large"
                 />
                 <el-link :underline="false">还没账号?点击前往注册</el-link>
               </el-form-item>
               <el-form-item>
-                <el-button type="primary" class="btn">登录</el-button>
+                <el-button type="primary">登录</el-button>
               </el-form-item>
             </el-form>
           </el-tab-pane>
@@ -61,33 +65,37 @@ const autoLogin = ref(true)
               <el-form-item>
                 <el-input
                   v-model="emailInput"
-                  placeholder="请输入账号"
-                  :prefix-icon="User"
+                  placeholder="请输入邮箱账号"
+                  :prefix-icon="Message"
                   size="large"
                   :style="{ width: '100%' }"
                 ></el-input>
               </el-form-item>
-              <el-form-item :style="{ height: '40px' }" class="flex">
-                <el-input
-                  v-model="codeInput"
-                  placeholder="请输入密码"
-                  :prefix-icon="Lock"
-                  size="large"
-                  :style="{ width: '418px' }"
-                ></el-input>
+              <el-form-item :style="{ width: '100%' }">
+                <el-row :gutter="8">
+                  <el-col :span="15">
+                    <el-input
+                      v-model="codeInput"
+                      placeholder="请输入验证码"
+                      :prefix-icon="Lock"
+                      size="large"
+                    ></el-input>
+                  </el-col>
+                  <el-col :span="9">
+                    <el-button size="large">获取验证码</el-button>
+                  </el-col>
+                </el-row>
               </el-form-item>
-              <el-form-item class="flex">
+              <el-form-item>
                 <el-checkbox
-                  v-model="autoLogin"
+                  v-model="isChecked"
                   label="自动登录"
                   size="large"
                 />
-                <el-link :underline="false" @click="$router.push('/register')"
-                  >还没账号?点击前往注册</el-link
-                >
+                <el-link :underline="false">还没账号?点击前往注册</el-link>
               </el-form-item>
               <el-form-item>
-                <el-button type="primary" class="btn">登录</el-button>
+                <el-button type="primary">登录</el-button>
               </el-form-item>
             </el-form>
           </el-tab-pane>
@@ -141,13 +149,5 @@ const autoLogin = ref(true)
   display: flex;
   flex-direction: column;
   text-align: center;
-  .flex {
-    ::v-deep .el-form-item__content {
-      justify-content: space-between;
-    }
-  }
-  .btn {
-    width: 100%;
-  }
 }
 </style>
