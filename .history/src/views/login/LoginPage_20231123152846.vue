@@ -81,7 +81,7 @@ const handleTabClick = (tab) => {
             name="byEmail"
           >
             <el-form ref="emailForm" :model="formModel" :rules="rules">
-              <el-form-item v-if="!isLoginPage" prop="nickname">
+              <el-form-item v-if="!isLoginPage">
                 <el-input
                   v-model="formModel.nickname"
                   placeholder="请输入昵称"
@@ -97,7 +97,7 @@ const handleTabClick = (tab) => {
                   size="large"
                 ></el-input>
               </el-form-item>
-              <el-form-item v-if="!isLoginPage" prop="invitationCode">
+              <el-form-item v-if="!isLoginPage">
                 <el-input
                   v-model="formModel.invitationCode"
                   placeholder="请输入邀请码，没有可不填"
@@ -105,7 +105,7 @@ const handleTabClick = (tab) => {
                   size="large"
                 ></el-input>
               </el-form-item>
-              <el-form-item prop="captcha">
+              <el-form-item>
                 <el-input
                   v-model="formModel.captcha"
                   placeholder="请输入验证码"
@@ -156,7 +156,7 @@ const handleTabClick = (tab) => {
             name="byAccount"
           >
             <el-form ref="accountForm" :model="formModel" :rules="rules">
-              <el-form-item v-if="!isLoginPage" prop="nickname">
+              <el-form-item v-if="!isLoginPage">
                 <el-input
                   v-model="formModel.nickname"
                   placeholder="请输入昵称"
@@ -164,7 +164,7 @@ const handleTabClick = (tab) => {
                   size="large"
                 ></el-input>
               </el-form-item>
-              <el-form-item prop="account">
+              <el-form-item>
                 <el-input
                   v-model="formModel.account"
                   placeholder="请输入账号"
@@ -173,7 +173,7 @@ const handleTabClick = (tab) => {
                   :style="{ width: '100%' }"
                 ></el-input>
               </el-form-item>
-              <el-form-item prop="password">
+              <el-form-item>
                 <el-input
                   v-model="formModel.password"
                   type="password"
@@ -184,7 +184,7 @@ const handleTabClick = (tab) => {
                   :style="{ width: '418px' }"
                 ></el-input>
               </el-form-item>
-              <el-form-item prop="repassword">
+              <el-form-item>
                 <el-input
                   v-model="formModel.repassword"
                   type="password"
@@ -194,7 +194,7 @@ const handleTabClick = (tab) => {
                   size="large"
                 ></el-input>
               </el-form-item>
-              <el-form-item v-if="!isLoginPage" prop="invitationCode">
+              <el-form-item v-if="!isLoginPage">
                 <el-input
                   v-model="formModel.invitationCode"
                   placeholder="请输入邀请码，没有可不填"

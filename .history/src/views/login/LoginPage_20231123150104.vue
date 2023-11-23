@@ -8,10 +8,8 @@ import {
   Paperclip
 } from '@element-plus/icons-vue'
 // import { router } from 'vue-router'
-const emailForm = ref()
-const accountForm = ref()
 
-const formModel = ref({
+const fromModel = ref({
   email: '',
   account: '',
   invitationCode: '',
@@ -21,38 +19,12 @@ const formModel = ref({
   nickname: ''
 })
 
-const rules = {
-  email: [
-    { required: true, message: '请输入您的邮箱', trigger: 'blur' },
-    {
-      pattern: /^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/,
-      message: '您的邮箱格式有误',
-      trigger: 'blur'
-    }
-  ],
-  account: [],
-  invitationCode: [],
-  captcha: [],
-  password: [],
-  repassword: [],
-  nickname: []
-}
-
 const activeName = ref('byEmail')
 
 const isLoginPage = ref(true)
 
 const autoLogin = ref(true)
 const agreementChecked = ref(true)
-
-const handleTabClick = (tab) => {
-  //在tab切换时进行表单重置
-  if (tab.props.name === 'byAccount') {
-    emailForm.value.resetFields()
-  } else {
-    accountForm.value.resetFields()
-  }
-}
 </script>
 
 <template>
@@ -70,44 +42,39 @@ const handleTabClick = (tab) => {
         </div>
       </el-header>
       <el-main>
-        <el-tabs
-          v-model="activeName"
-          @tab-click="handleTabClick"
-          class="my-tabs"
-          stretch
-        >
+        <el-tabs v-model="activeName" class="my-tabs" stretch>
           <el-tab-pane
             :label="isLoginPage ? '邮箱账号登录' : '邮箱账号注册'"
             name="byEmail"
           >
-            <el-form ref="emailForm" :model="formModel" :rules="rules">
-              <el-form-item v-if="!isLoginPage" prop="nickname">
+            <el-form>
+              <el-form-item v-if="!isLoginPage">
                 <el-input
-                  v-model="formModel.nickname"
+                  v-model="fromModel.nickname"
                   placeholder="请输入昵称"
                   :prefix-icon="EditPen"
                   size="large"
                 ></el-input>
               </el-form-item>
-              <el-form-item prop="email">
+              <el-form-item>
                 <el-input
-                  v-model="formModel.email"
+                  v-model="fromModel.email"
                   placeholder="请输入邮箱账号"
                   :prefix-icon="Message"
                   size="large"
                 ></el-input>
               </el-form-item>
-              <el-form-item v-if="!isLoginPage" prop="invitationCode">
+              <el-form-item v-if="!isLoginPage">
                 <el-input
-                  v-model="formModel.invitationCode"
+                  v-model="fromModel.invitationCode"
                   placeholder="请输入邀请码，没有可不填"
                   :prefix-icon="Paperclip"
                   size="large"
                 ></el-input>
               </el-form-item>
-              <el-form-item prop="captcha">
+              <el-form-item>
                 <el-input
-                  v-model="formModel.captcha"
+                  v-model="fromModel.captcha"
                   placeholder="请输入验证码"
                   :prefix-icon="Lock"
                   size="large"
@@ -145,9 +112,7 @@ const handleTabClick = (tab) => {
                 >
               </el-form-item>
               <el-form-item>
-                <el-button type="primary" class="btn">{{
-                  isLoginPage ? '登录' : '注册'
-                }}</el-button>
+                <el-button type="primary" class="btn">登录</el-button>
               </el-form-item>
             </el-form>
           </el-tab-pane>
@@ -155,27 +120,27 @@ const handleTabClick = (tab) => {
             :label="isLoginPage ? '平台账号登录' : '平台账号注册'"
             name="byAccount"
           >
-            <el-form ref="accountForm" :model="formModel" :rules="rules">
-              <el-form-item v-if="!isLoginPage" prop="nickname">
+            <el-form>
+              <el-form-item v-if="!isLoginPage">
                 <el-input
-                  v-model="formModel.nickname"
+                  v-model="fromModel.nickname"
                   placeholder="请输入昵称"
                   :prefix-icon="EditPen"
                   size="large"
                 ></el-input>
               </el-form-item>
-              <el-form-item prop="account">
+              <el-form-item>
                 <el-input
-                  v-model="formModel.account"
+                  v-model="fromModel.account"
                   placeholder="请输入账号"
                   :prefix-icon="User"
                   size="large"
                   :style="{ width: '100%' }"
                 ></el-input>
               </el-form-item>
-              <el-form-item prop="password">
+              <el-form-item>
                 <el-input
-                  v-model="formModel.password"
+                  v-model="fromModel.password"
                   type="password"
                   show-password="true"
                   placeholder="请输入密码"
@@ -184,9 +149,9 @@ const handleTabClick = (tab) => {
                   :style="{ width: '418px' }"
                 ></el-input>
               </el-form-item>
-              <el-form-item prop="repassword">
+              <el-form-item>
                 <el-input
-                  v-model="formModel.repassword"
+                  v-model="fromModel.repassword"
                   type="password"
                   show-password="true"
                   placeholder="请再次输入密码"
@@ -194,9 +159,9 @@ const handleTabClick = (tab) => {
                   size="large"
                 ></el-input>
               </el-form-item>
-              <el-form-item v-if="!isLoginPage" prop="invitationCode">
+              <el-form-item v-if="!isLoginPage">
                 <el-input
-                  v-model="formModel.invitationCode"
+                  v-model="fromModel.invitationCode"
                   placeholder="请输入邀请码，没有可不填"
                   :prefix-icon="Paperclip"
                   size="large"
@@ -232,9 +197,7 @@ const handleTabClick = (tab) => {
                 >
               </el-form-item>
               <el-form-item>
-                <el-button type="primary" class="btn">{{
-                  isLoginPage ? '登录' : '注册'
-                }}</el-button>
+                <el-button type="primary" class="btn">登录</el-button>
               </el-form-item>
             </el-form>
           </el-tab-pane>

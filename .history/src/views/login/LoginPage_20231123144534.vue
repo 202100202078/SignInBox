@@ -8,35 +8,6 @@ import {
   Paperclip
 } from '@element-plus/icons-vue'
 // import { router } from 'vue-router'
-const emailForm = ref()
-const accountForm = ref()
-
-const formModel = ref({
-  email: '',
-  account: '',
-  invitationCode: '',
-  captcha: '',
-  password: '',
-  repassword: '',
-  nickname: ''
-})
-
-const rules = {
-  email: [
-    { required: true, message: '请输入您的邮箱', trigger: 'blur' },
-    {
-      pattern: /^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/,
-      message: '您的邮箱格式有误',
-      trigger: 'blur'
-    }
-  ],
-  account: [],
-  invitationCode: [],
-  captcha: [],
-  password: [],
-  repassword: [],
-  nickname: []
-}
 
 const activeName = ref('byEmail')
 
@@ -44,15 +15,6 @@ const isLoginPage = ref(true)
 
 const autoLogin = ref(true)
 const agreementChecked = ref(true)
-
-const handleTabClick = (tab) => {
-  //在tab切换时进行表单重置
-  if (tab.props.name === 'byAccount') {
-    emailForm.value.resetFields()
-  } else {
-    accountForm.value.resetFields()
-  }
-}
 </script>
 
 <template>
@@ -61,7 +23,7 @@ const handleTabClick = (tab) => {
       <el-header>
         <div class="header">
           <span class="logo">
-            <img src="@/assets/avg/logo.svg" />
+            <img src="" alt="">
           </span>
           <span class="title">API 接口开放平台</span>
         </div>
@@ -70,44 +32,39 @@ const handleTabClick = (tab) => {
         </div>
       </el-header>
       <el-main>
-        <el-tabs
-          v-model="activeName"
-          @tab-click="handleTabClick"
-          class="my-tabs"
-          stretch
-        >
+        <el-tabs v-model="activeName" class="my-tabs" stretch>
           <el-tab-pane
             :label="isLoginPage ? '邮箱账号登录' : '邮箱账号注册'"
             name="byEmail"
           >
-            <el-form ref="emailForm" :model="formModel" :rules="rules">
-              <el-form-item v-if="!isLoginPage" prop="nickname">
+            <el-form>
+              <el-form-item v-if="!isLoginPage">
                 <el-input
-                  v-model="formModel.nickname"
+                  v-model="emailInput"
                   placeholder="请输入昵称"
                   :prefix-icon="EditPen"
                   size="large"
                 ></el-input>
               </el-form-item>
-              <el-form-item prop="email">
+              <el-form-item>
                 <el-input
-                  v-model="formModel.email"
+                  v-model="emailInput"
                   placeholder="请输入邮箱账号"
                   :prefix-icon="Message"
                   size="large"
                 ></el-input>
               </el-form-item>
-              <el-form-item v-if="!isLoginPage" prop="invitationCode">
+              <el-form-item v-if="!isLoginPage">
                 <el-input
-                  v-model="formModel.invitationCode"
+                  v-model="emailInput"
                   placeholder="请输入邀请码，没有可不填"
                   :prefix-icon="Paperclip"
                   size="large"
                 ></el-input>
               </el-form-item>
-              <el-form-item prop="captcha">
+              <el-form-item>
                 <el-input
-                  v-model="formModel.captcha"
+                  v-model="codeInput"
                   placeholder="请输入验证码"
                   :prefix-icon="Lock"
                   size="large"
@@ -145,9 +102,7 @@ const handleTabClick = (tab) => {
                 >
               </el-form-item>
               <el-form-item>
-                <el-button type="primary" class="btn">{{
-                  isLoginPage ? '登录' : '注册'
-                }}</el-button>
+                <el-button type="primary" class="btn">登录</el-button>
               </el-form-item>
             </el-form>
           </el-tab-pane>
@@ -155,48 +110,44 @@ const handleTabClick = (tab) => {
             :label="isLoginPage ? '平台账号登录' : '平台账号注册'"
             name="byAccount"
           >
-            <el-form ref="accountForm" :model="formModel" :rules="rules">
-              <el-form-item v-if="!isLoginPage" prop="nickname">
+            <el-form>
+              <el-form-item v-if="!isLoginPage">
                 <el-input
-                  v-model="formModel.nickname"
+                  v-model="emailInput"
                   placeholder="请输入昵称"
                   :prefix-icon="EditPen"
                   size="large"
                 ></el-input>
               </el-form-item>
-              <el-form-item prop="account">
+              <el-form-item>
                 <el-input
-                  v-model="formModel.account"
+                  v-model="emailInput"
                   placeholder="请输入账号"
                   :prefix-icon="User"
                   size="large"
                   :style="{ width: '100%' }"
                 ></el-input>
               </el-form-item>
-              <el-form-item prop="password">
+              <el-form-item>
                 <el-input
-                  v-model="formModel.password"
-                  type="password"
-                  show-password="true"
+                  v-model="codeInput"
                   placeholder="请输入密码"
                   :prefix-icon="Lock"
                   size="large"
                   :style="{ width: '418px' }"
                 ></el-input>
               </el-form-item>
-              <el-form-item prop="repassword">
+              <el-form-item>
                 <el-input
-                  v-model="formModel.repassword"
-                  type="password"
-                  show-password="true"
+                  v-model="codeInput"
                   placeholder="请再次输入密码"
                   :prefix-icon="Lock"
                   size="large"
                 ></el-input>
               </el-form-item>
-              <el-form-item v-if="!isLoginPage" prop="invitationCode">
+              <el-form-item v-if="!isLoginPage">
                 <el-input
-                  v-model="formModel.invitationCode"
+                  v-model="emailInput"
                   placeholder="请输入邀请码，没有可不填"
                   :prefix-icon="Paperclip"
                   size="large"
@@ -204,37 +155,16 @@ const handleTabClick = (tab) => {
               </el-form-item>
               <el-form-item class="flex">
                 <el-checkbox
-                  v-if="isLoginPage"
                   v-model="autoLogin"
                   label="自动登录"
                   size="large"
                 />
-                <el-checkbox v-else v-model="agreementChecked">
-                  同意并接受相关<el-link
-                    :underline="false"
-                    :style="{
-                      display: 'inline-block',
-                      'font-size': '15px',
-                      'line-height': 1,
-                      'font-weight': 500
-                    }"
-                    >协议</el-link
-                  >
-                </el-checkbox>
-                <el-link
-                  :underline="false"
-                  @click="isLoginPage = !isLoginPage"
-                  >{{
-                    isLoginPage
-                      ? '还没账号?点击前往注册'
-                      : '已有账号?点击前往登录'
-                  }}</el-link
+                <el-link :underline="false" @click="$router.push('/register')"
+                  >还没账号?点击前往注册</el-link
                 >
               </el-form-item>
               <el-form-item>
-                <el-button type="primary" class="btn">{{
-                  isLoginPage ? '登录' : '注册'
-                }}</el-button>
+                <el-button type="primary" class="btn">登录</el-button>
               </el-form-item>
             </el-form>
           </el-tab-pane>
@@ -270,10 +200,6 @@ const handleTabClick = (tab) => {
           width: 44px;
           height: 44px;
           margin-right: 16px;
-          img {
-            width: 100%;
-            height: 100%;
-          }
         }
         .title {
           font-size: 33px;
