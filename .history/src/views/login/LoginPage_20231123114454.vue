@@ -1,12 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import {
-  Message,
-  Lock,
-  User,
-  EditPen,
-  Paperclip
-} from '@element-plus/icons-vue'
+import { Message, Lock, User } from '@element-plus/icons-vue'
 // import { router } from 'vue-router'
 
 const activeName = ref('byEmail')
@@ -14,7 +8,6 @@ const activeName = ref('byEmail')
 const isLoginPage = ref(true)
 
 const autoLogin = ref(true)
-const agreementChecked = ref(true)
 </script>
 
 <template>
@@ -36,31 +29,16 @@ const agreementChecked = ref(true)
             name="byEmail"
           >
             <el-form>
-              <el-form-item v-if="!isLoginPage">
-                <el-input
-                  v-model="emailInput"
-                  placeholder="请输入昵称"
-                  :prefix-icon="EditPen"
-                  size="large"
-                ></el-input>
-              </el-form-item>
               <el-form-item>
                 <el-input
                   v-model="emailInput"
                   placeholder="请输入邮箱账号"
                   :prefix-icon="Message"
                   size="large"
+                  :style="{ width: '100%' }"
                 ></el-input>
               </el-form-item>
-              <el-form-item v-if="!isLoginPage">
-                <el-input
-                  v-model="emailInput"
-                  placeholder="请输入邀请码，没有可不填"
-                  :prefix-icon="Paperclip"
-                  size="large"
-                ></el-input>
-              </el-form-item>
-              <el-form-item>
+              <el-form-item :style="{ height: '40px' }" class="flex">
                 <el-input
                   v-model="codeInput"
                   placeholder="请输入验证码"
@@ -72,31 +50,12 @@ const agreementChecked = ref(true)
               </el-form-item>
               <el-form-item class="flex">
                 <el-checkbox
-                  v-if="isLoginPage"
                   v-model="autoLogin"
                   label="自动登录"
                   size="large"
                 />
-                <el-checkbox v-else v-model="agreementChecked">
-                  同意并接受相关<el-link
-                    :underline="false"
-                    :style="{
-                      display: 'inline-block',
-                      'font-size': '15px',
-                      'line-height': 1,
-                      'font-weight': 500
-                    }"
-                    >协议</el-link
-                  >
-                </el-checkbox>
-                <el-link
-                  :underline="false"
-                  @click="isLoginPage = !isLoginPage"
-                  >{{
-                    isLoginPage
-                      ? '还没账号?点击前往注册'
-                      : '已有账号?点击前往登录'
-                  }}</el-link
+                <el-link :underline="false" @click="isLoginPage = false"
+                  >还没账号?点击前往注册</el-link
                 >
               </el-form-item>
               <el-form-item>
@@ -104,19 +63,8 @@ const agreementChecked = ref(true)
               </el-form-item>
             </el-form>
           </el-tab-pane>
-          <el-tab-pane
-            :label="isLoginPage ? '平台账号登录' : '平台账号注册'"
-            name="byAccount"
-          >
+          <el-tab-pane :label="isLoginPage ? '平台账号注册' : '邮箱账号注册'" name="byAccount">
             <el-form>
-              <el-form-item v-if="!isLoginPage">
-                <el-input
-                  v-model="emailInput"
-                  placeholder="请输入昵称"
-                  :prefix-icon="EditPen"
-                  size="large"
-                ></el-input>
-              </el-form-item>
               <el-form-item>
                 <el-input
                   v-model="emailInput"
@@ -126,29 +74,13 @@ const agreementChecked = ref(true)
                   :style="{ width: '100%' }"
                 ></el-input>
               </el-form-item>
-              <el-form-item>
+              <el-form-item :style="{ height: '40px' }" class="flex">
                 <el-input
                   v-model="codeInput"
                   placeholder="请输入密码"
                   :prefix-icon="Lock"
                   size="large"
                   :style="{ width: '418px' }"
-                ></el-input>
-              </el-form-item>
-              <el-form-item>
-                <el-input
-                  v-model="codeInput"
-                  placeholder="请再次输入密码"
-                  :prefix-icon="Lock"
-                  size="large"
-                ></el-input>
-              </el-form-item>
-              <el-form-item v-if="!isLoginPage">
-                <el-input
-                  v-model="emailInput"
-                  placeholder="请输入邀请码，没有可不填"
-                  :prefix-icon="Paperclip"
-                  size="large"
                 ></el-input>
               </el-form-item>
               <el-form-item class="flex">
@@ -179,7 +111,7 @@ const agreementChecked = ref(true)
   height: 100vh;
   background: #fff url('@/assets/3.jfif') no-repeat 50%;
   .el-container {
-    padding-top: 46px;
+    padding-top: 56px;
     height: 100%;
     justify-content: center;
     align-items: center;
@@ -224,10 +156,5 @@ const agreementChecked = ref(true)
   .btn {
     width: 100%;
   }
-}
-
-.el-link {
-  --el-link-text-color: var(--el-color-primary);
-  --el-link-hover-text-color: var(--el-text-color-regular);
 }
 </style>

@@ -107,6 +107,7 @@ const agreementChecked = ref(true)
           <el-tab-pane
             :label="isLoginPage ? '平台账号登录' : '平台账号注册'"
             name="byAccount"
+            :style="{ overflow: hidden }"
           >
             <el-form>
               <el-form-item v-if="!isLoginPage">
@@ -179,7 +180,7 @@ const agreementChecked = ref(true)
   height: 100vh;
   background: #fff url('@/assets/3.jfif') no-repeat 50%;
   .el-container {
-    padding-top: 46px;
+    padding-top: 56px;
     height: 100%;
     justify-content: center;
     align-items: center;

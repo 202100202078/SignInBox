@@ -179,7 +179,7 @@ const agreementChecked = ref(true)
   height: 100vh;
   background: #fff url('@/assets/3.jfif') no-repeat 50%;
   .el-container {
-    padding-top: 46px;
+    padding-top: 56px;
     height: 100%;
     justify-content: center;
     align-items: center;

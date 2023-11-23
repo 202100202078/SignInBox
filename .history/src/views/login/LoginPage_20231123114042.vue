@@ -1,14 +1,17 @@
 <script setup>
 import { ref } from 'vue'
 import { Message, Lock, User } from '@element-plus/icons-vue'
+// import { router } from 'vue-router'
 
 const activeName = ref('byEmail')
+
+const isLoginPage = ref(true)
 
 const autoLogin = ref(true)
 </script>
 
 <template>
-  <div class="register-page">
+  <div class="login-page">
     <el-container>
       <el-header>
         <div class="header">
@@ -20,7 +23,7 @@ const autoLogin = ref(true)
         </div>
       </el-header>
       <el-main>
-        <el-tabs v-model="activeName" class="my-tabs" stretch>
+        <el-tabs v-model="activeName" class="my-tabs">
           <el-tab-pane label="邮箱账号登录" name="byEmail">
             <el-form>
               <el-form-item>
@@ -81,7 +84,9 @@ const autoLogin = ref(true)
                   label="自动登录"
                   size="large"
                 />
-                <el-link :underline="false">还没账号?点击前往注册</el-link>
+                <el-link :underline="false" @click="$router.push('/register')"
+                  >还没账号?点击前往注册</el-link
+                >
               </el-form-item>
               <el-form-item>
                 <el-button type="primary" class="btn">登录</el-button>
@@ -97,7 +102,7 @@ const autoLogin = ref(true)
 </template>
 
 <style lang="scss" scoped>
-.register-page {
+.login-page {
   height: 100vh;
   background: #fff url('@/assets/3.jfif') no-repeat 50%;
   .el-container {
