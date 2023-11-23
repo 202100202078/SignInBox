@@ -89,8 +89,7 @@ const autoLogin = ref(true)
 const agreementChecked = ref(true)
 
 const onSubmit = async (type) => {
-  //先表单预校验
-  await (type === 1 ? emailForm.value.validate() : accountForm.value.validate())
+  ;(await type) === 1 ? emailForm.value.validate() : accountForm.value.validate
   if (isLoginPage.value) {
     console.log('登录')
   } else {

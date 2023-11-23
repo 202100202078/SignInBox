@@ -103,10 +103,10 @@ const cur = ref(0)
           li {
             display: flex;
             justify-content: space-between;
-            text-align: center;
             padding: 0 16px;
-            width: 110px;
+            width: 82px;
             height: 50px;
+            text-align: center;
             color: rgba(0, 0, 0, 0.7);
             &:hover {
               background-color: rgba(0, 0, 0, 0.1);

@@ -113,8 +113,8 @@ const cur = ref(0)
               cursor: pointer;
             }
             .icon {
-              width: 16px;
-              height: 16px;
+              width: 20px;
+              height: 20px;
               img {
                 width: 100%;
                 height: 100%;

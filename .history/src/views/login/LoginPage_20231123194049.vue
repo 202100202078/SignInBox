@@ -1,5 +1,4 @@
 <script setup>
-// import { router } from 'vue-router'
 import { ref } from 'vue'
 import {
   Message,
@@ -8,6 +7,7 @@ import {
   EditPen,
   Paperclip
 } from '@element-plus/icons-vue'
+// import { router } from 'vue-router'
 const emailForm = ref()
 const accountForm = ref()
 
@@ -88,16 +88,6 @@ const isLoginPage = ref(true)
 const autoLogin = ref(true)
 const agreementChecked = ref(true)
 
-const onSubmit = async (type) => {
-  //先表单预校验
-  await (type === 1 ? emailForm.value.validate() : accountForm.value.validate())
-  if (isLoginPage.value) {
-    console.log('登录')
-  } else {
-    console.log('注册')
-  }
-}
-
 const handleTabClick = (tab) => {
   //在tab切换时进行表单重置
   if (tab.props.name === 'byAccount') {
@@ -177,8 +167,6 @@ const handleTabClick = (tab) => {
                 />
                 <el-checkbox v-else v-model="agreementChecked">
                   同意并接受相关<el-link
-                    href="https://gitee.com/ZZZWWWFFF/interface-platform-agreement"
-                    target="_blank"
                     :underline="false"
                     :style="{
                       display: 'inline-block',
@@ -200,7 +188,7 @@ const handleTabClick = (tab) => {
                 >
               </el-form-item>
               <el-form-item>
-                <el-button type="primary" class="btn" @click="onSubmit(1)">{{
+                <el-button type="primary" class="btn">{{
                   isLoginPage ? '登录' : '注册'
                 }}</el-button>
               </el-form-item>
@@ -267,7 +255,6 @@ const handleTabClick = (tab) => {
                 <el-checkbox v-else v-model="agreementChecked">
                   同意并接受相关<el-link
                     href="https://gitee.com/ZZZWWWFFF/interface-platform-agreement"
-                    target="_blank"
                     :underline="false"
                     :style="{
                       display: 'inline-block',
@@ -289,7 +276,7 @@ const handleTabClick = (tab) => {
                 >
               </el-form-item>
               <el-form-item>
-                <el-button type="primary" class="btn" @click="onSubmit(2)">{{
+                <el-button type="primary" class="btn">{{
                   isLoginPage ? '登录' : '注册'
                 }}</el-button>
               </el-form-item>

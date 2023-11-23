@@ -88,9 +88,7 @@ const isLoginPage = ref(true)
 const autoLogin = ref(true)
 const agreementChecked = ref(true)
 
-const onSubmit = async (type) => {
-  //先表单预校验
-  await (type === 1 ? emailForm.value.validate() : accountForm.value.validate())
+const onSubmit = () => {
   if (isLoginPage.value) {
     console.log('登录')
   } else {
@@ -200,7 +198,7 @@ const handleTabClick = (tab) => {
                 >
               </el-form-item>
               <el-form-item>
-                <el-button type="primary" class="btn" @click="onSubmit(1)">{{
+                <el-button type="primary" class="btn" @click="onSubmit">{{
                   isLoginPage ? '登录' : '注册'
                 }}</el-button>
               </el-form-item>
@@ -289,7 +287,7 @@ const handleTabClick = (tab) => {
                 >
               </el-form-item>
               <el-form-item>
-                <el-button type="primary" class="btn" @click="onSubmit(2)">{{
+                <el-button type="primary" class="btn" @click="onSubmit">{{
                   isLoginPage ? '登录' : '注册'
                 }}</el-button>
               </el-form-item>

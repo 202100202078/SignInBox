@@ -25,31 +25,24 @@ const cur = ref(0)
               @click="$router.push('/home/welcome'), (cur = 0)"
               :class="{ active: cur === 0 }"
             >
-              <span class="icon">
-                <img src="@/assets/avg/笑脸.svg" alt="" /> </span
-              ><span>欢迎</span>
+              <span>1</span><span>1</span>
             </li>
             <li
               @click="$router.push('/home/interface'), (cur = 1)"
               :class="{ active: cur === 1 }"
             >
-              <span class="icon">1</span><span>接口大全</span>
+              <span>1</span><span>1</span>
             </li>
             <li
               @click="$router.push('/home/recharge'), (cur = 2)"
-              :class="{ active: cur === 2 }"
+              :class="{ active: cur === 0 }"
             >
-              <span class="icon">1</span><span>充值中心</span>
+              <span>1</span><span>1</span>
             </li>
-            <li
-              @click="$router.push('/home/order'), (cur = 3)"
-              :class="{ active: cur === 3 }"
-            >
-              <span class="icon">1</span><span>我的订单</span>
+            <li @click="$router.push('/home/order'), (cur = 3)">
+              <span>1</span><span>1</span>
             </li>
-            <li @click="$router.push('/')">
-              <span class="icon">1</span><span>管理页</span>
-            </li>
+            <li @click="$router.push('/')"><span>1</span><span>1</span></li>
           </ul>
         </div>
         <div class="el-header-right">right</div>
@@ -101,24 +94,14 @@ const cur = ref(0)
           display: flex;
           align-items: center;
           li {
-            display: flex;
-            justify-content: space-between;
-            text-align: center;
             padding: 0 16px;
-            width: 110px;
+            width: 82px;
             height: 50px;
+            text-align: center;
             color: rgba(0, 0, 0, 0.7);
             &:hover {
               background-color: rgba(0, 0, 0, 0.1);
               cursor: pointer;
-            }
-            .icon {
-              width: 16px;
-              height: 16px;
-              img {
-                width: 100%;
-                height: 100%;
-              }
             }
           }
           .active {
