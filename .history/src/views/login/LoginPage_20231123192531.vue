@@ -34,13 +34,7 @@ const rules = {
     { required: true, message: '请输入您的账号', trigger: 'blur' },
     { min: 5, max: 16, message: '账号为5-16位字符', trigger: 'blur' }
   ],
-  invitationCode: [
-    {
-      pattern: /^\S{6,12}$/,
-      message: '邀请码为6-12位的非空字符',
-      trigger: 'blur'
-    }
-  ],
+  invitationCode: [],
   captcha: [
     { required: true, message: '请输入验证码', trigger: 'blur' },
     { pattern: /^[0-9]{6}$/, message: '验证码为6位数字', trigger: 'blur' }
@@ -53,32 +47,8 @@ const rules = {
       trigger: 'blur'
     }
   ],
-  repassword: [
-    { required: true, message: '请再次输入密码', trigger: 'blur' },
-    {
-      pattern: /^\S{6,15}$/,
-      message: '密码必须是6-15的非空字符',
-      trigger: 'blur'
-    },
-    {
-      validator: (rule, value, callback) => {
-        if (value !== formModel.value.password) {
-          callback(new Error('两次输入密码不一致!'))
-        } else {
-          callback()
-        }
-      },
-      trigger: 'blur'
-    }
-  ],
-  nickname: [
-    { required: true, message: '请输入你的昵称', trigger: 'blur' },
-    {
-      pattern: /^\S{6,18}$/,
-      message: '昵称为6-12位的非空字符',
-      trigger: 'blur'
-    }
-  ]
+  repassword: [],
+  nickname: []
 }
 
 const activeName = ref('byEmail')

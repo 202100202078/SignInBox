@@ -72,9 +72,8 @@ const rules = {
     }
   ],
   nickname: [
-    { required: true, message: '请输入你的昵称', trigger: 'blur' },
     {
-      pattern: /^\S{6,18}$/,
+      pattern: /^\S{5,18}$/,
       message: '昵称为6-12位的非空字符',
       trigger: 'blur'
     }

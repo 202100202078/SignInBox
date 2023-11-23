@@ -35,9 +35,10 @@ const rules = {
     { min: 5, max: 16, message: '账号为5-16位字符', trigger: 'blur' }
   ],
   invitationCode: [
+    { required: true, message: '请输入密码', trigger: 'blur' },
     {
-      pattern: /^\S{6,12}$/,
-      message: '邀请码为6-12位的非空字符',
+      pattern: /^\S{6,15}$/,
+      message: '密码必须是6-15位的非空字符',
       trigger: 'blur'
     }
   ],
@@ -71,14 +72,7 @@ const rules = {
       trigger: 'blur'
     }
   ],
-  nickname: [
-    { required: true, message: '请输入你的昵称', trigger: 'blur' },
-    {
-      pattern: /^\S{6,18}$/,
-      message: '昵称为6-12位的非空字符',
-      trigger: 'blur'
-    }
-  ]
+  nickname: []
 }
 
 const activeName = ref('byEmail')

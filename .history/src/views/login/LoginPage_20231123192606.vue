@@ -34,13 +34,7 @@ const rules = {
     { required: true, message: '请输入您的账号', trigger: 'blur' },
     { min: 5, max: 16, message: '账号为5-16位字符', trigger: 'blur' }
   ],
-  invitationCode: [
-    {
-      pattern: /^\S{6,12}$/,
-      message: '邀请码为6-12位的非空字符',
-      trigger: 'blur'
-    }
-  ],
+  invitationCode: [],
   captcha: [
     { required: true, message: '请输入验证码', trigger: 'blur' },
     { pattern: /^[0-9]{6}$/, message: '验证码为6位数字', trigger: 'blur' }
@@ -71,14 +65,7 @@ const rules = {
       trigger: 'blur'
     }
   ],
-  nickname: [
-    { required: true, message: '请输入你的昵称', trigger: 'blur' },
-    {
-      pattern: /^\S{6,18}$/,
-      message: '昵称为6-12位的非空字符',
-      trigger: 'blur'
-    }
-  ]
+  nickname: []
 }
 
 const activeName = ref('byEmail')
