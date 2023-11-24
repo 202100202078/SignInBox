@@ -1,20 +1,7 @@
 <script setup>
 import { ref } from 'vue'
-import { useRouter } from 'vue-router'
-const router = useRouter()
-
 //当前处于menu哪个tab下
 const cur = ref(0)
-
-const handleManageCommand = (command) => {
-  router.push(command)
-}
-
-const handleAvatarCommand = (command) => {
-  //如果是退出登录需要清除本地用户信息
-  console.log('清除本地用户信息')
-  router.push(command)
-}
 </script>
 
 <template>
@@ -79,7 +66,7 @@ const handleAvatarCommand = (command) => {
               </div>
             </li>
             <li class="el-header-main-menu-manageitem">
-              <el-dropdown @command="handleManageCommand">
+              <el-dropdown>
                 <span class="el-dropdown-link">
                   <div class="el-header-main-menu-item">
                     <span class="icon">
@@ -90,15 +77,8 @@ const handleAvatarCommand = (command) => {
                 </span>
                 <template #dropdown>
                   <el-dropdown-menu>
-                    <el-dropdown-item command="/admin/interface"
-                      >接口管理</el-dropdown-item
-                    >
-                    <el-dropdown-item command="/admin/recharge"
-                      >商品管理</el-dropdown-item
-                    >
-                    <el-dropdown-item command="/admin/user"
-                      >用户管理</el-dropdown-item
-                    >
+                    <el-dropdown-item>个人中心</el-dropdown-item>
+                    <el-dropdown-item>退出登录</el-dropdown-item>
                   </el-dropdown-menu>
                 </template>
               </el-dropdown>
@@ -110,17 +90,15 @@ const handleAvatarCommand = (command) => {
             <span>📘 开发者文档</span>
           </div>
           <div class="el-header-right-avatar">
-            <el-dropdown @command="handleAvatarCommand">
+            <el-dropdown>
               <span class="el-dropdown-link">
                 <span>头像</span>
                 <span>用户昵称</span>
               </span>
               <template #dropdown>
                 <el-dropdown-menu>
-                  <el-dropdown-item command="/home/user"
-                    >个人中心</el-dropdown-item
-                  >
-                  <el-dropdown-item command="/login">退出登录</el-dropdown-item>
+                  <el-dropdown-item>个人中心</el-dropdown-item>
+                  <el-dropdown-item>退出登录</el-dropdown-item>
                 </el-dropdown-menu>
               </template>
             </el-dropdown>
@@ -206,9 +184,6 @@ const handleAvatarCommand = (command) => {
             }
           }
           .el-header-main-menu-manageitem {
-            :deep(:focus-visible) {
-              outline: none;
-            }
             display: flex;
             justify-content: center;
             align-items: center;

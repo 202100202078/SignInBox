@@ -9,12 +9,6 @@ const cur = ref(0)
 const handleManageCommand = (command) => {
   router.push(command)
 }
-
-const handleAvatarCommand = (command) => {
-  //如果是退出登录需要清除本地用户信息
-  console.log('清除本地用户信息')
-  router.push(command)
-}
 </script>
 
 <template>
@@ -120,7 +114,9 @@ const handleAvatarCommand = (command) => {
                   <el-dropdown-item command="/home/user"
                     >个人中心</el-dropdown-item
                   >
-                  <el-dropdown-item command="/login">退出登录</el-dropdown-item>
+                  <el-dropdown-item command="signout"
+                    >退出登录</el-dropdown-item
+                  >
                 </el-dropdown-menu>
               </template>
             </el-dropdown>

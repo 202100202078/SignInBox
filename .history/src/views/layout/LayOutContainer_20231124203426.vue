@@ -9,12 +9,6 @@ const cur = ref(0)
 const handleManageCommand = (command) => {
   router.push(command)
 }
-
-const handleAvatarCommand = (command) => {
-  //如果是退出登录需要清除本地用户信息
-  console.log('清除本地用户信息')
-  router.push(command)
-}
 </script>
 
 <template>

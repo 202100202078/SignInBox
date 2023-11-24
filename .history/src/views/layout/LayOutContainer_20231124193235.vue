@@ -1,20 +1,7 @@
 <script setup>
 import { ref } from 'vue'
-import { useRouter } from 'vue-router'
-const router = useRouter()
-
 //当前处于menu哪个tab下
 const cur = ref(0)
-
-const handleManageCommand = (command) => {
-  router.push(command)
-}
-
-const handleAvatarCommand = (command) => {
-  //如果是退出登录需要清除本地用户信息
-  console.log('清除本地用户信息')
-  router.push(command)
-}
 </script>
 
 <template>
@@ -78,53 +65,19 @@ const handleAvatarCommand = (command) => {
                 <span>我的订单</span>
               </div>
             </li>
-            <li class="el-header-main-menu-manageitem">
-              <el-dropdown @command="handleManageCommand">
-                <span class="el-dropdown-link">
-                  <div class="el-header-main-menu-item">
-                    <span class="icon">
-                      <img src="@/assets/avg/admin-manage.svg" alt="" />
-                    </span>
-                    <span>管理页</span>
-                  </div>
+            <li @click="$router.push('/')">
+              <div class="el-header-main-menu-item">
+                <span class="icon">
+                  <img src="@/assets/avg/admin-manage.svg" alt="" />
                 </span>
-                <template #dropdown>
-                  <el-dropdown-menu>
-                    <el-dropdown-item command="/admin/interface"
-                      >接口管理</el-dropdown-item
-                    >
-                    <el-dropdown-item command="/admin/recharge"
-                      >商品管理</el-dropdown-item
-                    >
-                    <el-dropdown-item command="/admin/user"
-                      >用户管理</el-dropdown-item
-                    >
-                  </el-dropdown-menu>
-                </template>
-              </el-dropdown>
+                <span>管理页</span>
+              </div>
             </li>
           </ul>
         </div>
         <div class="el-header-right">
-          <div class="el-header-right-actions">
-            <span>📘 开发者文档</span>
-          </div>
-          <div class="el-header-right-avatar">
-            <el-dropdown @command="handleAvatarCommand">
-              <span class="el-dropdown-link">
-                <span>头像</span>
-                <span>用户昵称</span>
-              </span>
-              <template #dropdown>
-                <el-dropdown-menu>
-                  <el-dropdown-item command="/home/user"
-                    >个人中心</el-dropdown-item
-                  >
-                  <el-dropdown-item command="/login">退出登录</el-dropdown-item>
-                </el-dropdown-menu>
-              </template>
-            </el-dropdown>
-          </div>
+          <div class="el-header-right-actions">actions</div>
+          <div class="el-header-right-avatar">avatar</div>
         </div>
       </el-header>
       <el-main>
@@ -180,38 +133,12 @@ const handleAvatarCommand = (command) => {
             width: 110px;
             height: 40px;
             color: rgba(0, 0, 0, 0.7);
-            border-radius: 6px;
             &:hover {
               background-color: rgba(0, 0, 0, 0.1);
               color: rgba(0, 0, 0, 1);
               transition: color 0.3s;
               cursor: pointer;
             }
-            .el-header-main-menu-item {
-              width: 100%;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              .icon {
-                display: flex;
-                align-items: center;
-                width: 16px;
-                height: 16px;
-                // background: url('@/assets/avg/笑脸.svg') no-repeat center/cover;
-                img {
-                  width: 100%;
-                  height: 100%;
-                }
-              }
-            }
-          }
-          .el-header-main-menu-manageitem {
-            :deep(:focus-visible) {
-              outline: none;
-            }
-            display: flex;
-            justify-content: center;
-            align-items: center;
             .el-header-main-menu-item {
               width: 100%;
               display: flex;
@@ -238,46 +165,12 @@ const handleAvatarCommand = (command) => {
       .el-header-right {
         width: 232px;
         display: flex;
-        justify-content: space-evenly;
         align-items: center;
-        .el-header-right-actions {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          font-size: 16px;
-          color: rgba(0, 0, 0, 0.7);
-          border-radius: 6px;
-          cursor: pointer;
-          &:hover {
-            color: rgba(0, 0, 0, 1);
-            transition: color 0.3s;
-          }
+        .el-header-main-actions {
+          width: 106px;
         }
-        .el-header-right-avatar {
-          margin-left: 6px;
-          display: flex;
-          align-items: center;
-          font-size: 16px;
-          border-radius: 6px;
-          height: 56px;
-          line-height: 56px;
-          &:hover {
-            background-color: rgba(0, 0, 0, 0.1);
-            color: rgba(0, 0, 0, 1);
-            transition: color 0.3s;
-          }
-          .el-dropdown {
-            :deep(:focus-visible) {
-              outline: none;
-            }
-            .el-dropdown-link {
-              cursor: pointer;
-              color: rgba(0, 0, 0, 0.7);
-              font-size: 16px;
-              display: flex;
-              align-items: center;
-            }
-          }
+        .el-header-main-avatar {
+          width: 126px;
         }
       }
     }
