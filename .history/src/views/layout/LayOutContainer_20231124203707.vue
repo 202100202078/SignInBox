@@ -143,7 +143,6 @@ const handleAvatarCommand = (command) => {
   height: 100vh;
   .el-container {
     height: 100%;
-    align-items: center;
     .el-header {
       position: fixed;
       left: 0;
@@ -157,7 +156,6 @@ const handleAvatarCommand = (command) => {
       background-color: rgba(255, 255, 255, 0.6);
       z-index: 100;
       transition: background-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-      border-bottom: 1px solid rgba(5, 5, 5, 0.06);
       .el-header-left {
         width: 222px;
         > a {

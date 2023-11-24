@@ -52,51 +52,11 @@
       </span>
     </div>
     <div class="bottom">
-      <el-card shadow="always">
-        <div class="title">
-          <div class="icon"></div>
-          <div class="msg">
-            <h5>11111111111</h5>
-          </div>
-        </div>
-        <div class="content"></div
-      ></el-card>
-      <el-card shadow="always">
-        <div class="title">
-          <div class="icon"></div>
-          <div class="msg">
-            <h5>11111111111</h5>
-          </div>
-        </div>
-        <div class="content"></div
-      ></el-card>
-      <el-card shadow="always">
-        <div class="title">
-          <div class="icon"></div>
-          <div class="msg">
-            <h5>11111111111</h5>
-          </div>
-        </div>
-        <div class="content"></div
-      ></el-card>
-      <el-card shadow="always">
-        <div class="title">
-          <div class="icon"></div>
-          <div class="msg">
-            <h5>11111111111</h5>
-          </div>
-        </div>
-        <div class="content"></div
-      ></el-card>
-      <el-card shadow="always">
-        <div class="title">
-          <div class="icon"></div>
-          <div class="msg">
-            <h5>11111111111</h5>
-          </div>
-        </div>
-        <div class="content"></div
-      ></el-card>
+      <el-card shadow="always"> Always </el-card>
+      <el-card shadow="always"> Always </el-card>
+      <el-card shadow="always"> Always </el-card>
+      <el-card shadow="always"> Always </el-card>
+      <el-card shadow="always"> Always </el-card>
     </div>
   </el-card>
 </template>
@@ -130,7 +90,7 @@
     flex-wrap: wrap;
     gap: 16px;
     .el-card {
-      height: 226px;
+      height: 214px;
       background-color: rgb(255, 255, 255);
       border-radius: 8px;
       font-size: 14px;
@@ -138,22 +98,6 @@
       line-height: 22px;
       padding: 16px 19px;
       min-width: 220px;
-      .title {
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        .icon {
-          width: 36px;
-          height: 36px;
-          line-height: 22px;
-          background-size: 100%;
-          text-align: center;
-          padding: 8px 16px 16px 12px;
-          color: rgb(255, 255, 255);
-          font-weight: bold;
-          background-image: url('@/assets/avg/1_square_solid_数字1_by_climei.svg');
-        }
-      }
     }
   }
 }

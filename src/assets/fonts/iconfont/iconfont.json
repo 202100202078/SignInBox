@@ -1,0 +1,79 @@
+{
+  "id": "4345534",
+  "name": "interface-platform",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "629366",
+      "name": "我的订单",
+      "font_class": "wodedingdan",
+      "unicode": "e655",
+      "unicode_decimal": 58965
+    },
+    {
+      "icon_id": "1302597",
+      "name": "admin-manage",
+      "font_class": "admin-manage",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "2076343",
+      "name": "笑脸",
+      "font_class": "xiaolian",
+      "unicode": "e8ab",
+      "unicode_decimal": 59563
+    },
+    {
+      "icon_id": "5835460",
+      "name": "充值",
+      "font_class": "chongzhi",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "35987338",
+      "name": "G-接口",
+      "font_class": "jiekou",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "15531884",
+      "name": "4_square_solid_数字4_by_climei",
+      "font_class": "4_square_solid",
+      "unicode": "e64d",
+      "unicode_decimal": 58957
+    },
+    {
+      "icon_id": "15531887",
+      "name": "1_square_solid_数字1_by_climei",
+      "font_class": "1_square_solid",
+      "unicode": "e64e",
+      "unicode_decimal": 58958
+    },
+    {
+      "icon_id": "15531889",
+      "name": "5_square_solid_数字5_by_climei",
+      "font_class": "5_square_solid",
+      "unicode": "e64c",
+      "unicode_decimal": 58956
+    },
+    {
+      "icon_id": "15531895",
+      "name": "3_square_solid_数字3_by_climei",
+      "font_class": "3_square_solid",
+      "unicode": "e64f",
+      "unicode_decimal": 58959
+    },
+    {
+      "icon_id": "15531897",
+      "name": "2_square_solid_数字2_by_climei",
+      "font_class": "2_square_solid",
+      "unicode": "e650",
+      "unicode_decimal": 58960
+    }
+  ]
+}

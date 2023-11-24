@@ -54,46 +54,31 @@
     <div class="bottom">
       <el-card shadow="always">
         <div class="title">
-          <div class="icon"></div>
-          <div class="msg">
-            <h5>11111111111</h5>
-          </div>
+          <div class="icon">1</div>
         </div>
         <div class="content"></div
       ></el-card>
       <el-card shadow="always">
         <div class="title">
-          <div class="icon"></div>
-          <div class="msg">
-            <h5>11111111111</h5>
-          </div>
+          <div class="icon">1</div>
         </div>
         <div class="content"></div
       ></el-card>
       <el-card shadow="always">
         <div class="title">
-          <div class="icon"></div>
-          <div class="msg">
-            <h5>11111111111</h5>
-          </div>
+          <div class="icon">1</div>
         </div>
         <div class="content"></div
       ></el-card>
       <el-card shadow="always">
         <div class="title">
-          <div class="icon"></div>
-          <div class="msg">
-            <h5>11111111111</h5>
-          </div>
+          <div class="icon">1</div>
         </div>
         <div class="content"></div
       ></el-card>
       <el-card shadow="always">
         <div class="title">
-          <div class="icon"></div>
-          <div class="msg">
-            <h5>11111111111</h5>
-          </div>
+          <div class="icon">1</div>
         </div>
         <div class="content"></div
       ></el-card>
@@ -138,22 +123,6 @@
       line-height: 22px;
       padding: 16px 19px;
       min-width: 220px;
-      .title {
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        .icon {
-          width: 36px;
-          height: 36px;
-          line-height: 22px;
-          background-size: 100%;
-          text-align: center;
-          padding: 8px 16px 16px 12px;
-          color: rgb(255, 255, 255);
-          font-weight: bold;
-          background-image: url('@/assets/avg/1_square_solid_数字1_by_climei.svg');
-        }
-      }
     }
   }
 }

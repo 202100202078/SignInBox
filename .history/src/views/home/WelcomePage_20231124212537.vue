@@ -143,8 +143,8 @@
         align-items: center;
         gap: 4px;
         .icon {
-          width: 36px;
-          height: 36px;
+          width: 48px;
+          height: 48px;
           line-height: 22px;
           background-size: 100%;
           text-align: center;
