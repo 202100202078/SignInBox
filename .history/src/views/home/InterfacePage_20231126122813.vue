@@ -37,7 +37,6 @@ const searchInput = ref('')
       width: 50%;
       .searchBtn {
         display: flex;
-        align-items: center;
         // background-color: blue;
       }
     }

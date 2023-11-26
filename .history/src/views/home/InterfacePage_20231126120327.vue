@@ -1,0 +1,16 @@
+<template>
+  <div class="my-container">
+    <el-card shadow="hover" class="header"> header </el-card>
+    <div class="main">main</div>
+  </div>
+</template>
+
+<style lang="scss" scoped>
+.my-container {
+  .el-card {
+    padding: 24px;
+    width: 1240px;
+    height: 142px;
+  }
+}
+</style>

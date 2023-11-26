@@ -16,9 +16,7 @@ const searchInput = ref('')
         maxlength="50"
       >
         <template #append>
-          <el-button type="primary" :icon="Search" class="searchBtn"
-            >Search</el-button
-          >
+          <el-button :icon="Search" />
         </template>
       </el-input>
     </el-card>
@@ -32,14 +30,8 @@ const searchInput = ref('')
     padding: 24px;
     width: 1240px;
     height: 142px;
-    text-align: center;
     .el-input {
       width: 50%;
-      .searchBtn {
-        display: flex;
-        align-items: center;
-        // background-color: blue;
-      }
     }
   }
 }
