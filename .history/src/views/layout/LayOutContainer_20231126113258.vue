@@ -74,7 +74,9 @@ const handleAvatarCommand = (command) => {
               <el-dropdown @command="handleManageCommand">
                 <span class="el-dropdown-link">
                   <div class="el-header-main-menu-item">
-                    <span class="iconfont icon-admin-manage"> </span>
+                    <span class="iconfont icon-xiaolian">
+                      <!-- <img src="@/assets/avg/admin-manage.svg" alt="" /> -->
+                    </span>
                     <span>管理页</span>
                   </div>
                 </span>

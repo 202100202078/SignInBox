@@ -144,7 +144,7 @@
         align-items: center;
         gap: 4px;
         .iconfont {
-          font-size: 32px;
+          font-size: 26px;
           color: #1677ff;
         }
       }

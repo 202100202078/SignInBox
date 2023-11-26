@@ -145,6 +145,7 @@
         gap: 4px;
         .iconfont {
           font-size: 32px;
+          border-radius: 6px;
           color: #1677ff;
         }
       }

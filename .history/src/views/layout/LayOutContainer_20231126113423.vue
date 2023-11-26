@@ -264,9 +264,9 @@ const handleAvatarCommand = (command) => {
             transition: color 0.3s;
           }
           .el-dropdown {
-            :deep(:focus-visible) {
-              outline: none;
-            }
+            // :deep(:focus-visible) {
+            //   outline: none;
+            // }
             .el-dropdown-link {
               cursor: pointer;
               color: rgba(0, 0, 0, 0.7);

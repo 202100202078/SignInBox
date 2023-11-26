@@ -140,12 +140,18 @@
       min-width: 220px;
       .title {
         display: flex;
-        justify-content: space-evenly;
         align-items: center;
         gap: 4px;
-        .iconfont {
-          font-size: 32px;
-          color: #1677ff;
+        .icon {
+          width: 36px;
+          height: 36px;
+          line-height: 22px;
+          background-size: 100%;
+          text-align: center;
+          padding: 8px 16px 16px 12px;
+          color: rgb(255, 255, 255);
+          font-weight: bold;
+          background-image: url('@/assets/avg/1_square_solid_数字1_by_climei.svg');
         }
       }
     }

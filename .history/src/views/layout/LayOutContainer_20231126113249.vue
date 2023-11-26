@@ -66,7 +66,7 @@ const handleAvatarCommand = (command) => {
               :class="{ active: cur === 3 }"
             >
               <div class="el-header-main-menu-item">
-                <span class="iconfont icon-wodedingdan"> </span>
+                <span class="iconfont icon-xiaolian"> </span>
                 <span>我的订单</span>
               </div>
             </li>
@@ -74,7 +74,9 @@ const handleAvatarCommand = (command) => {
               <el-dropdown @command="handleManageCommand">
                 <span class="el-dropdown-link">
                   <div class="el-header-main-menu-item">
-                    <span class="iconfont icon-admin-manage"> </span>
+                    <span class="iconfont icon-xiaolian">
+                      <!-- <img src="@/assets/avg/admin-manage.svg" alt="" /> -->
+                    </span>
                     <span>管理页</span>
                   </div>
                 </span>

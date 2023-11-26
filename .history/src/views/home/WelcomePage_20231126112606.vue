@@ -140,11 +140,10 @@
       min-width: 220px;
       .title {
         display: flex;
-        justify-content: space-evenly;
         align-items: center;
         gap: 4px;
         .iconfont {
-          font-size: 32px;
+          font-size: 26px;
           color: #1677ff;
         }
       }

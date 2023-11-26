@@ -39,7 +39,9 @@ const handleAvatarCommand = (command) => {
               :class="{ active: cur === 0 }"
             >
               <div class="el-header-main-menu-item">
-                <span class="iconfont icon-xiaolian"> </span>
+                <span class="iconfont icon-xiaolian">
+                  <!-- <img src="@/assets/avg/笑脸.svg" alt="" /> -->
+                </span>
                 <span>欢迎</span>
               </div>
             </li>
@@ -48,7 +50,9 @@ const handleAvatarCommand = (command) => {
               :class="{ active: cur === 1 }"
             >
               <div class="el-header-main-menu-item">
-                <span class="iconfont icon-jiekou"> </span>
+                <span class="iconfont icon-xiaolian">
+                  <!-- <img src="@/assets/avg/数据接口.svg" alt="" /> -->
+                </span>
                 <span>接口大全</span>
               </div>
             </li>
@@ -57,7 +61,9 @@ const handleAvatarCommand = (command) => {
               :class="{ active: cur === 2 }"
             >
               <div class="el-header-main-menu-item">
-                <span class="iconfont icon-chongzhi"> </span>
+                <span class="iconfont icon-xiaolian">
+                  <!-- <img src="@/assets/avg/付款.svg" alt="" /> -->
+                </span>
                 <span>充值中心</span>
               </div>
             </li>
@@ -66,7 +72,9 @@ const handleAvatarCommand = (command) => {
               :class="{ active: cur === 3 }"
             >
               <div class="el-header-main-menu-item">
-                <span class="iconfont icon-wodedingdan"> </span>
+                <span class="iconfont icon-xiaolian">
+                  <!-- <img src="@/assets/avg/我的订单.svg" alt="" /> -->
+                </span>
                 <span>我的订单</span>
               </div>
             </li>
@@ -74,7 +82,9 @@ const handleAvatarCommand = (command) => {
               <el-dropdown @command="handleManageCommand">
                 <span class="el-dropdown-link">
                   <div class="el-header-main-menu-item">
-                    <span class="iconfont icon-admin-manage"> </span>
+                    <span class="iconfont icon-xiaolian">
+                      <!-- <img src="@/assets/avg/admin-manage.svg" alt="" /> -->
+                    </span>
                     <span>管理页</span>
                   </div>
                 </span>
@@ -188,8 +198,7 @@ const handleAvatarCommand = (command) => {
               justify-content: center;
               align-items: center;
               .iconfont {
-                margin-right: 4px;
-                font-size: 18px;
+                font-size: 22px;
                 // display: flex;
                 // align-items: center;
                 // width: 16px;
