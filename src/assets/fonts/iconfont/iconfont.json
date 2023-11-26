@@ -6,6 +6,55 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "9974754",
+      "name": "感叹号-圈",
+      "font_class": "gantanhao-quan",
+      "unicode": "e70f",
+      "unicode_decimal": 59151
+    },
+    {
+      "icon_id": "681204",
+      "name": "圆点小",
+      "font_class": "yuandianxiao",
+      "unicode": "e757",
+      "unicode_decimal": 59223
+    },
+    {
+      "icon_id": "5387519",
+      "name": "对号",
+      "font_class": "duihao",
+      "unicode": "eaf1",
+      "unicode_decimal": 60145
+    },
+    {
+      "icon_id": "5993150",
+      "name": "复制",
+      "font_class": "fuzhi",
+      "unicode": "ec7a",
+      "unicode_decimal": 60538
+    },
+    {
+      "icon_id": "11372705",
+      "name": "刷新",
+      "font_class": "shuaxin",
+      "unicode": "e8b9",
+      "unicode_decimal": 59577
+    },
+    {
+      "icon_id": "11462651",
+      "name": "设置",
+      "font_class": "shezhi",
+      "unicode": "e642",
+      "unicode_decimal": 58946
+    },
+    {
+      "icon_id": "25495309",
+      "name": "密度图",
+      "font_class": "midutu",
+      "unicode": "e749",
+      "unicode_decimal": 59209
+    },
+    {
       "icon_id": "629366",
       "name": "我的订单",
       "font_class": "wodedingdan",
