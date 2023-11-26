@@ -25,9 +25,10 @@ const searchInput = ref('')
     <div class="main">
       <el-card shadow="hover">
         <div class="el-card-content">
-          <el-badge :value="767" :max="1000" class="item">
+          <el-badge :value="10001" :max="1000" class="item">
             <div class="photo">
               <img src="@/assets/avg/logo.svg" alt="" />
+              <!-- <span class="comments">767</span> -->
             </div>
           </el-badge>
           <div class="title">随机土味情话</div>
@@ -36,66 +37,60 @@ const searchInput = ref('')
       </el-card>
       <el-card shadow="hover">
         <div class="el-card-content">
-          <el-badge :value="767" :max="1000" class="item">
-            <div class="photo">
-              <img src="@/assets/avg/logo.svg" alt="" />
-            </div>
-          </el-badge>
+          <div class="photo">
+            <img src="@/assets/avg/logo.svg" alt="" />
+            <span class="comments">767</span>
+          </div>
           <div class="title">随机土味情话</div>
           <div class="detail">获取土味情话</div>
         </div>
       </el-card>
       <el-card shadow="hover">
         <div class="el-card-content">
-          <el-badge :value="767" :max="1000" class="item">
-            <div class="photo">
-              <img src="@/assets/avg/logo.svg" alt="" />
-            </div>
-          </el-badge>
+          <div class="photo">
+            <img src="@/assets/avg/logo.svg" alt="" />
+            <span class="comments">767</span>
+          </div>
           <div class="title">随机土味情话</div>
           <div class="detail">获取土味情话</div>
         </div>
       </el-card>
       <el-card shadow="hover">
         <div class="el-card-content">
-          <el-badge :value="767" :max="1000" class="item">
-            <div class="photo">
-              <img src="@/assets/avg/logo.svg" alt="" />
-            </div>
-          </el-badge>
+          <div class="photo">
+            <img src="@/assets/avg/logo.svg" alt="" />
+            <span class="comments">767</span>
+          </div>
           <div class="title">随机土味情话</div>
           <div class="detail">获取土味情话</div>
         </div>
       </el-card>
       <el-card shadow="hover">
         <div class="el-card-content">
-          <el-badge :value="767" :max="1000" class="item">
-            <div class="photo">
-              <img src="@/assets/avg/logo.svg" alt="" />
-            </div>
-          </el-badge>
+          <div class="photo">
+            <img src="@/assets/avg/logo.svg" alt="" />
+            <span class="comments">767</span>
+          </div>
           <div class="title">随机土味情话</div>
           <div class="detail">获取土味情话</div>
         </div>
       </el-card>
       <el-card shadow="hover">
         <div class="el-card-content">
-          <el-badge :value="767" :max="1000" class="item">
-            <div class="photo">
-              <img src="@/assets/avg/logo.svg" alt="" />
-            </div>
-          </el-badge>
+          <div class="photo">
+            <img src="@/assets/avg/logo.svg" alt="" />
+            <span class="comments">767</span>
+          </div>
           <div class="title">随机土味情话</div>
           <div class="detail">获取土味情话</div>
         </div>
       </el-card>
       <el-card shadow="hover">
         <div class="el-card-content">
-          <el-badge :value="767" :max="1000" class="item">
-            <div class="photo">
-              <img src="@/assets/avg/logo.svg" alt="" />
-            </div>
-          </el-badge>
+          <div class="photo">
+            <img src="@/assets/avg/logo.svg" alt="" />
+            <span class="comments">767</span>
+          </div>
           <div class="title">随机土味情话</div>
           <div class="detail">获取土味情话</div>
         </div>
@@ -155,16 +150,16 @@ const searchInput = ref('')
             width: 100%;
             height: 100%;
           }
-          // .comments {
-          //   position: absolute;
-          //   right: -32px;
-          //   top: 0;
-          //   padding: 4px;
-          //   background-color: rgb(235, 77, 75);
-          //   font-size: 12px;
-          //   color: #fff;
-          //   border-radius: 50%;
-          // }
+          .comments {
+            position: absolute;
+            right: -32px;
+            top: 0;
+            padding: 4px;
+            background-color: rgb(235, 77, 75);
+            font-size: 12px;
+            color: #fff;
+            border-radius: 50%;
+          }
         }
         .title {
           margin-top: 16px;

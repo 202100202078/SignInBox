@@ -34,43 +34,43 @@
               <div class="coins"><strong>💰 100 金币</strong></div>
               <div class="desc">增加100坤币到钱包</div>
             </div>
-            <div class="bottom"></div
-          ></el-card>
+            <div class="bottom">11</div></el-card
+          >
           <el-card shadow="never">
             <div class="content">
               <div class="coins"><strong>💰 100 金币</strong></div>
               <div class="desc">增加100坤币到钱包</div>
             </div>
-            <div class="bottom"></div
-          ></el-card>
+            <div class="bottom">11</div></el-card
+          >
           <el-card shadow="never">
             <div class="content">
               <div class="coins"><strong>💰 100 金币</strong></div>
               <div class="desc">增加100坤币到钱包</div>
             </div>
-            <div class="bottom"></div
-          ></el-card>
+            <div class="bottom">11</div></el-card
+          >
           <el-card shadow="never">
             <div class="content">
               <div class="coins"><strong>💰 100 金币</strong></div>
               <div class="desc">增加100坤币到钱包</div>
             </div>
-            <div class="bottom"></div
-          ></el-card>
+            <div class="bottom">11</div></el-card
+          >
           <el-card shadow="never">
             <div class="content">
               <div class="coins"><strong>💰 100 金币</strong></div>
               <div class="desc">增加100坤币到钱包</div>
             </div>
-            <div class="bottom"></div
-          ></el-card>
+            <div class="bottom">11</div></el-card
+          >
           <el-card shadow="never">
             <div class="content">
               <div class="coins"><strong>💰 100 金币</strong></div>
               <div class="desc">增加100坤币到钱包</div>
             </div>
-            <div class="bottom"></div
-          ></el-card>
+            <div class="bottom">11</div></el-card
+          >
         </div>
       </el-card>
     </el-card>

@@ -34,43 +34,43 @@
               <div class="coins"><strong>💰 100 金币</strong></div>
               <div class="desc">增加100坤币到钱包</div>
             </div>
-            <div class="bottom"></div
-          ></el-card>
+            <div class="bottom">11</div></el-card
+          >
           <el-card shadow="never">
             <div class="content">
               <div class="coins"><strong>💰 100 金币</strong></div>
               <div class="desc">增加100坤币到钱包</div>
             </div>
-            <div class="bottom"></div
-          ></el-card>
+            <div class="bottom">11</div></el-card
+          >
           <el-card shadow="never">
             <div class="content">
               <div class="coins"><strong>💰 100 金币</strong></div>
               <div class="desc">增加100坤币到钱包</div>
             </div>
-            <div class="bottom"></div
-          ></el-card>
+            <div class="bottom">11</div></el-card
+          >
           <el-card shadow="never">
             <div class="content">
               <div class="coins"><strong>💰 100 金币</strong></div>
               <div class="desc">增加100坤币到钱包</div>
             </div>
-            <div class="bottom"></div
-          ></el-card>
+            <div class="bottom">11</div></el-card
+          >
           <el-card shadow="never">
             <div class="content">
               <div class="coins"><strong>💰 100 金币</strong></div>
               <div class="desc">增加100坤币到钱包</div>
             </div>
-            <div class="bottom"></div
-          ></el-card>
+            <div class="bottom">11</div></el-card
+          >
           <el-card shadow="never">
             <div class="content">
               <div class="coins"><strong>💰 100 金币</strong></div>
               <div class="desc">增加100坤币到钱包</div>
             </div>
-            <div class="bottom"></div
-          ></el-card>
+            <div class="bottom">11</div></el-card
+          >
         </div>
       </el-card>
     </el-card>
@@ -101,7 +101,7 @@
         .el-card {
           margin-right: 14px;
           width: 180px;
-          height: 192px;
+          height: 180px;
           cursor: pointer;
           transition: border 0.3s;
           &:hover {
@@ -125,7 +125,7 @@
             .bottom {
               flex: 1;
               background: url('https://api.qimuu.icu/static/KunCoin.9db3ccf6.png')
-                no-repeat center/cover;
+                no-repeat center/cover 50%;
             }
           }
         }

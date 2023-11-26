@@ -155,16 +155,16 @@ const searchInput = ref('')
             width: 100%;
             height: 100%;
           }
-          // .comments {
-          //   position: absolute;
-          //   right: -32px;
-          //   top: 0;
-          //   padding: 4px;
-          //   background-color: rgb(235, 77, 75);
-          //   font-size: 12px;
-          //   color: #fff;
-          //   border-radius: 50%;
-          // }
+          .comments {
+            position: absolute;
+            right: -32px;
+            top: 0;
+            padding: 4px;
+            background-color: rgb(235, 77, 75);
+            font-size: 12px;
+            color: #fff;
+            border-radius: 50%;
+          }
         }
         .title {
           margin-top: 16px;

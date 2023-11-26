@@ -101,7 +101,7 @@
         .el-card {
           margin-right: 14px;
           width: 180px;
-          height: 192px;
+          height: 180px;
           cursor: pointer;
           transition: border 0.3s;
           &:hover {
@@ -110,22 +110,12 @@
           &:last-child {
             margin-right: 0px;
           }
-          :deep .el-card__body {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            .content {
-              font-size: 14px;
-              color: rgba(0, 0, 0, 0.88);
-              .desc {
-                margin-top: 8px;
-                color: rgba(0, 0, 0, 0.65);
-              }
-            }
-            .bottom {
-              flex: 1;
-              background: url('https://api.qimuu.icu/static/KunCoin.9db3ccf6.png')
-                no-repeat center/cover;
+          .content {
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.88);
+            .desc {
+              margin-top: ;
+              color: rgba(0, 0, 0, 0.65);
             }
           }
         }
