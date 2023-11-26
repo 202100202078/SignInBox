@@ -35,62 +35,37 @@ const searchInput = ref('')
       </el-card>
       <el-card shadow="hover">
         <div class="el-card-content">
-          <div class="photo">
-            <img src="@/assets/avg/logo.svg" alt="" />
-            <span class="comments">767</span>
-          </div>
-          <div class="title">随机土味情话</div>
-          <div class="detail">获取土味情话</div>
+          <div class="photo">1</div>
+          <div class="title">2</div>
+          <div class="detail">3</div>
         </div>
       </el-card>
       <el-card shadow="hover">
         <div class="el-card-content">
-          <div class="photo">
-            <img src="@/assets/avg/logo.svg" alt="" />
-            <span class="comments">767</span>
-          </div>
-          <div class="title">随机土味情话</div>
-          <div class="detail">获取土味情话</div>
+          <div class="photo">1</div>
+          <div class="title">2</div>
+          <div class="detail">3</div>
         </div>
       </el-card>
       <el-card shadow="hover">
         <div class="el-card-content">
-          <div class="photo">
-            <img src="@/assets/avg/logo.svg" alt="" />
-            <span class="comments">767</span>
-          </div>
-          <div class="title">随机土味情话</div>
-          <div class="detail">获取土味情话</div>
+          <div class="photo">1</div>
+          <div class="title">2</div>
+          <div class="detail">3</div>
         </div>
       </el-card>
       <el-card shadow="hover">
         <div class="el-card-content">
-          <div class="photo">
-            <img src="@/assets/avg/logo.svg" alt="" />
-            <span class="comments">767</span>
-          </div>
-          <div class="title">随机土味情话</div>
-          <div class="detail">获取土味情话</div>
+          <div class="photo">1</div>
+          <div class="title">2</div>
+          <div class="detail">3</div>
         </div>
       </el-card>
       <el-card shadow="hover">
         <div class="el-card-content">
-          <div class="photo">
-            <img src="@/assets/avg/logo.svg" alt="" />
-            <span class="comments">767</span>
-          </div>
-          <div class="title">随机土味情话</div>
-          <div class="detail">获取土味情话</div>
-        </div>
-      </el-card>
-      <el-card shadow="hover">
-        <div class="el-card-content">
-          <div class="photo">
-            <img src="@/assets/avg/logo.svg" alt="" />
-            <span class="comments">767</span>
-          </div>
-          <div class="title">随机土味情话</div>
-          <div class="detail">获取土味情话</div>
+          <div class="photo">1</div>
+          <div class="title">2</div>
+          <div class="detail">3</div>
         </div>
       </el-card>
     </div>

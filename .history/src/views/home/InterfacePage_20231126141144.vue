@@ -33,66 +33,6 @@ const searchInput = ref('')
           <div class="detail">获取土味情话</div>
         </div>
       </el-card>
-      <el-card shadow="hover">
-        <div class="el-card-content">
-          <div class="photo">
-            <img src="@/assets/avg/logo.svg" alt="" />
-            <span class="comments">767</span>
-          </div>
-          <div class="title">随机土味情话</div>
-          <div class="detail">获取土味情话</div>
-        </div>
-      </el-card>
-      <el-card shadow="hover">
-        <div class="el-card-content">
-          <div class="photo">
-            <img src="@/assets/avg/logo.svg" alt="" />
-            <span class="comments">767</span>
-          </div>
-          <div class="title">随机土味情话</div>
-          <div class="detail">获取土味情话</div>
-        </div>
-      </el-card>
-      <el-card shadow="hover">
-        <div class="el-card-content">
-          <div class="photo">
-            <img src="@/assets/avg/logo.svg" alt="" />
-            <span class="comments">767</span>
-          </div>
-          <div class="title">随机土味情话</div>
-          <div class="detail">获取土味情话</div>
-        </div>
-      </el-card>
-      <el-card shadow="hover">
-        <div class="el-card-content">
-          <div class="photo">
-            <img src="@/assets/avg/logo.svg" alt="" />
-            <span class="comments">767</span>
-          </div>
-          <div class="title">随机土味情话</div>
-          <div class="detail">获取土味情话</div>
-        </div>
-      </el-card>
-      <el-card shadow="hover">
-        <div class="el-card-content">
-          <div class="photo">
-            <img src="@/assets/avg/logo.svg" alt="" />
-            <span class="comments">767</span>
-          </div>
-          <div class="title">随机土味情话</div>
-          <div class="detail">获取土味情话</div>
-        </div>
-      </el-card>
-      <el-card shadow="hover">
-        <div class="el-card-content">
-          <div class="photo">
-            <img src="@/assets/avg/logo.svg" alt="" />
-            <span class="comments">767</span>
-          </div>
-          <div class="title">随机土味情话</div>
-          <div class="detail">获取土味情话</div>
-        </div>
-      </el-card>
     </div>
     <div class="pageSetter">
       <el-pagination background layout="prev, pager, next" :total="20" />
