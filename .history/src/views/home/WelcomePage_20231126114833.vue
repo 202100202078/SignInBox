@@ -76,9 +76,7 @@
         </div>
         <div class="content">
           <span>
-            <strong
-              >您可以在平台上进行接口在线调试，快速验证接口的功能和效果，节省了开发调试的时间和工作量。
-            </strong>
+            <strong>12321834o729138444444444444</strong>
           </span>
         </div>
       </el-card>
@@ -91,9 +89,7 @@
         </div>
         <div class="content">
           <span>
-            <strong
-              >为了方便开发者集成接口到自己的代码中，平台提供了客户端SDK，使调用接口变得更加简单和便捷。
-            </strong>
+            <strong>12321834o729138444444444444</strong>
           </span>
         </div>
       </el-card>
@@ -106,9 +102,7 @@
         </div>
         <div class="content">
           <span>
-            <strong
-              >平台提供了详细的开发者文档和技术支持，帮助开发者快速接入和发布接口，解决遇到的问题和困难。
-            </strong>
+            <strong>12321834o729138444444444444</strong>
           </span>
         </div>
       </el-card>
@@ -121,9 +115,7 @@
         </div>
         <div class="content">
           <span>
-            <strong
-              >平台致力于提供稳定和安全的接口调用服务，采用了安全措施和技术手段，保障用户数据的安全性和隐私保护。
-            </strong>
+            <strong>12321834o729138444444444444</strong>
           </span>
         </div>
       </el-card>
@@ -185,10 +177,6 @@
       }
       .content {
         margin-top: 26px;
-        font-size: 14px;
-        color: rgba(0, 0, 0, 0.88);
-        text-align: justify;
-        line-height: 22px;
       }
     }
   }

@@ -121,9 +121,7 @@
         </div>
         <div class="content">
           <span>
-            <strong
-              >平台致力于提供稳定和安全的接口调用服务，采用了安全措施和技术手段，保障用户数据的安全性和隐私保护。
-            </strong>
+            <strong>12321834o729138444444444444</strong>
           </span>
         </div>
       </el-card>
@@ -185,10 +183,6 @@
       }
       .content {
         margin-top: 26px;
-        font-size: 14px;
-        color: rgba(0, 0, 0, 0.88);
-        text-align: justify;
-        line-height: 22px;
       }
     }
   }

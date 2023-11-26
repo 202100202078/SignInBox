@@ -56,77 +56,47 @@
         <div class="title">
           <span class="iconfont icon-1_square_solid"></span>
           <div class="msg">
-            <h5>多样化的接口选择</h5>
+            <h5>11111111111</h5>
           </div>
         </div>
-        <div class="content">
-          <span>
-            <strong
-              >平台上提供丰富多样的接口供您选择，涵盖了各个领域的功能和服务，满足不同需求。</strong
-            >
-          </span>
-        </div>
-      </el-card>
+        <div class="content"></div
+      ></el-card>
       <el-card shadow="always">
         <div class="title">
           <span class="iconfont icon-2_square_solid"></span>
           <div class="msg">
-            <h5>在线调试功能</h5>
+            <h5>11111111111</h5>
           </div>
         </div>
-        <div class="content">
-          <span>
-            <strong
-              >您可以在平台上进行接口在线调试，快速验证接口的功能和效果，节省了开发调试的时间和工作量。
-            </strong>
-          </span>
-        </div>
-      </el-card>
+        <div class="content"></div
+      ></el-card>
       <el-card shadow="always">
         <div class="title">
           <span class="iconfont icon-3_square_solid"></span>
           <div class="msg">
-            <h5>客户端SDK支持</h5>
+            <h5>11111111111</h5>
           </div>
         </div>
-        <div class="content">
-          <span>
-            <strong
-              >为了方便开发者集成接口到自己的代码中，平台提供了客户端SDK，使调用接口变得更加简单和便捷。
-            </strong>
-          </span>
-        </div>
-      </el-card>
+        <div class="content"></div
+      ></el-card>
       <el-card shadow="always">
         <div class="title">
           <span class="iconfont icon-4_square_solid"></span>
           <div class="msg">
-            <h5>开发者文档和技术支持</h5>
+            <h5>11111111111</h5>
           </div>
         </div>
-        <div class="content">
-          <span>
-            <strong
-              >平台提供了详细的开发者文档和技术支持，帮助开发者快速接入和发布接口，解决遇到的问题和困难。
-            </strong>
-          </span>
-        </div>
-      </el-card>
+        <div class="content"></div
+      ></el-card>
       <el-card shadow="always">
         <div class="title">
           <span class="iconfont icon-5_square_solid"></span>
           <div class="msg">
-            <h5>稳定和安全</h5>
+            <h5>11111111111</h5>
           </div>
         </div>
-        <div class="content">
-          <span>
-            <strong
-              >平台致力于提供稳定和安全的接口调用服务，采用了安全措施和技术手段，保障用户数据的安全性和隐私保护。
-            </strong>
-          </span>
-        </div>
-      </el-card>
+        <div class="content"></div
+      ></el-card>
     </div>
   </el-card>
 </template>
@@ -157,7 +127,6 @@
   }
   .bottom {
     display: flex;
-    justify-content: space-evenly;
     flex-wrap: wrap;
     gap: 16px;
     .el-card {
@@ -167,28 +136,21 @@
       font-size: 14px;
       color: rgba(0, 0, 0, 0.65);
       line-height: 22px;
-      // padding: 16px 19px;
-      width: 220px;
+      padding: 16px 19px;
+      min-width: 220px;
       .title {
         display: flex;
-        justify-content: center;
+        justify-content: space-evenly;
         align-items: center;
         gap: 4px;
         .iconfont {
           font-size: 32px;
           color: #1677ff;
+          box-shadow:
+            rgba(0, 0, 0, 0.08) 0px 6px 16px 0px,
+            rgba(0, 0, 0, 0.12) 0px 3px 6px -4px,
+            rgba(0, 0, 0, 0.05) 0px 9px 28px 8px;
         }
-        .msg {
-          font-size: 18px;
-          color: rgba(0, 0, 0, 0.88);
-        }
-      }
-      .content {
-        margin-top: 26px;
-        font-size: 14px;
-        color: rgba(0, 0, 0, 0.88);
-        text-align: justify;
-        line-height: 22px;
       }
     }
   }

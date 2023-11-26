@@ -186,7 +186,7 @@
       .content {
         margin-top: 26px;
         font-size: 14px;
-        color: rgba(0, 0, 0, 0.88);
+        color: rgba(0, 0, 0, 0.65);
         text-align: justify;
         line-height: 22px;
       }

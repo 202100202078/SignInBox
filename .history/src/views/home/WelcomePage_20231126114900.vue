@@ -185,10 +185,6 @@
       }
       .content {
         margin-top: 26px;
-        font-size: 14px;
-        color: rgba(0, 0, 0, 0.88);
-        text-align: justify;
-        line-height: 22px;
       }
     }
   }
