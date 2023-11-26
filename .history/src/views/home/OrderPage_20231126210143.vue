@@ -54,7 +54,7 @@ const options = [
           />
         </el-select>
       </el-form-item>
-      <el-form-item label="支付方式">
+      <el-form-item label="订单类型">
         <el-select
           v-model="value"
           placeholder="请选择"
@@ -68,20 +68,6 @@ const options = [
           />
         </el-select>
       </el-form-item>
-      <el-form-item label="订单金额">
-        <el-input placeholder="请输入" :style="{ width: '298px' }"></el-input>
-      </el-form-item>
-      <el-form-item label="增加积分数">
-        <el-input placeholder="请输入" :style="{ width: '298px' }"></el-input>
-      </el-form-item>
     </FilterLayout>
   </div>
 </template>
-
-<style lang="scss" scoped>
-.order-page {
-  .el-input {
-    width: 298px;
-  }
-}
-</style>

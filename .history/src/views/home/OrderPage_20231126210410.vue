@@ -69,10 +69,10 @@ const options = [
         </el-select>
       </el-form-item>
       <el-form-item label="订单金额">
-        <el-input placeholder="请输入" :style="{ width: '298px' }"></el-input>
+        <el-input placeholder="请输入"></el-input>
       </el-form-item>
       <el-form-item label="增加积分数">
-        <el-input placeholder="请输入" :style="{ width: '298px' }"></el-input>
+        <el-input placeholder="请输入"></el-input>
       </el-form-item>
     </FilterLayout>
   </div>
