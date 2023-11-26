@@ -2,7 +2,7 @@
   <el-card class="box-card">
     <div class="header">
       <h3 style="font-size: 26px; color: rgba(0, 0, 0, 0.88)">
-        欢迎使用 API-BOX 接口开放平台🎉
+        欢迎使用 API 接口开放平台🎉
       </h3>
     </div>
     <div
@@ -35,7 +35,7 @@
             </span>
             即可将轻松集成接口到您的项目中，实现更高效的开发和调用。
             <br />
-            🤝 您可以将自己的接口接入到API-BOX
+            🤝 您可以将自己的接口接入到Qi-API
             接口开放平台平台上，并发布给其他用户使用。
             您可以管理和各个接口，以便更好地分析和优化接口性能。
             <br />

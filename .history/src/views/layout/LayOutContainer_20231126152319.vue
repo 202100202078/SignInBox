@@ -23,8 +23,13 @@ const handleAvatarCommand = (command) => {
       <el-header>
         <div class="el-header-left">
           <a @click="$router.replace('/')">
-            <img src="@/assets/avg/logo.svg" alt="logo" class="logo" />
-            <h1>API-BOX 接口开放平台</h1>
+            <img
+              height="22"
+              weight="auto"
+              src="@/assets/avg/logo.svg"
+              alt="logo"
+            />
+            <h1>api-box 接口开放平台</h1>
           </a>
         </div>
         <div class="el-header-main">
@@ -116,7 +121,8 @@ const handleAvatarCommand = (command) => {
         <router-view></router-view>
       </el-main>
       <el-footer>
-        <PageFooter></PageFooter>
+        <p>@后端：庄润德、王志建</p>
+        <p>@前端：张炜烽</p>
       </el-footer>
     </el-container>
   </div>
@@ -144,19 +150,13 @@ const handleAvatarCommand = (command) => {
       transition: background-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
       border-bottom: 1px solid rgba(5, 5, 5, 0.06);
       .el-header-left {
-        // width: 222px;
+        width: 222px;
         > a {
           display: flex;
-          justify-content: space-between;
           align-items: center;
           min-height: 22px;
           font-size: 16px;
           cursor: pointer;
-          .logo {
-            margin-right: 6px;
-            height: 22px;
-            width: auto;
-          }
         }
       }
       .el-header-main {

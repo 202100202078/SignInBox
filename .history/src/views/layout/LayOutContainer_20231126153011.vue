@@ -115,9 +115,7 @@ const handleAvatarCommand = (command) => {
       <el-main>
         <router-view></router-view>
       </el-main>
-      <el-footer>
-        <PageFooter></PageFooter>
-      </el-footer>
+      <el-footer> </el-footer>
     </el-container>
   </div>
 </template>

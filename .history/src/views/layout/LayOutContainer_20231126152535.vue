@@ -116,7 +116,8 @@ const handleAvatarCommand = (command) => {
         <router-view></router-view>
       </el-main>
       <el-footer>
-        <PageFooter></PageFooter>
+        <p>@后端：庄润德、王志建</p>
+        <p>@前端：张炜烽</p>
       </el-footer>
     </el-container>
   </div>
