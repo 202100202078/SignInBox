@@ -68,7 +68,6 @@ const handleTrigger = () => {
     <FilterLayout
       label1="订单名称"
       label2="订单号"
-      :isShow="isShow"
       @reset="handleReset"
       @query="handleQuery"
       @trigger="handleTrigger"

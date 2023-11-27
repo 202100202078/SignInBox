@@ -1,8 +1,7 @@
 <script setup>
 defineProps({
   label1: String,
-  label2: String,
-  isShow: Boolean
+  label2: String
 })
 const emit = defineEmits(['reset', 'query', 'trigger'])
 //暴露重置方法和查询方法以及展开
@@ -12,11 +11,10 @@ const reset = () => {
 }
 const query = () => {
   //通知父级进行筛选数据
-  emit('query')
+  emit('reset')
 }
 const trigger = () => {
   //通知父级进行表单的展示/隐藏
-  emit('trigger')
 }
 // defineExpose({
 //   reset,
@@ -42,14 +40,7 @@ const trigger = () => {
             <el-button @click="reset">重置</el-button>
             <el-button type="primary" @click="query">查询</el-button>
             <span class="trigger" @click="trigger"
-              >展开
-              <span
-                :class="{
-                  iconfont: true,
-                  'icon-xiala': !isShow,
-                  'icon-shouqi': isShow
-                }"
-              ></span
+              >展开 <span class="iconfont icon-xiala"></span
             ></span>
           </el-form-item>
         </el-form>

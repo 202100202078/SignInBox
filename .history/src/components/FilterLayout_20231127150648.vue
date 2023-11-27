@@ -43,13 +43,7 @@ const trigger = () => {
             <el-button type="primary" @click="query">查询</el-button>
             <span class="trigger" @click="trigger"
               >展开
-              <span
-                :class="{
-                  iconfont: true,
-                  'icon-xiala': !isShow,
-                  'icon-shouqi': isShow
-                }"
-              ></span
+              <span :class="{ iconfont: true, 'icon-xiala': !isShow ,}"></span
             ></span>
           </el-form-item>
         </el-form>

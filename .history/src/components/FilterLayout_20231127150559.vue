@@ -42,14 +42,7 @@ const trigger = () => {
             <el-button @click="reset">重置</el-button>
             <el-button type="primary" @click="query">查询</el-button>
             <span class="trigger" @click="trigger"
-              >展开
-              <span
-                :class="{
-                  iconfont: true,
-                  'icon-xiala': !isShow,
-                  'icon-shouqi': isShow
-                }"
-              ></span
+              >展开 <span class="iconfont icon-xiala"></span
             ></span>
           </el-form-item>
         </el-form>
