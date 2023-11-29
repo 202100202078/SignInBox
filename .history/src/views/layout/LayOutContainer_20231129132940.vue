@@ -112,12 +112,12 @@ const handleAvatarCommand = (command) => {
           </div>
         </div>
       </el-header>
-      <el-scrollbar>
-        <el-main>
+      <el-main>
+        <el-scrollbar max-height="1200px">
           <router-view></router-view>
           <PageFooter></PageFooter>
-        </el-main>
-      </el-scrollbar>
+        </el-scrollbar>
+      </el-main>
       <!-- <el-footer>
         <PageFooter></PageFooter>
       </el-footer> -->
@@ -283,10 +283,7 @@ const handleAvatarCommand = (command) => {
     }
     .el-main {
       margin-top: 56px;
-      width: 100vw;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      width: 100%;
     }
   }
 }

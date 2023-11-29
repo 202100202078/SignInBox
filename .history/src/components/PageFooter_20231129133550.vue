@@ -7,7 +7,7 @@
 
 <style lang="scss" scoped>
 .my-footer {
-  margin-top: 16px;
+  margin-top: 26px;
   text-align: center;
 }
 </style>

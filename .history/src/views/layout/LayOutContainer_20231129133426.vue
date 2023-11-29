@@ -114,6 +114,7 @@ const handleAvatarCommand = (command) => {
       </el-header>
       <el-scrollbar>
         <el-main>
+          <!-- 11212212111111111 -->
           <router-view></router-view>
           <PageFooter></PageFooter>
         </el-main>
