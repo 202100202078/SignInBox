@@ -381,8 +381,6 @@ const tableData = [
     :deep .description,
     table {
       width: 100%;
-      padding-top: 6px;
-      padding-left: 40px;
       // display: flex;
       // justify-content: center;
       // align-items: center;

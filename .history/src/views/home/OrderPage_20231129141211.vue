@@ -210,33 +210,29 @@ const tableData = [
                   <tr class="description-row">
                     <td class="description-row-item" colspan="1">
                       <div class="description-row-item-container">
-                        <span class="description-row-item-label"
-                          >订单名称：</span
-                        ><span class="description-row-item-content"
-                          >3000坤币</span
-                        >
+                        <span class="description-row-item-label">订单名称：</span
+                        ><span class="description-row-item-content">3000坤币</span>
                       </div>
                     </td>
                     <td class="description-row-item" colspan="1">
                       <div class="description-row-item-container">
                         <span class="description-row-item-label"
-                          >订单金额 (元)：</span
-                        ><span class="description-row-item-content">1.99</span>
+                          >订单金额 (元)：</srow-pan
+                        ><span class="description-item-content">1.99</span>
                       </div>
                     </td>
                     <td class="description-row-item" colspan="1">
                       <div class="description-row-item-container">
                         <span class="description-row-item-label"
-                          >增加积分数量 (个)：</span
-                        ><span class="description-row-item-content">3000</span>
+                          >增加积分数量 (个)：</srow-pan
+                        ><span class="description-item-content">3000</span>
                       </div>
                     </td>
                   </tr>
                   <tr class="description-row">
                     <td class="description-row-item" colspan="1">
                       <div class="description-row-item-container">
-                        <span class="description-row-item-label"
-                          >支付类型：</span
+                        <span class="description-row-item-label">支付类型：</span
                         ><span class="description-row-item-content"
                           ><span class="ant-tag ant-tag-blue css-18iikkb"
                             >WX</span
@@ -246,8 +242,7 @@ const tableData = [
                     </td>
                     <td class="description-row-item" colspan="1">
                       <div class="description-row-item-container">
-                        <span class="description-row-item-label"
-                          >订单状态：</span
+                        <span class="description-row-item-label">订单状态：</span
                         ><span class="description-row-item-content"
                           ><span
                             class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-18iikkb"
@@ -263,19 +258,15 @@ const tableData = [
                     </td>
                     <td class="description-row-item" colspan="1">
                       <div class="description-row-item-container">
-                        <span class="description-row-item-label"
-                          >商品类别：</span
-                        ><span class="description-row-item-content"
-                          >积分充值</span
-                        >
+                        <span class="description-row-item-label">商品类别：</span
+                        ><span class="description-row-item-content">积分充值</span>
                       </div>
                     </td>
                   </tr>
                   <tr class="description-row">
                     <td class="description-row-item" colspan="1">
                       <div class="description-row-item-container">
-                        <span class="description-row-item-label"
-                          >过期时间：</span
+                        <span class="description-row-item-label">过期时间：</span
                         ><span class="description-row-item-content"
                           >2023-11-22 20:43:07</span
                         >
@@ -283,8 +274,7 @@ const tableData = [
                     </td>
                     <td class="description-row-item" colspan="1">
                       <div class="description-row-item-container">
-                        <span class="description-row-item-label"
-                          >创建时间：</span
+                        <span class="description-row-item-label">创建时间：</span
                         ><span class="description-row-item-content"
                           >2023-11-22 20:38:06</span
                         >
@@ -292,8 +282,7 @@ const tableData = [
                     </td>
                     <td class="description-row-item" colspan="1">
                       <div class="description-row-item-container">
-                        <span class="description-row-item-label"
-                          >商品描述：</span
+                        <span class="description-row-item-label">商品描述：</span
                         ><span class="description-row-item-content"
                           >增加3000坤币到钱包</span
                         >
@@ -378,20 +367,12 @@ const tableData = [
     }
   }
   .el-table {
-    :deep .description,
-    table {
-      width: 100%;
-      padding-top: 6px;
-      padding-left: 40px;
-      // display: flex;
-      // justify-content: center;
-      // align-items: center;
+    :deep .description {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       .description-row {
-        display: flex;
-        justify-content: center;
-        align-items: center;
         .description-row-item {
-          flex: 1;
           padding-bottom: 16px;
         }
       }
