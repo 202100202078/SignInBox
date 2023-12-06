@@ -143,16 +143,16 @@ const tableData = [
 </script>
 
 <template>
-  <div class="order-page">
+  <div class="admin-interface-page">
     <FilterLayout
-      label1="订单名称"
-      label2="订单号"
+      label1="接口名称"
+      label2="接口地址"
       :isShow="isShow"
       @reset="handleReset"
       @query="handleQuery"
       @trigger="handleTrigger"
     >
-      <el-form-item label="订单状态" v-show="isShow">
+      <el-form-item label="返回格式" v-show="isShow">
         <el-select v-model="status" placeholder="请选择">
           <el-option
             v-for="item in statusOptions"
@@ -172,7 +172,7 @@ const tableData = [
           />
         </el-select>
       </el-form-item>
-      <el-form-item label="支付方式" v-show="isShow">
+      <el-form-item label="扣除积分个数" v-show="isShow">
         <el-select v-model="pay" placeholder="请选择">
           <el-option
             v-for="item in payOptions"
@@ -182,7 +182,7 @@ const tableData = [
           />
         </el-select>
       </el-form-item>
-      <el-form-item label="订单金额" v-show="isShow">
+      <el-form-item label="描述" v-show="isShow">
         <el-input placeholder="请输入"></el-input>
       </el-form-item>
       <el-form-item label="增加积分数" v-show="isShow">
@@ -370,7 +370,7 @@ const tableData = [
 </template>
 
 <style lang="scss" scoped>
-.order-page {
+.admin-interface-page {
   .el-form-item {
     width: 30%;
     .el-select {

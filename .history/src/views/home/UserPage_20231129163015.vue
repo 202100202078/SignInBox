@@ -72,38 +72,22 @@ const handleAvatarChange = () => {
               <tbody>
                 <tr class="ant-descriptions-row">
                   <td class="ant-descriptions-item">
-                    <div class="ant-descriptions-item-container">
-                      <span class="label"><strong>昵称：</strong></span>
-                      <span class="content">昵称</span>
-                      <ToolTip content="Copy"></ToolTip>
-                    </div>
+                    <div class="ant-descriptions-item-container"></div>
                   </td>
                 </tr>
                 <tr class="ant-descriptions-row">
                   <td class="ant-descriptions-item">
-                    <div class="ant-descriptions-item-container">
-                      <span class="label"><strong>昵称：</strong></span>
-                      <span class="content">昵称</span>
-                      <ToolTip content="编辑"></ToolTip>
-                    </div>
+                    <div class="ant-descriptions-item-container"></div>
                   </td>
                 </tr>
                 <tr class="ant-descriptions-row">
                   <td class="ant-descriptions-item">
-                    <div class="ant-descriptions-item-container">
-                      <span class="label"><strong>昵称：</strong></span>
-                      <span class="content">昵称</span>
-                      <ToolTip content="Copy"></ToolTip>
-                    </div>
+                    <div class="ant-descriptions-item-container"></div>
                   </td>
                 </tr>
                 <tr class="ant-descriptions-row">
                   <td class="ant-descriptions-item">
-                    <div class="ant-descriptions-item-container">
-                      <span class="label"><strong>昵称：</strong></span>
-                      <span class="content">昵称</span>
-                      <ToolTip content="Copy"></ToolTip>
-                    </div>
+                    <div class="ant-descriptions-item-container"></div>
                   </td>
                 </tr>
               </tbody>

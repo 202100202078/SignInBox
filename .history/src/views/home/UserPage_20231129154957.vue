@@ -1,0 +1,85 @@
+<script setup>
+import { ref } from 'vue'
+import { Plus } from '@element-plus/icons-vue'
+
+import type { UploadProps, UploadUserFile } from 'element-plus'
+
+const fileList = ref([
+  {
+    name: 'food.jpeg',
+    url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100',
+  }
+])
+
+const dialogImageUrl = ref('')
+const dialogVisible = ref(false)
+
+const handleRemove = (uploadFile, uploadFiles) => {
+  console.log(uploadFile, uploadFiles)
+}
+
+const handlePictureCardPreview = (uploadFile) => {
+  dialogImageUrl.value = uploadFile.url
+  dialogVisible.value = true
+}
+</script>
+
+<template>
+  <div class="user-page">
+    <el-card shadow="never" class="boxCard">
+      <el-card shadow="never" class="userInfoSetting">
+        <template #header>
+          <div class="card-header">
+            <span><strong>个人信息设置</strong></span>
+            <div class="right">
+              <el-button class="button">绑定邮箱</el-button>
+              <el-button class="button">提交修改</el-button>
+            </div>
+          </div>
+        </template>
+        <div class="content">
+          <div class="avatar">
+            <el-upload
+              v-model:file-list="fileList"
+              action="https://run.mocky.io/v3/9d059bf9-4660-45f2-925d-ce80ad6c4d15"
+              list-type="picture-card"
+              :on-preview="handlePictureCardPreview"
+              :on-remove="handleRemove"
+            >
+              <el-icon><Plus /></el-icon>
+            </el-upload>
+
+            <el-dialog v-model="dialogVisible">
+              <img w-full :src="dialogImageUrl" alt="Preview Image" />
+            </el-dialog>
+          </div>
+        </div>
+      </el-card>
+    </el-card>
+  </div>
+</template>
+
+<style lang="scss" scoped>
+.user-page {
+  width: 1240px;
+  .boxCard {
+    .userInfoSetting {
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+      }
+      .content {
+        .avatar {
+          .container {
+            margin: 0 8px 8px 0;
+            width: 102px;
+            height: 102px;
+            border: 1px solid #d9d9d9;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+  }
+}
+</style>

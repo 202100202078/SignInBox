@@ -72,37 +72,28 @@ const handleAvatarChange = () => {
               <tbody>
                 <tr class="ant-descriptions-row">
                   <td class="ant-descriptions-item">
-                    <div class="ant-descriptions-item-container">
-                      <span class="label"><strong>昵称：</strong></span>
-                      <span class="content">昵称</span>
-                      <ToolTip content="Copy"></ToolTip>
-                    </div>
+                    <div class="ant-descriptions-item-container"></div>
+                  </td>
+                </tr>
+                <tr class="ant-descriptions-row">
+                  <td class="ant-descriptions-item">
+                    <div class="ant-descriptions-item-container"></div>
+                  </td>
+                </tr>
+                <tr class="ant-descriptions-row">
+                  <td class="ant-descriptions-item">
+                    <div class="ant-descriptions-item-container"></div>
                   </td>
                 </tr>
                 <tr class="ant-descriptions-row">
                   <td class="ant-descriptions-item">
                     <div class="ant-descriptions-item-container">
-                      <span class="label"><strong>昵称：</strong></span>
-                      <span class="content">昵称</span>
-                      <ToolTip content="编辑"></ToolTip>
-                    </div>
-                  </td>
-                </tr>
-                <tr class="ant-descriptions-row">
-                  <td class="ant-descriptions-item">
-                    <div class="ant-descriptions-item-container">
-                      <span class="label"><strong>昵称：</strong></span>
-                      <span class="content">昵称</span>
-                      <ToolTip content="Copy"></ToolTip>
-                    </div>
-                  </td>
-                </tr>
-                <tr class="ant-descriptions-row">
-                  <td class="ant-descriptions-item">
-                    <div class="ant-descriptions-item-container">
-                      <span class="label"><strong>昵称：</strong></span>
-                      <span class="content">昵称</span>
-                      <ToolTip content="Copy"></ToolTip>
+                      <span class="ant-descriptions-item-content"
+                        ><h4>我的邮箱：</h4>
+                        <div class="ant-typography css-18iikkb">
+                          未绑定邮箱
+                        </div></span
+                      >
                     </div>
                   </td>
                 </tr>

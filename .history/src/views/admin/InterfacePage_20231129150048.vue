@@ -143,10 +143,10 @@ const tableData = [
 </script>
 
 <template>
-  <div class="order-page">
+  <div class="admin-interface-page">
     <FilterLayout
-      label1="订单名称"
-      label2="订单号"
+      label1="接口名称"
+      label2="接口地址"
       :isShow="isShow"
       @reset="handleReset"
       @query="handleQuery"
@@ -370,7 +370,7 @@ const tableData = [
 </template>
 
 <style lang="scss" scoped>
-.order-page {
+.admin-interface-page {
   .el-form-item {
     width: 30%;
     .el-select {

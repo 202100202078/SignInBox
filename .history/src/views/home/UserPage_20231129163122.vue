@@ -73,36 +73,32 @@ const handleAvatarChange = () => {
                 <tr class="ant-descriptions-row">
                   <td class="ant-descriptions-item">
                     <div class="ant-descriptions-item-container">
-                      <span class="label"><strong>昵称：</strong></span>
+                      <span class="label">昵称</span>
                       <span class="content">昵称</span>
-                      <ToolTip content="Copy"></ToolTip>
                     </div>
                   </td>
                 </tr>
                 <tr class="ant-descriptions-row">
                   <td class="ant-descriptions-item">
                     <div class="ant-descriptions-item-container">
-                      <span class="label"><strong>昵称：</strong></span>
+                      <span class="label">昵称</span>
                       <span class="content">昵称</span>
-                      <ToolTip content="编辑"></ToolTip>
                     </div>
                   </td>
                 </tr>
                 <tr class="ant-descriptions-row">
                   <td class="ant-descriptions-item">
                     <div class="ant-descriptions-item-container">
-                      <span class="label"><strong>昵称：</strong></span>
+                      <span class="label">昵称</span>
                       <span class="content">昵称</span>
-                      <ToolTip content="Copy"></ToolTip>
                     </div>
                   </td>
                 </tr>
                 <tr class="ant-descriptions-row">
                   <td class="ant-descriptions-item">
                     <div class="ant-descriptions-item-container">
-                      <span class="label"><strong>昵称：</strong></span>
+                      <span class="label">昵称</span>
                       <span class="content">昵称</span>
-                      <ToolTip content="Copy"></ToolTip>
                     </div>
                   </td>
                 </tr>

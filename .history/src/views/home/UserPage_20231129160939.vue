@@ -23,10 +23,6 @@ const handlePictureCardPreview = (uploadFile) => {
   dialogImageUrl.value = uploadFile.url
   dialogVisible.value = true
 }
-
-const handleAvatarChange = () => {
-  isShow.value = true
-}
 </script>
 
 <template>
@@ -57,57 +53,9 @@ const handleAvatarChange = () => {
               <el-icon><Plus /></el-icon>
             </el-upload>
 
-            <el-dialog
-              v-model="dialogVisible"
-              :title="'头像名称'"
-              center
-              width="33%"
-              :lock-scroll="true"
-            >
-              <img :src="dialogImageUrl" alt="头像不见了" />
+            <el-dialog v-model="dialogVisible" :title="'头像名称'" center>
+              <img w-full :src="dialogImageUrl" alt="头像不见了" />
             </el-dialog>
-          </div>
-          <div class="description">
-            <table>
-              <tbody>
-                <tr class="ant-descriptions-row">
-                  <td class="ant-descriptions-item">
-                    <div class="ant-descriptions-item-container">
-                      <span class="label"><strong>昵称：</strong></span>
-                      <span class="content">昵称</span>
-                      <ToolTip content="Copy"></ToolTip>
-                    </div>
-                  </td>
-                </tr>
-                <tr class="ant-descriptions-row">
-                  <td class="ant-descriptions-item">
-                    <div class="ant-descriptions-item-container">
-                      <span class="label"><strong>昵称：</strong></span>
-                      <span class="content">昵称</span>
-                      <ToolTip content="编辑"></ToolTip>
-                    </div>
-                  </td>
-                </tr>
-                <tr class="ant-descriptions-row">
-                  <td class="ant-descriptions-item">
-                    <div class="ant-descriptions-item-container">
-                      <span class="label"><strong>昵称：</strong></span>
-                      <span class="content">昵称</span>
-                      <ToolTip content="Copy"></ToolTip>
-                    </div>
-                  </td>
-                </tr>
-                <tr class="ant-descriptions-row">
-                  <td class="ant-descriptions-item">
-                    <div class="ant-descriptions-item-container">
-                      <span class="label"><strong>昵称：</strong></span>
-                      <span class="content">昵称</span>
-                      <ToolTip content="Copy"></ToolTip>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
           </div>
         </div>
       </el-card>
@@ -126,10 +74,6 @@ const handleAvatarChange = () => {
       }
       .content {
         .avatar {
-          img {
-            width: 100%;
-            height: 100%;
-          }
           :deep .el-upload-list__item-status-label,
           :deep .el-icon--close-tip {
             display: none;
@@ -138,9 +82,7 @@ const handleAvatarChange = () => {
           :deep .el-upload {
             border-radius: 50%;
           }
-          :deep .el-dialog {
-            border-radius: 36px;
-          }
+
           .showUpload {
             :deep .el-upload--picture-card {
               display: none;
