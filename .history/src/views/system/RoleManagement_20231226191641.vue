@@ -1,8 +1,6 @@
 <script setup>
 import { ref } from 'vue'
 
-import axios from 'axios'
-
 //筛选表单的显示隐藏
 const isShow = ref(false)
 // const params = ref({})
@@ -114,8 +112,7 @@ const handleSelectionChange = (val) => {
 </script>
 
 <template>
-  <!-- <button @click="test">按钮</button> -->
-  <div class="user-managemant-page">
+  <div class="role-managemant-page">
     <FilterLayout
       label1="用户名称"
       label2="手机号码"
@@ -144,77 +141,5 @@ const handleSelectionChange = (val) => {
         />
       </el-form-item>
     </FilterLayout>
-    <div class="user-managemant-page-btns">
-      <el-button plain type="primary">添加</el-button>
-      <el-button plain type="success">修改</el-button>
-      <el-button plain type="danger">删除</el-button>
-    </div>
-    <el-table
-      :ref="multipleTableRef"
-      :data="tableData"
-      style="width: 100%"
-      @selection-change="handleSelectionChange"
-      :header-cell-style="{
-        background: '#F5F7FA',
-        color: '#909399'
-      }"
-    >
-      <el-table-column align="center" type="selection" width="55" />
-      <el-table-column
-        align="center"
-        property="userId"
-        label="用户编号"
-        width="120"
-      />
-      <el-table-column
-        align="center"
-        property="uname"
-        label="用户名称"
-        width="120"
-      />
-      <el-table-column
-        align="center"
-        property="nickName"
-        label="用户昵称"
-        width="120"
-      />
-      <el-table-column
-        align="center"
-        property="phone"
-        label="手机号码"
-        width="120"
-      />
-      <el-table-column align="center" label="状态" width="120">
-        <template #default="scope">
-          <el-switch v-model="scope.row.state" />
-        </template>
-      </el-table-column>
-      <el-table-column
-        property="createDate"
-        label="创建时间"
-        width="120"
-        show-overflow-tooltip
-      />
-      <el-table-column label="操作" show-overflow-tooltip>
-        <template #default="scope">
-          <el-button size="small" type="info" plain>重置密码</el-button>
-          <el-button size="small" type="info" plain>分配角色</el-button>
-        </template>
-      </el-table-column>
-    </el-table>
   </div>
 </template>
-
-<style lang="scss" scoped>
-.user-managemant-page {
-  .el-form-item {
-    width: 30%;
-    .el-select {
-      width: 100%;
-    }
-  }
-  .user-managemant-page-btns {
-    margin-bottom: 16px;
-  }
-}
-</style>

@@ -33,58 +33,58 @@ const handleTrigger = () => {
 
 const tableData = [
   {
-    roleId: 1,
-    rname: 'zs',
-    displayOrder: '15888888888',
-    authority: 'admin',
+    userId: 1,
+    uname: 'zs',
+    nickName: '张三',
+    phone: '15888888888',
     state: false,
     createDate: '2023-04-23 16:11:38'
   },
   {
-    roleId: 1,
-    rname: 'zs',
-    displayOrder: '15888888888',
-    authority: 'admin',
+    userId: 1,
+    uname: 'zs',
+    nickName: '张三',
+    phone: '15888888888',
     state: false,
     createDate: '2023-04-23 16:11:38'
   },
   {
-    roleId: 1,
-    rname: 'zs',
-    displayOrder: '15888888888',
-    authority: 'admin',
+    userId: 1,
+    uname: 'zs',
+    nickName: '张三',
+    phone: '15888888888',
     state: false,
     createDate: '2023-04-23 16:11:38'
   },
   {
-    roleId: 1,
-    rname: 'zs',
-    displayOrder: '15888888888',
-    authority: 'admin',
+    userId: 1,
+    uname: 'zs',
+    nickName: '张三',
+    phone: '15888888888',
     state: false,
     createDate: '2023-04-23 16:11:38'
   },
   {
-    roleId: 1,
-    rname: 'zs',
-    displayOrder: '15888888888',
-    authority: 'admin',
+    userId: 1,
+    uname: 'zs',
+    nickName: '张三',
+    phone: '15888888888',
     state: false,
     createDate: '2023-04-23 16:11:38'
   },
   {
-    roleId: 1,
-    rname: 'zs',
-    displayOrder: '15888888888',
-    authority: 'admin',
+    userId: 1,
+    uname: 'zs',
+    nickName: '张三',
+    phone: '15888888888',
     state: false,
     createDate: '2023-04-23 16:11:38'
   },
   {
-    roleId: 1,
-    rname: 'zs',
-    displayOrder: '15888888888',
-    authority: 'admin',
+    userId: 1,
+    uname: 'zs',
+    nickName: '张三',
+    phone: '15888888888',
     state: false,
     createDate: '2023-04-23 16:11:38'
   }
@@ -172,14 +172,14 @@ const handleSelectionChange = (val) => {
       />
       <el-table-column
         align="center"
-        property="authority"
-        label="权限字段"
+        property="nickName"
+        label="用户昵称"
         width="120"
       />
       <el-table-column
         align="center"
-        property="displayOrder"
-        label="显示顺序"
+        property="phone"
+        label="权限字段"
         width="120"
       />
       <el-table-column align="center" label="状态" width="120">
@@ -195,8 +195,8 @@ const handleSelectionChange = (val) => {
       />
       <el-table-column label="操作" show-overflow-tooltip>
         <template #default="scope">
-          <el-button size="small" type="info" plain>数据权限</el-button>
-          <el-button size="small" type="info" plain>分配用户</el-button>
+          <el-button size="small" type="info" plain>重置密码</el-button>
+          <el-button size="small" type="info" plain>分配角色</el-button>
         </template>
       </el-table-column>
     </el-table>

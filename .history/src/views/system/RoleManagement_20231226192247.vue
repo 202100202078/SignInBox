@@ -33,58 +33,58 @@ const handleTrigger = () => {
 
 const tableData = [
   {
-    roleId: 1,
-    rname: 'zs',
-    displayOrder: '15888888888',
-    authority: 'admin',
+    userId: 1,
+    uname: 'zs',
+    nickName: '张三',
+    phone: '15888888888',
     state: false,
     createDate: '2023-04-23 16:11:38'
   },
   {
-    roleId: 1,
-    rname: 'zs',
-    displayOrder: '15888888888',
-    authority: 'admin',
+    userId: 1,
+    uname: 'zs',
+    nickName: '张三',
+    phone: '15888888888',
     state: false,
     createDate: '2023-04-23 16:11:38'
   },
   {
-    roleId: 1,
-    rname: 'zs',
-    displayOrder: '15888888888',
-    authority: 'admin',
+    userId: 1,
+    uname: 'zs',
+    nickName: '张三',
+    phone: '15888888888',
     state: false,
     createDate: '2023-04-23 16:11:38'
   },
   {
-    roleId: 1,
-    rname: 'zs',
-    displayOrder: '15888888888',
-    authority: 'admin',
+    userId: 1,
+    uname: 'zs',
+    nickName: '张三',
+    phone: '15888888888',
     state: false,
     createDate: '2023-04-23 16:11:38'
   },
   {
-    roleId: 1,
-    rname: 'zs',
-    displayOrder: '15888888888',
-    authority: 'admin',
+    userId: 1,
+    uname: 'zs',
+    nickName: '张三',
+    phone: '15888888888',
     state: false,
     createDate: '2023-04-23 16:11:38'
   },
   {
-    roleId: 1,
-    rname: 'zs',
-    displayOrder: '15888888888',
-    authority: 'admin',
+    userId: 1,
+    uname: 'zs',
+    nickName: '张三',
+    phone: '15888888888',
     state: false,
     createDate: '2023-04-23 16:11:38'
   },
   {
-    roleId: 1,
-    rname: 'zs',
-    displayOrder: '15888888888',
-    authority: 'admin',
+    userId: 1,
+    uname: 'zs',
+    nickName: '张三',
+    phone: '15888888888',
     state: false,
     createDate: '2023-04-23 16:11:38'
   }
