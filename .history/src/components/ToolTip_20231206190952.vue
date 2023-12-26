@@ -2,13 +2,13 @@
 defineProps({
   content: String,
   iconfontClassName: String,
-  iconStyle: Object
+  istyle: Object
 })
 </script>
 
 <template>
   <el-tooltip effect="dark" :content="content" placement="top">
-    <span :class="iconfontClassName" :style="iconStyle"></span>
+    <span :class="iconfontClassName"></span>
   </el-tooltip>
 </template>
 

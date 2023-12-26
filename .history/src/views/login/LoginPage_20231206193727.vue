@@ -117,7 +117,7 @@ const handleTabClick = (tab) => {
           <span class="logo">
             <img src="@/assets/avg/logo.svg" />
           </span>
-          <span class="title">API-BOX 接口开放平台</span>
+          <span class="title">API_BOX 接口开放平台</span>
         </div>
         <div class="describe">
           API-BOX 接口开放平台致力于提供稳定、安全、高效的接口调用服务

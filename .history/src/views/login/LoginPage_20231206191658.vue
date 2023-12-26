@@ -18,8 +18,7 @@ const formModel = ref({
   captcha: '',
   password: '',
   repassword: '',
-  nickname: '',
-  identityType: ''
+  nickname: ''
 })
 
 const rules = {
@@ -117,10 +116,10 @@ const handleTabClick = (tab) => {
           <span class="logo">
             <img src="@/assets/avg/logo.svg" />
           </span>
-          <span class="title">API-BOX 接口开放平台</span>
+          <span class="title">API 接口开放平台</span>
         </div>
         <div class="describe">
-          API-BOX 接口开放平台致力于提供稳定、安全、高效的接口调用服务
+          Qi-API 接口开放平台致力于提供稳定、安全、高效的接口调用服务
         </div>
       </el-header>
       <el-main>

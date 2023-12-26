@@ -67,7 +67,7 @@ const handleAvatarCommand = (command) => {
             </li>
             <li
               class="el-header-main-menu-manageitem"
-              @click="$router.push('/system'), (cur = 4)"
+              @click="$router.push('/system')"
             >
               <el-dropdown @command="handleManageCommand">
                 <span class="el-dropdown-link">

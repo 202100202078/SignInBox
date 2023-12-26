@@ -78,7 +78,6 @@ const handleAvatarChange = () => {
                       <ToolTip
                         content="Copy"
                         iconfontClassName="iconfont icon-fuzhi"
-                        :iconStyle="{ color: '#1677ff' }"
                       ></ToolTip>
                     </div>
                   </td>
@@ -91,7 +90,6 @@ const handleAvatarChange = () => {
                       <ToolTip
                         content="Copy"
                         iconfontClassName="iconfont icon-fuzhi"
-                        :iconStyle="{ color: '#1677ff' }"
                       ></ToolTip>
                     </div>
                   </td>
@@ -104,7 +102,6 @@ const handleAvatarChange = () => {
                       <ToolTip
                         content="Copy"
                         iconfontClassName="iconfont icon-fuzhi"
-                        :iconStyle="{ color: '#1677ff' }"
                       ></ToolTip>
                     </div>
                   </td>
@@ -117,7 +114,6 @@ const handleAvatarChange = () => {
                       <ToolTip
                         content="Copy"
                         iconfontClassName="iconfont icon-fuzhi"
-                        :iconStyle="{ color: '#1677ff' }"
                       ></ToolTip>
                     </div>
                   </td>
