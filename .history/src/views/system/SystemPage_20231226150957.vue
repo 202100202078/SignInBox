@@ -1,15 +1,8 @@
 <script setup>
 import variables from '@/assets/style/variables.module.scss'
 import { ref } from 'vue'
-import { useRouter } from 'vue-router'
-const router = useRouter()
-const isCollapse = ref(false)
 
-const handleAvatarCommand = (command) => {
-  //如果是退出登录需要清除本地用户信息
-  console.log('清除本地用户信息')
-  router.push(command)
-}
+const isCollapse = ref(false)
 </script>
 
 <template>
@@ -214,7 +207,6 @@ const handleAvatarCommand = (command) => {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #eee;
     .header-top-left {
       display: flex;
       align-items: center;

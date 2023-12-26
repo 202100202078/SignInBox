@@ -68,7 +68,7 @@ const trigger = () => {
     .el-form-item {
       width: 30%;
       .el-select {
-        width: 100%;
+        width: 100% !important;
       }
     }
     .btns {

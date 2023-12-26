@@ -1,15 +1,8 @@
 <script setup>
 import variables from '@/assets/style/variables.module.scss'
 import { ref } from 'vue'
-import { useRouter } from 'vue-router'
-const router = useRouter()
-const isCollapse = ref(false)
 
-const handleAvatarCommand = (command) => {
-  //如果是退出登录需要清除本地用户信息
-  console.log('清除本地用户信息')
-  router.push(command)
-}
+const isCollapse = ref(false)
 </script>
 
 <template>
@@ -38,31 +31,30 @@ const handleAvatarCommand = (command) => {
             active-text-color="#ffd04b"
             background-color="#545c64"
             class="el-menu-vertical-demo"
-            default-active="/system/index"
+            default-active="1"
             text-color="#fff"
             @open="handleOpen"
             @close="handleClose"
             :collapse="isCollapse"
-            router
           >
-            <el-menu-item index="/system/index">
+            <el-menu-item index="1">
               <el-icon><House /></el-icon>
               <span>首页</span>
             </el-menu-item>
-            <el-sub-menu>
+            <el-sub-menu index="2">
               <template #title>
                 <el-icon><Setting /></el-icon>
                 <span>系统管理</span>
               </template>
-              <el-menu-item index="/system/usermanagement">
-                <el-icon><User /></el-icon>
-                <span>用户管理</span>
+              <el-menu-item index="2-1">
+                <el-icon><House /></el-icon>
+                <span>首页</span>
               </el-menu-item>
-              <el-menu-item index="/system/rolemanagement">
-                <el-icon><User /></el-icon>
-                <span>角色管理</span>
+              <el-menu-item index="2-2">
+                <el-icon><House /></el-icon>
+                <span>首页</span>
               </el-menu-item>
-              <!-- <el-menu-item index="2-3">
+              <el-menu-item index="2-3">
                 <el-icon><House /></el-icon>
                 <span>首页</span>
               </el-menu-item>
@@ -85,7 +77,7 @@ const handleAvatarCommand = (command) => {
               <el-menu-item index="2-8">
                 <el-icon><House /></el-icon>
                 <span>首页</span>
-              </el-menu-item> -->
+              </el-menu-item>
             </el-sub-menu>
             <el-sub-menu index="3">
               <template #title>
@@ -177,9 +169,7 @@ const handleAvatarCommand = (command) => {
             </div>
           </div>
         </el-header>
-        <el-main>
-          <router-view></router-view>
-        </el-main>
+        <el-main>Main</el-main>
       </el-container>
     </el-container>
   </div>
@@ -214,15 +204,10 @@ const handleAvatarCommand = (command) => {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #eee;
-    .header-top-left {
-      display: flex;
-      align-items: center;
-      .collapseBtns {
-        margin-right: 10px;
-      }
+    .collapseBtns {
+      margin-right: 10px;
     }
-    .header-top-right {
+    .el-header-right-avatar {
       margin-left: 6px;
       display: flex;
       align-items: center;

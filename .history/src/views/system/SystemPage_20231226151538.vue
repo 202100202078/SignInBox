@@ -214,7 +214,6 @@ const handleAvatarCommand = (command) => {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #eee;
     .header-top-left {
       display: flex;
       align-items: center;

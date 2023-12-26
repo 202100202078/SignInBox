@@ -68,14 +68,39 @@ const router = createRouter({
           component: () => import('@/views/system/IndexPage.vue')
         },
         {
-          path: '/system/usermanagement',
-          name: 'usermanagement',
-          component: () => import('@/views/system/UserManagement.vue')
+          path: '/home/interface',
+          name: 'interface',
+          component: () => import('@/views/home/InterfacePage.vue')
         },
         {
-          path: '/system/rolemanagement',
-          name: 'rolemanagement',
-          component: () => import('@/views/system/RoleManagement.vue')
+          path: '/home/recharge',
+          name: 'recharge',
+          component: () => import('@/views/home/RechargePage.vue')
+        },
+        {
+          path: '/home/order',
+          name: 'order',
+          component: () => import('@/views/home/OrderPage.vue')
+        },
+        {
+          path: '/home/user',
+          name: 'user',
+          component: () => import('@/views/home/UserPage.vue')
+        },
+        {
+          path: '/admin/interface',
+          name: 'adminInterface',
+          component: () => import('@/views/admin/InterfacePage.vue')
+        },
+        {
+          path: '/admin/recharge',
+          name: 'adminRecharge',
+          component: () => import('@/views/admin/RechargePage.vue')
+        },
+        {
+          path: '/admin/user',
+          name: 'adminUser',
+          component: () => import('@/views/admin/UserPage.vue')
         }
       ]
     },

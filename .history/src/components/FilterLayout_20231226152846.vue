@@ -66,7 +66,7 @@ const trigger = () => {
     align-items: center;
     flex-wrap: wrap;
     .el-form-item {
-      width: 30%;
+      width: 30% !important;
       .el-select {
         width: 100%;
       }

@@ -69,13 +69,13 @@ const router = createRouter({
         },
         {
           path: '/system/usermanagement',
-          name: 'usermanagement',
+          name: 'index',
           component: () => import('@/views/system/UserManagement.vue')
         },
         {
           path: '/system/rolemanagement',
-          name: 'rolemanagement',
-          component: () => import('@/views/system/RoleManagement.vue')
+          name: 'index',
+          component: () => import('@/views/system/IndexPage.vue')
         }
       ]
     },
