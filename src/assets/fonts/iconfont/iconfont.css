@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 4345534 */
-  src: url('iconfont.woff2?t=1701002675442') format('woff2'),
-       url('iconfont.woff?t=1701002675442') format('woff'),
-       url('iconfont.ttf?t=1701002675442') format('truetype');
+  src: url('iconfont.woff2?t=1703642635456') format('woff2'),
+       url('iconfont.woff?t=1703642635456') format('woff'),
+       url('iconfont.ttf?t=1703642635456') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,42 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-yunyingbaobiao:before {
+  content: "\e620";
+}
+
+.icon-jiekou1:before {
+  content: "\e694";
+}
+
+.icon-jiaoseguanli:before {
+  content: "\e618";
+}
+
+.icon-dingshirenwu:before {
+  content: "\e651";
+}
+
+.icon-daimashengcheng:before {
+  content: "\e636";
+}
+
+.icon-a-Icon-line-hamburger-right1x:before {
+  content: "\e84c";
+}
+
+.icon-a-Icon-line-hamburger-left1x:before {
+  content: "\e84d";
+}
+
+.icon-a-shujujiankong2:before {
+  content: "\e628";
+}
+
+.icon-a-zaixianyonghu2:before {
+  content: "\e629";
 }
 
 .icon-shouqi:before {

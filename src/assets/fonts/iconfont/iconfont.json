@@ -6,6 +6,69 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "1047435",
+      "name": "运营报表",
+      "font_class": "yunyingbaobiao",
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    },
+    {
+      "icon_id": "2071561",
+      "name": "接口变更动态",
+      "font_class": "jiekou1",
+      "unicode": "e694",
+      "unicode_decimal": 59028
+    },
+    {
+      "icon_id": "10213489",
+      "name": "角色管理",
+      "font_class": "jiaoseguanli",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "19145291",
+      "name": "定时任务",
+      "font_class": "dingshirenwu",
+      "unicode": "e651",
+      "unicode_decimal": 58961
+    },
+    {
+      "icon_id": "24848379",
+      "name": "代码生成",
+      "font_class": "daimashengcheng",
+      "unicode": "e636",
+      "unicode_decimal": 58934
+    },
+    {
+      "icon_id": "25658470",
+      "name": "Icon-line-hamburger-right@1x",
+      "font_class": "a-Icon-line-hamburger-right1x",
+      "unicode": "e84c",
+      "unicode_decimal": 59468
+    },
+    {
+      "icon_id": "25658474",
+      "name": "Icon-line-hamburger-left@1x",
+      "font_class": "a-Icon-line-hamburger-left1x",
+      "unicode": "e84d",
+      "unicode_decimal": 59469
+    },
+    {
+      "icon_id": "35432567",
+      "name": "数据监控 (2)",
+      "font_class": "a-shujujiankong2",
+      "unicode": "e628",
+      "unicode_decimal": 58920
+    },
+    {
+      "icon_id": "35432586",
+      "name": "在线用户 (2)",
+      "font_class": "a-zaixianyonghu2",
+      "unicode": "e629",
+      "unicode_decimal": 58921
+    },
+    {
       "icon_id": "672034",
       "name": "收起",
       "font_class": "shouqi",
