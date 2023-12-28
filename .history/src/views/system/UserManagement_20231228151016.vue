@@ -130,68 +130,81 @@ const delUserFn = () => {
 }
 
 const form = ref({
-  nickName: '',
-  phone: '',
-  email: '',
-  uname: '',
-  password: false,
-  role: '',
-  gender: '',
-  status: '',
+  name: '',
+  region: '',
+  date1: '',
+  date2: '',
+  delivery: false,
+  type: [],
+  resource: '',
   desc: ''
 })
-
-const rules = {}
 </script>
 
 <template>
   <MyDialog :title="title" ref="myDialogRef">
     <template #form>
-      <el-form
-        :model="form"
-        label-width="80px"
-        label-position="left"
-        :rules="rules"
-      >
+      <el-form :model="form" label-width="120px">
         <el-form-item label="用户昵称">
-          <el-input v-model="form.nickName" />
+          <el-input v-model="form.name" />
         </el-form-item>
         <el-form-item label="手机号码">
-          <el-input v-model="form.phone" />
+          <el-input v-model="form.name" />
         </el-form-item>
         <el-form-item label="邮箱">
-          <el-input v-model="form.email" />
+          <el-input v-model="form.name" />
         </el-form-item>
         <el-form-item label="用户名称">
-          <el-input v-model="form.uname" />
+          <el-input v-model="form.name" />
         </el-form-item>
         <el-form-item label="用户密码">
-          <el-input v-model="form.password" type="password" />
+          <el-input v-model="form.name" type="password" />
         </el-form-item>
         <el-form-item label="用户性别">
-          <el-select v-model="form.gender" placeholder="请选择性别">
-            <el-option label="男" value="1" />
-            <el-option label="女" value="2" />
-            <el-option label="未知" value="3" />
+          <el-select v-model="form.region" placeholder="请选择性别">
+            <el-option label="Zone one" value="shanghai" />
+            <el-option label="Zone two" value="beijing" />
           </el-select>
         </el-form-item>
-        <el-form-item label="角色">
-          <el-select v-model="form.role" placeholder="请选择角色">
-            <el-option label="普通角色" value="normal" />
-          </el-select>
+        <el-form-item label="Activity time">
+          <el-col :span="11">
+            <el-date-picker
+              v-model="form.date1"
+              type="date"
+              placeholder="Pick a date"
+              style="width: 100%"
+            />
+          </el-col>
+          <el-col :span="2" class="text-center">
+            <span class="text-gray-500">-</span>
+          </el-col>
+          <el-col :span="11">
+            <el-time-picker
+              v-model="form.date2"
+              placeholder="Pick a time"
+              style="width: 100%"
+            />
+          </el-col>
+        </el-form-item>
+        <el-form-item label="Instant delivery">
+          <el-switch v-model="form.delivery" />
         </el-form-item>
         <el-form-item label="状态">
-          <el-radio-group v-model="form.status">
-            <el-radio label="正常" />
-            <el-radio label="停用" />
+          <el-checkbox-group v-model="form.type">
+            <el-checkbox label="Online activities" name="type" />
+            <el-checkbox label="Promotion activities" name="type" />
+            <el-checkbox label="Offline activities" name="type" />
+            <el-checkbox label="Simple brand exposure" name="type" />
+          </el-checkbox-group>
+        </el-form-item>
+        <el-form-item label="Resources">
+          <el-radio-group v-model="form.resource">
+            <el-radio label="Sponsor" />
+            <el-radio label="Venue" />
           </el-radio-group>
         </el-form-item>
-        <el-form-item label="备注">
-          <el-input
-            v-model="form.desc"
-            type="textarea"
-            placeholder="请输入内容"
-          />
+        <el-form-item label="Activity form">
+          <el-input v-model="form.desc" type="textarea" />
         </el-form-item>
       </el-form>
     </template>

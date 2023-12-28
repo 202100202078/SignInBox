@@ -140,19 +140,12 @@ const form = ref({
   status: '',
   desc: ''
 })
-
-const rules = {}
 </script>
 
 <template>
   <MyDialog :title="title" ref="myDialogRef">
     <template #form>
-      <el-form
-        :model="form"
-        label-width="80px"
-        label-position="left"
-        :rules="rules"
-      >
+      <el-form :model="form" label-width="80px" label-position="left">
         <el-form-item label="用户昵称">
           <el-input v-model="form.nickName" />
         </el-form-item>
@@ -169,19 +162,19 @@ const rules = {}
           <el-input v-model="form.password" type="password" />
         </el-form-item>
         <el-form-item label="用户性别">
-          <el-select v-model="form.gender" placeholder="请选择性别">
+          <el-select v-model="form.region" placeholder="请选择性别">
             <el-option label="男" value="1" />
             <el-option label="女" value="2" />
             <el-option label="未知" value="3" />
           </el-select>
         </el-form-item>
         <el-form-item label="角色">
-          <el-select v-model="form.role" placeholder="请选择角色">
+          <el-select v-model="form.region" placeholder="请选择角色">
             <el-option label="普通角色" value="normal" />
           </el-select>
         </el-form-item>
         <el-form-item label="状态">
-          <el-radio-group v-model="form.status">
+          <el-radio-group v-model="form.resource">
             <el-radio label="正常" />
             <el-radio label="停用" />
           </el-radio-group>

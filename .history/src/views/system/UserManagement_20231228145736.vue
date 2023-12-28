@@ -121,81 +121,12 @@ const addUserFn = () => {
   myDialogRef.value.open()
 }
 const editUserFn = () => {
-  title.value = '修改用户'
   myDialogRef.value.open()
 }
-const delUserFn = () => {
-  title.value = '系统提示'
-  myDialogRef.value.open()
-}
-
-const form = ref({
-  nickName: '',
-  phone: '',
-  email: '',
-  uname: '',
-  password: false,
-  role: '',
-  gender: '',
-  status: '',
-  desc: ''
-})
-
-const rules = {}
 </script>
 
 <template>
-  <MyDialog :title="title" ref="myDialogRef">
-    <template #form>
-      <el-form
-        :model="form"
-        label-width="80px"
-        label-position="left"
-        :rules="rules"
-      >
-        <el-form-item label="用户昵称">
-          <el-input v-model="form.nickName" />
-        </el-form-item>
-        <el-form-item label="手机号码">
-          <el-input v-model="form.phone" />
-        </el-form-item>
-        <el-form-item label="邮箱">
-          <el-input v-model="form.email" />
-        </el-form-item>
-        <el-form-item label="用户名称">
-          <el-input v-model="form.uname" />
-        </el-form-item>
-        <el-form-item label="用户密码">
-          <el-input v-model="form.password" type="password" />
-        </el-form-item>
-        <el-form-item label="用户性别">
-          <el-select v-model="form.gender" placeholder="请选择性别">
-            <el-option label="男" value="1" />
-            <el-option label="女" value="2" />
-            <el-option label="未知" value="3" />
-          </el-select>
-        </el-form-item>
-        <el-form-item label="角色">
-          <el-select v-model="form.role" placeholder="请选择角色">
-            <el-option label="普通角色" value="normal" />
-          </el-select>
-        </el-form-item>
-        <el-form-item label="状态">
-          <el-radio-group v-model="form.status">
-            <el-radio label="正常" />
-            <el-radio label="停用" />
-          </el-radio-group>
-        </el-form-item>
-        <el-form-item label="备注">
-          <el-input
-            v-model="form.desc"
-            type="textarea"
-            placeholder="请输入内容"
-          />
-        </el-form-item>
-      </el-form>
-    </template>
-  </MyDialog>
+  <MyDialog :title="title" ref="myDialogRef"></MyDialog>
   <button @click="test">按钮</button>
   <div class="user-managemant-page">
     <FilterLayout
@@ -231,7 +162,7 @@ const rules = {}
     <div class="user-managemant-page-btns">
       <el-button plain type="primary" @click="addUserFn">添加</el-button>
       <el-button plain type="success" @click="editUserFn">修改</el-button>
-      <el-button plain type="danger" @click="delUserFn">删除</el-button>
+      <el-button plain type="danger">删除</el-button>
     </div>
     <el-table
       :ref="multipleTableRef"

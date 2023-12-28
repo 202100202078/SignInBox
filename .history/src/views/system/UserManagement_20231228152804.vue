@@ -147,12 +147,7 @@ const rules = {}
 <template>
   <MyDialog :title="title" ref="myDialogRef">
     <template #form>
-      <el-form
-        :model="form"
-        label-width="80px"
-        label-position="left"
-        :rules="rules"
-      >
+      <el-form :model="form" label-width="80px" label-position="left">
         <el-form-item label="用户昵称">
           <el-input v-model="form.nickName" />
         </el-form-item>
