@@ -1,15 +1,15 @@
 import systemrequest from '@/utils/systemRequest'
 
-export const getMenuList = (params) =>
-  systemrequest.get('/system/module/list', {
+export const getUserList = (params) =>
+  systemrequest.get('/system/user/current', {
     params
   })
 
-export const addMenuItem = (params) =>
+export const addUserItem = (params) =>
   systemrequest.post('/system/module', params)
 
-export const removeMenuItem = (moduleId) =>
+export const removeUserItem = (moduleId) =>
   systemrequest.delete(`/system/module/${moduleId}`)
 
-export const editMenuItem = (params) =>
+export const editUserItem = (params) =>
   systemrequest.put('/system/module', params)

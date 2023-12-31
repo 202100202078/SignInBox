@@ -13,7 +13,7 @@ const open = () => {
 
 const confirm = () => {
   dialogFormVisible.value = false
-  emit('onConfirm')
+  emit()
 }
 
 const emit = defineEmits(['onConfirm'])

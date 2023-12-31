@@ -31,7 +31,7 @@ const handleTrigger = () => {
   isShow.value = !isShow.value
 }
 
-const tableData = ref([
+const tableData = [
   {
     id: 1,
     menuName: '首页',
@@ -88,7 +88,7 @@ const tableData = ref([
     state: '正常',
     createDate: '2023-04-23 16:11:49'
   }
-])
+]
 
 const multipleTableRef = ref()
 
@@ -99,8 +99,7 @@ const addMenuFn = async () => {
   title.value = '添加菜单'
   myDialogRef.value.open()
   const res = await getMenuList()
-  console.log(res.data.data)
-  tableData.value = res.data.data
+  console.log(res)
 }
 
 const data = [
@@ -176,12 +175,13 @@ const data = [
 
 const formModel = ref({
   moduleName: '',
-  status: '0',
+  status: '正常',
   parentId: 0,
   perms: '',
-  visible: '0',
+  visible: '显示',
   moduleSort: 0,
-  moduleType: 'M'
+  moduleType: '目录',
+  icon: ''
 })
 
 const handleConfirm = async () => {
@@ -226,14 +226,14 @@ const rules = ref({
         </el-form-item>
         <el-form-item label="显示状态">
           <el-radio-group v-model="formModel.visible">
-            <el-radio label="0">显示</el-radio>
-            <el-radio label="1">隐藏</el-radio>
+            <el-radio label="">显示</el-radio>
+            <el-radio label="">隐藏</el-radio>
           </el-radio-group>
         </el-form-item>
         <el-form-item label="菜单状态">
           <el-radio-group v-model="formModel.status">
-            <el-radio label="0">正常</el-radio>
-            <el-radio label="1">停用</el-radio>
+            <el-radio label="正常" />
+            <el-radio label="停用" />
           </el-radio-group>
         </el-form-item>
         <!-- <el-form-item label="邮箱">

@@ -3,7 +3,13 @@
 import { login } from '@/api/login/login.js'
 import { ref } from 'vue'
 import { useUserStore } from '@/stores/modules/user.js'
-import { Message, Lock, User, EditPen } from '@element-plus/icons-vue'
+import {
+  Message,
+  Lock,
+  User,
+  EditPen,
+  Paperclip
+} from '@element-plus/icons-vue'
 
 const userStore = useUserStore()
 const emailForm = ref()

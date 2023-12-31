@@ -31,7 +31,7 @@ const handleTrigger = () => {
   isShow.value = !isShow.value
 }
 
-const tableData = ref([
+const tableData = [
   {
     id: 1,
     menuName: '首页',
@@ -88,7 +88,7 @@ const tableData = ref([
     state: '正常',
     createDate: '2023-04-23 16:11:49'
   }
-])
+]
 
 const multipleTableRef = ref()
 
@@ -100,7 +100,6 @@ const addMenuFn = async () => {
   myDialogRef.value.open()
   const res = await getMenuList()
   console.log(res.data.data)
-  tableData.value = res.data.data
 }
 
 const data = [

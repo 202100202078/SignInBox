@@ -31,7 +31,7 @@ const handleTrigger = () => {
   isShow.value = !isShow.value
 }
 
-const tableData = ref([
+const tableData = [
   {
     id: 1,
     menuName: '首页',
@@ -88,7 +88,7 @@ const tableData = ref([
     state: '正常',
     createDate: '2023-04-23 16:11:49'
   }
-])
+]
 
 const multipleTableRef = ref()
 
@@ -99,8 +99,7 @@ const addMenuFn = async () => {
   title.value = '添加菜单'
   myDialogRef.value.open()
   const res = await getMenuList()
-  console.log(res.data.data)
-  tableData.value = res.data.data
+  console.log(res)
 }
 
 const data = [
@@ -176,10 +175,10 @@ const data = [
 
 const formModel = ref({
   moduleName: '',
-  status: '0',
+  status: '正常',
   parentId: 0,
   perms: '',
-  visible: '0',
+  visible: '显示',
   moduleSort: 0,
   moduleType: 'M'
 })

@@ -10,6 +10,3 @@ export const addMenuItem = (params) =>
 
 export const removeMenuItem = (moduleId) =>
   systemrequest.delete(`/system/module/${moduleId}`)
-
-export const editMenuItem = (params) =>
-  systemrequest.put('/system/module', params)

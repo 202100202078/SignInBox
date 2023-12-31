@@ -3,7 +3,13 @@
 import { login } from '@/api/login/login.js'
 import { ref } from 'vue'
 import { useUserStore } from '@/stores/modules/user.js'
-import { Message, Lock, User, EditPen } from '@element-plus/icons-vue'
+import {
+  Message,
+  Lock,
+  User,
+  EditPen,
+  Paperclip
+} from '@element-plus/icons-vue'
 
 const userStore = useUserStore()
 const emailForm = ref()
@@ -12,6 +18,7 @@ const accountForm = ref()
 const formModel = ref({
   email: '',
   account: '',
+  invitationCode: '',
   captcha: '',
   password: '',
   repassword: '',
@@ -153,6 +160,14 @@ const handleTabClick = (tab) => {
                   size="large"
                 ></el-input>
               </el-form-item>
+              <!-- <el-form-item v-if="!isLoginPage" prop="invitationCode">
+                <el-input
+                  v-model="formModel.invitationCode"
+                  placeholder="请输入邀请码，没有可不填"
+                  :prefix-icon="Paperclip"
+                  size="large"
+                ></el-input>
+              </el-form-item> -->
               <el-form-item prop="captcha">
                 <el-input
                   v-model="formModel.captcha"
@@ -244,6 +259,14 @@ const handleTabClick = (tab) => {
                   size="large"
                 ></el-input>
               </el-form-item>
+              <!-- <el-form-item v-if="!isLoginPage" prop="invitationCode">
+                <el-input
+                  v-model="formModel.invitationCode"
+                  placeholder="请输入邀请码，没有可不填"
+                  :prefix-icon="Paperclip"
+                  size="large"
+                ></el-input>
+              </el-form-item> -->
               <el-form-item class="flex">
                 <el-checkbox
                   v-if="isLoginPage"

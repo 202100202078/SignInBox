@@ -9,8 +9,8 @@ export const login = ({ account, password }) =>
 
 export const register = ({ account, password, repassword }) =>
   authRequest.post('/auth/register', {
-    checkCred: repassword,
-    credential: password,
-    identifier: account,
-    identityType: 'username'
+    checkCred: '',
+    credential: '',
+    identifier: '',
+    identityType: ''
   })
