@@ -193,6 +193,7 @@ const formModel = ref({
         label-width="80px"
         label-position="left"
         :rules="rules"
+        :inline="true"
       >
         <el-form-item label="上级菜单">
           <el-tree-select

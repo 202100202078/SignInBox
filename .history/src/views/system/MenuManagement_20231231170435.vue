@@ -98,8 +98,8 @@ const title = ref('添加菜单')
 const addMenuFn = async () => {
   title.value = '添加菜单'
   myDialogRef.value.open()
-  // const res = await getMenuList()
-  // console.log(res)
+  const res = await getMenuList()
+  console.log(res)
 }
 
 const data = [
@@ -175,12 +175,12 @@ const data = [
 
 const formModel = ref({
   moduleName: '',
-  status: '正常',
+  status: '',
   parentId: '',
   perms: '',
-  visible: '显示',
+  visible: '',
   moduleSort: 0,
-  moduleType: '目录',
+  moduleType: '',
   icon: ''
 })
 </script>

@@ -98,8 +98,8 @@ const title = ref('添加菜单')
 const addMenuFn = async () => {
   title.value = '添加菜单'
   myDialogRef.value.open()
-  // const res = await getMenuList()
-  // console.log(res)
+  const res = await getMenuList()
+  console.log(res)
 }
 
 const data = [
@@ -175,13 +175,8 @@ const data = [
 
 const formModel = ref({
   moduleName: '',
-  status: '正常',
-  parentId: '',
-  perms: '',
-  visible: '显示',
-  moduleSort: 0,
-  moduleType: '目录',
-  icon: ''
+  status: '',
+  parentId: ''
 })
 </script>
 
@@ -203,31 +198,15 @@ const formModel = ref({
           />
         </el-form-item>
         <el-form-item label="菜单类型">
-          <el-radio-group v-model="formModel.moduleType">
-            <el-radio label="目录" />
-            <el-radio label="菜单" />
-            <el-radio label="按钮" />
-          </el-radio-group>
-        </el-form-item>
-        <el-form-item label="菜单名称">
-          <el-input v-model="formModel.moduleName" />
-        </el-form-item>
-        <el-form-item label="显示排序">
-          <el-input-number v-model="formModel.moduleSort" :min="0" />
-        </el-form-item>
-        <el-form-item label="显示状态">
-          <el-radio-group v-model="formModel.visible">
-            <el-radio label="显示" />
-            <el-radio label="隐藏" />
-          </el-radio-group>
-        </el-form-item>
-        <el-form-item label="菜单状态">
           <el-radio-group v-model="formModel.status">
             <el-radio label="正常" />
             <el-radio label="停用" />
           </el-radio-group>
         </el-form-item>
-        <!-- <el-form-item label="邮箱">
+        <el-form-item label="手机号码">
+          <el-input v-model="form.phone" />
+        </el-form-item>
+        <el-form-item label="邮箱">
           <el-input v-model="form.email" />
         </el-form-item>
         <el-form-item label="用户名称">
@@ -254,7 +233,7 @@ const formModel = ref({
             type="textarea"
             placeholder="请输入内容"
           />
-        </el-form-item> -->
+        </el-form-item>
       </el-form>
     </template>
   </MyDialog>

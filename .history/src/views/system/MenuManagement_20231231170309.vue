@@ -98,8 +98,8 @@ const title = ref('添加菜单')
 const addMenuFn = async () => {
   title.value = '添加菜单'
   myDialogRef.value.open()
-  // const res = await getMenuList()
-  // console.log(res)
+  const res = await getMenuList()
+  console.log(res)
 }
 
 const data = [
@@ -175,13 +175,8 @@ const data = [
 
 const formModel = ref({
   moduleName: '',
-  status: '正常',
-  parentId: '',
-  perms: '',
-  visible: '显示',
-  moduleSort: 0,
-  moduleType: '目录',
-  icon: ''
+  status: '',
+  parentId: ''
 })
 </script>
 
@@ -190,7 +185,7 @@ const formModel = ref({
     <template #form>
       <el-form
         :model="form"
-        label-width="80px"
+        label-width="180px"
         label-position="left"
         :rules="rules"
       >

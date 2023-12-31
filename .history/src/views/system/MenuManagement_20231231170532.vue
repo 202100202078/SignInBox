@@ -98,8 +98,8 @@ const title = ref('添加菜单')
 const addMenuFn = async () => {
   title.value = '添加菜单'
   myDialogRef.value.open()
-  // const res = await getMenuList()
-  // console.log(res)
+  const res = await getMenuList()
+  console.log(res)
 }
 
 const data = [

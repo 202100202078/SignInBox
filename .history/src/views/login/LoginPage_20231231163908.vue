@@ -101,8 +101,7 @@ const onSubmit = async (type) => {
     // 目前只有账号登录
     const res = await login(formModel.value)
     // console.log(res)
-    userStore.setToken(res.data.token)
-    formModel.value.account = formModel.value.password = ''
+    userStore.setToken(res.token)
   } else {
     console.log('注册')
   }

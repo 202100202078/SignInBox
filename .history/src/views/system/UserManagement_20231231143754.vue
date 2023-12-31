@@ -91,6 +91,19 @@ const tableData = [
   }
 ]
 
+// const test = () => {
+//   console.log(datePicker.value[1])
+//   axios
+//     .get('http://10.161.8.214:9604/api/service/list', {
+//       params: {
+//         endTime: datePicker.value[1]
+//       }
+//     })
+//     .then((res) => {
+//       console.log(res)
+//     })
+// }
+
 const multipleTableRef = ref()
 const multipleSelection = ref([])
 

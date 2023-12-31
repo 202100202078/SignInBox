@@ -1,5 +1,6 @@
 <script setup>
 defineProps({
+  filterForm: Object,
   label1: String,
   label2: String,
   defaultShow1: {

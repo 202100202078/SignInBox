@@ -2,7 +2,6 @@
 // import { router } from 'vue-router'
 import { login } from '@/api/login/login.js'
 import { ref } from 'vue'
-import { useUserStore } from '@/stores/modules/user.js'
 import {
   Message,
   Lock,
@@ -10,8 +9,6 @@ import {
   EditPen,
   Paperclip
 } from '@element-plus/icons-vue'
-
-const userStore = useUserStore()
 const emailForm = ref()
 const accountForm = ref()
 
@@ -97,12 +94,7 @@ const onSubmit = async (type) => {
   //先表单预校验
   await (type === 1 ? emailForm.value.validate() : accountForm.value.validate())
   if (isLoginPage.value) {
-    // console.log('登录')
-    // 目前只有账号登录
-    const res = await login(formModel.value)
-    // console.log(res)
-    userStore.setToken(res.data.token)
-    formModel.value.account = formModel.value.password = ''
+    console.log('登录')
   } else {
     console.log('注册')
   }

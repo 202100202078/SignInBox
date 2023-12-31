@@ -98,8 +98,8 @@ const title = ref('添加菜单')
 const addMenuFn = async () => {
   title.value = '添加菜单'
   myDialogRef.value.open()
-  // const res = await getMenuList()
-  // console.log(res)
+  const res = await getMenuList()
+  console.log(res)
 }
 
 const data = [
@@ -175,13 +175,8 @@ const data = [
 
 const formModel = ref({
   moduleName: '',
-  status: '正常',
-  parentId: '',
-  perms: '',
-  visible: '显示',
-  moduleSort: 0,
-  moduleType: '目录',
-  icon: ''
+  status: '',
+  parentId: ''
 })
 </script>
 
@@ -212,20 +207,13 @@ const formModel = ref({
         <el-form-item label="菜单名称">
           <el-input v-model="formModel.moduleName" />
         </el-form-item>
-        <el-form-item label="显示排序">
-          <el-input-number v-model="formModel.moduleSort" :min="0" />
-        </el-form-item>
-        <el-form-item label="显示状态">
-          <el-radio-group v-model="formModel.visible">
-            <el-radio label="显示" />
-            <el-radio label="隐藏" />
-          </el-radio-group>
-        </el-form-item>
-        <el-form-item label="菜单状态">
-          <el-radio-group v-model="formModel.status">
-            <el-radio label="正常" />
-            <el-radio label="停用" />
-          </el-radio-group>
+        <el-form-item label="菜单名称">
+          <el-input-number
+            v-model="num"
+            :min="1"
+            :max="10"
+            @change="handleChange"
+          />
         </el-form-item>
         <!-- <el-form-item label="邮箱">
           <el-input v-model="form.email" />

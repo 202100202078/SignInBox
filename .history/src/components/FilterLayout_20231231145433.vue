@@ -1,5 +1,6 @@
 <script setup>
 defineProps({
+  filterForm: Object,
   label1: String,
   label2: String,
   defaultShow1: {
@@ -40,7 +41,7 @@ const trigger = () => {
     <el-card shadow="never" :body-style="{ 'padding-bottom': '4px' }">
       <el-form :inline="true">
         <el-form-item :label="label1" v-if="defaultShow1">
-          <el-input placeholder="请输入"></el-input>
+          <el-input placeholder="请输入" :value="filterForm."></el-input>
         </el-form-item>
         <el-form-item :label="label2" v-if="defaultShow2">
           <el-input placeholder="请输入"></el-input>

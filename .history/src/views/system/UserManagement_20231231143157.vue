@@ -2,6 +2,8 @@
 import MyDialog from './components/MyDialog.vue'
 import { ref } from 'vue'
 
+import axios from 'axios'
+
 //筛选表单的显示隐藏
 const isShow = ref(true)
 // const params = ref({})
@@ -90,6 +92,19 @@ const tableData = [
     createDate: '2023-04-23 16:11:38'
   }
 ]
+
+const test = () => {
+  console.log(datePicker.value[1])
+  axios
+    .get('http://10.161.8.214:9604/api/service/list', {
+      params: {
+        endTime: datePicker.value[1]
+      }
+    })
+    .then((res) => {
+      console.log(res)
+    })
+}
 
 const multipleTableRef = ref()
 const multipleSelection = ref([])
@@ -181,7 +196,7 @@ const rules = {}
       </el-form>
     </template>
   </MyDialog>
-  <!-- <button @click="test">按钮</button> -->
+  <button @click="test">按钮</button>
   <div class="user-managemant-page">
     <FilterLayout
       label1="用户名称"

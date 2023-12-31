@@ -2,14 +2,8 @@
 defineProps({
   label1: String,
   label2: String,
-  defaultShow1: {
-    type: Boolean,
-    default: true
-  },
-  defaultShow2: {
-    type: Boolean,
-    default: true
-  },
+  defaultShow1: Boolean,
+  defaultShow2: Boolean,
   isShow: Boolean,
   showCollapse: Boolean
 })
@@ -39,10 +33,10 @@ const trigger = () => {
   <div class="filter-card">
     <el-card shadow="never" :body-style="{ 'padding-bottom': '4px' }">
       <el-form :inline="true">
-        <el-form-item :label="label1" v-if="defaultShow1">
+        <el-form-item :label="label1">
           <el-input placeholder="请输入"></el-input>
         </el-form-item>
-        <el-form-item :label="label2" v-if="defaultShow2">
+        <el-form-item :label="label2">
           <el-input placeholder="请输入"></el-input>
         </el-form-item>
         <slot></slot>
