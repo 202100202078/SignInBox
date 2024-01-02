@@ -4,8 +4,7 @@ import { login } from '@/api/login/login.js'
 import { ref } from 'vue'
 import { useUserStore } from '@/stores/modules/user.js'
 import { Message, Lock, User, EditPen } from '@element-plus/icons-vue'
-import { useRouter } from 'vue-router'
-const router = useRouter()
+import { router } from 'vue-router'
 
 const userStore = useUserStore()
 const emailForm = ref()

@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { useUserStore } from '@/stores/modules/user.js'
+import { useUserStore } from '@/store/store.js'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -95,11 +95,10 @@ const router = createRouter({
 export default router
 
 router.beforeEach((to) => {
-  const userStore = useUserStore()
   if (
     // 检查用户是否已登录
-    !userStore.token &&
-    // 避免无限重定向
+    !isAuthenticated &&
+    // ❗️ 避免无限重定向
     to.name !== 'login'
   ) {
     // 将用户重定向到登录页面
