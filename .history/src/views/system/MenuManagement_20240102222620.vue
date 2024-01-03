@@ -116,21 +116,15 @@ const formModel = ref({
   moduleType: 'M'
 })
 
-const rules = ref({
-  moduleName: [{ required: true, message: '请输入菜单名称', trigger: 'blur' }]
-})
-
-const addMenuFn = async () => {
-  title.value = '添加菜单'
-  myDialogRef.value.open()
-}
-
 const handleConfirm = async () => {
   await addMenuItem(formModel.value)
   // console.log(res)
   ElMessage.success('操作成功')
-  getDataList()
 }
+
+const rules = ref({
+  moduleName: [{ required: true, message: '请输入菜单名称', trigger: 'blur' }]
+})
 
 const delModule = async (moduleId) => {
   // console.log(moduleId)
@@ -138,6 +132,12 @@ const delModule = async (moduleId) => {
   // console.log(res)
   getDataList()
   ElMessage.success('操作成功')
+}
+
+const addMenuFn = async () => {
+  title.value = '添加菜单'
+  myDialogRef.value.open()
+  getDataList()
 }
 
 const editMenuFn = async (moduleId) => {

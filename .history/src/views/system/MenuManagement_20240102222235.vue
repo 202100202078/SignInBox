@@ -99,38 +99,96 @@ const tableData = ref([
 const myDialogRef = ref()
 const title = ref('添加菜单')
 
-const data = ref([])
-
-const filterForm = ref({
-  moduleName: '',
-  status: ''
-})
+const data = ref([
+  {
+    value: '1',
+    label: 'Level one 1',
+    children: [
+      {
+        value: '1-1',
+        label: 'Level two 1-1',
+        children: [
+          {
+            value: '1-1-1',
+            label: 'Level three 1-1-1'
+          }
+        ]
+      }
+    ]
+  },
+  {
+    value: '2',
+    label: 'Level one 2',
+    children: [
+      {
+        value: '2-1',
+        label: 'Level two 2-1',
+        children: [
+          {
+            value: '2-1-1',
+            label: 'Level three 2-1-1'
+          }
+        ]
+      },
+      {
+        value: '2-2',
+        label: 'Level two 2-2',
+        children: [
+          {
+            value: '2-2-1',
+            label: 'Level three 2-2-1'
+          }
+        ]
+      }
+    ]
+  },
+  {
+    value: '3',
+    label: 'Level one 3',
+    children: [
+      {
+        value: '3-1',
+        label: 'Level two 3-1',
+        children: [
+          {
+            value: '3-1-1',
+            label: 'Level three 3-1-1'
+          }
+        ]
+      },
+      {
+        value: '3-2',
+        label: 'Level two 3-2',
+        children: [
+          {
+            value: '3-2-1',
+            label: 'Level three 3-2-1'
+          }
+        ]
+      }
+    ]
+  }
+])
 
 const formModel = ref({
   moduleName: '',
   status: '0',
-  parentId: 0,
+  moduleId: 0,
   perms: '',
   visible: '0',
   moduleSort: 0,
   moduleType: 'M'
 })
 
-const rules = ref({
-  moduleName: [{ required: true, message: '请输入菜单名称', trigger: 'blur' }]
-})
-
-const addMenuFn = async () => {
-  title.value = '添加菜单'
-  myDialogRef.value.open()
-}
-
 const handleConfirm = async () => {
   await addMenuItem(formModel.value)
   // console.log(res)
   ElMessage.success('操作成功')
-  getDataList()
 }
+
+const rules = ref({
+  moduleName: [{ required: true, message: '请输入菜单名称', trigger: 'blur' }]
+})
 
 const delModule = async (moduleId) => {
   // console.log(moduleId)
@@ -138,6 +196,12 @@ const delModule = async (moduleId) => {
   // console.log(res)
   getDataList()
   ElMessage.success('操作成功')
+}
+
+const addMenuFn = async () => {
+  title.value = '添加菜单'
+  myDialogRef.value.open()
+  getDataList()
 }
 
 const editMenuFn = async (moduleId) => {
@@ -168,7 +232,7 @@ getDataList()
       >
         <el-form-item label="上级菜单">
           <el-tree-select
-            v-model="formModel.parentId"
+            v-model="formModel.moduleId"
             :data="data"
             check-strictly
             :props="{ label: 'moduleName', value: 'parentId' }"
@@ -225,12 +289,12 @@ getDataList()
     >
       <el-form-item label="菜单名称">
         <el-input
-          v-model="filterForm.moduleName"
+          v-model="formModel.moduleName"
           placeholder="请输入"
         ></el-input>
       </el-form-item>
       <el-form-item label="状态">
-        <el-select v-model="filterForm.status" placeholder="请选择">
+        <el-select v-model="formModel.status" placeholder="请选择">
           <el-option
             v-for="item in statusOptions"
             :key="item.value"

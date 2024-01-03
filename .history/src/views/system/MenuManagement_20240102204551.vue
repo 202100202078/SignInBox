@@ -1,11 +1,5 @@
 <script setup>
-import {
-  getMenuList,
-  addMenuItem,
-  removeMenuItem,
-  getMenuItem,
-  editMenuItem
-} from '@/api/system/menu.js'
+import { getMenuList, addMenuItem } from '@/api/system/menu.js'
 import MyDialog from './components/MyDialog.vue'
 import { ref } from 'vue'
 //筛选表单的显示隐藏
@@ -96,15 +90,90 @@ const tableData = ref([
   }
 ])
 
+const multipleTableRef = ref()
+
 const myDialogRef = ref()
 const title = ref('添加菜单')
 
-const data = ref([])
+const addMenuFn = async () => {
+  title.value = '添加菜单'
+  myDialogRef.value.open()
+  const res = await getMenuList()
+  console.dir(res.data.data)
+  data.value = res.data.data
+  tableData.value = res.data.data
+}
 
-const filterForm = ref({
-  moduleName: '',
-  status: ''
-})
+const data = ref([
+  {
+    value: '1',
+    label: 'Level one 1',
+    children: [
+      {
+        value: '1-1',
+        label: 'Level two 1-1',
+        children: [
+          {
+            value: '1-1-1',
+            label: 'Level three 1-1-1'
+          }
+        ]
+      }
+    ]
+  },
+  {
+    value: '2',
+    label: 'Level one 2',
+    children: [
+      {
+        value: '2-1',
+        label: 'Level two 2-1',
+        children: [
+          {
+            value: '2-1-1',
+            label: 'Level three 2-1-1'
+          }
+        ]
+      },
+      {
+        value: '2-2',
+        label: 'Level two 2-2',
+        children: [
+          {
+            value: '2-2-1',
+            label: 'Level three 2-2-1'
+          }
+        ]
+      }
+    ]
+  },
+  {
+    value: '3',
+    label: 'Level one 3',
+    children: [
+      {
+        value: '3-1',
+        label: 'Level two 3-1',
+        children: [
+          {
+            value: '3-1-1',
+            label: 'Level three 3-1-1'
+          }
+        ]
+      },
+      {
+        value: '3-2',
+        label: 'Level two 3-2',
+        children: [
+          {
+            value: '3-2-1',
+            label: 'Level three 3-2-1'
+          }
+        ]
+      }
+    ]
+  }
+])
 
 const formModel = ref({
   moduleName: '',
@@ -116,45 +185,14 @@ const formModel = ref({
   moduleType: 'M'
 })
 
-const rules = ref({
-  moduleName: [{ required: true, message: '请输入菜单名称', trigger: 'blur' }]
-})
-
-const addMenuFn = async () => {
-  title.value = '添加菜单'
-  myDialogRef.value.open()
-}
-
 const handleConfirm = async () => {
-  await addMenuItem(formModel.value)
-  // console.log(res)
-  ElMessage.success('操作成功')
-  getDataList()
-}
-
-const delModule = async (moduleId) => {
-  // console.log(moduleId)
-  await removeMenuItem(moduleId)
-  // console.log(res)
-  getDataList()
-  ElMessage.success('操作成功')
-}
-
-const editMenuFn = async (moduleId) => {
-  title.value = '编辑菜单'
-  myDialogRef.value.open()
-  const res = await getMenuItem(moduleId)
-  console.log(res.data.data)
-}
-
-const getDataList = async () => {
-  const res = await getMenuList()
-  tableData.value = res.data.data
-  data.value = res.data.data
+  const res = await addMenuItem(formModel.value)
   console.log(res)
 }
 
-getDataList()
+const rules = ref({
+  moduleName: [{ required: true, message: '请输入菜单名称', trigger: 'blur' }]
+})
 </script>
 
 <template>
@@ -185,17 +223,13 @@ getDataList()
         <el-form-item label="菜单名称" prop="moduleName">
           <el-input v-model="formModel.moduleName" />
         </el-form-item>
-        <el-form-item
-          label="权限标识"
-          prop="perms"
-          v-show="formModel.moduleType !== 'M'"
-        >
+        <el-form-item label="权限标识" prop="perms">
           <el-input v-model="formModel.perms" />
         </el-form-item>
         <el-form-item label="显示排序">
           <el-input-number v-model="formModel.moduleSort" :min="0" />
         </el-form-item>
-        <el-form-item label="显示状态" v-show="formModel.moduleType !== 'F'">
+        <el-form-item label="显示状态">
           <el-radio-group v-model="formModel.visible">
             <el-radio label="0">显示</el-radio>
             <el-radio label="1">隐藏</el-radio>
@@ -207,6 +241,34 @@ getDataList()
             <el-radio label="1">停用</el-radio>
           </el-radio-group>
         </el-form-item>
+        <!-- <el-form-item label="邮箱">
+          <el-input v-model="form.email" />
+        </el-form-item>
+        <el-form-item label="用户名称">
+          <el-input v-model="form.uname" />
+        </el-form-item>
+        <el-form-item label="用户密码">
+          <el-input v-model="form.password" type="password" />
+        </el-form-item>
+        <el-form-item label="用户性别">
+          <el-select v-model="form.gender" placeholder="请选择性别">
+            <el-option label="男" value="1" />
+            <el-option label="女" value="2" />
+            <el-option label="未知" value="3" />
+          </el-select>
+        </el-form-item>
+        <el-form-item label="角色">
+          <el-select v-model="form.role" placeholder="请选择角色">
+            <el-option label="普通角色" value="normal" />
+          </el-select>
+        </el-form-item>
+        <el-form-item label="备注">
+          <el-input
+            v-model="form.desc"
+            type="textarea"
+            placeholder="请输入内容"
+          />
+        </el-form-item> -->
       </el-form>
     </template>
   </MyDialog>
@@ -225,12 +287,12 @@ getDataList()
     >
       <el-form-item label="菜单名称">
         <el-input
-          v-model="filterForm.moduleName"
+          v-model="formModel.moduleName"
           placeholder="请输入"
         ></el-input>
       </el-form-item>
       <el-form-item label="状态">
-        <el-select v-model="filterForm.status" placeholder="请选择">
+        <el-select v-model="formModel.status" placeholder="请选择">
           <el-option
             v-for="item in statusOptions"
             :key="item.value"
@@ -244,43 +306,48 @@ getDataList()
       <el-button plain type="primary" @click="addMenuFn">添加</el-button>
     </div>
     <el-table
+      :ref="multipleTableRef"
       :data="tableData"
       style="width: 100%"
       row-key="parentId"
-      border
       :header-cell-style="{
         background: '#F5F7FA',
         color: '#909399'
       }"
     >
-      <el-table-column prop="moduleName" label="菜单名称" />
-      <el-table-column prop="moduleSort" label="排序" />
-      <el-table-column prop="perms" label="权限标识" />
-      <el-table-column prop="status" label="状态">
+      <el-table-column
+        width="156"
+        align="center"
+        prop="moduleName"
+        label="菜单名称"
+      />
+      <el-table-column
+        width="156"
+        align="center"
+        prop="moduleSort"
+        label="排序"
+      />
+      <el-table-column
+        width="156"
+        align="center"
+        prop="perms"
+        label="权限标识"
+      />
+      <el-table-column width="156" align="center" prop="status" label="状态">
         <template #default="scope"> {{ scope.row.state }} </template>
       </el-table-column>
       <el-table-column
-        prop="createTime"
+        width="156"
+        align="center"
+        prop="createDate"
         label="创建时间"
         show-overflow-tooltip
       />
-      <el-table-column width="300" label="操作">
-        <template #default="scope">
+      <el-table-column width="300" align="center" label="操作">
+        <template #default>
           <el-button size="small" plain type="primary">添加</el-button>
-          <el-button
-            size="small"
-            plain
-            type="success"
-            @click="editMenuFn(scope.row.moduleId)"
-            >修改</el-button
-          >
-          <el-button
-            size="small"
-            plain
-            type="danger"
-            @click="delModule(scope.row.moduleId)"
-            >删除</el-button
-          >
+          <el-button size="small" plain type="success">修改</el-button>
+          <el-button size="small" plain type="danger">删除</el-button>
         </template>
       </el-table-column>
     </el-table>

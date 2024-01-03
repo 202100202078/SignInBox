@@ -10,11 +10,11 @@ const router = useRouter()
 const isCollapse = ref(false)
 
 const activeIndex = ref('')
-// const activeMenu = ref([])
+const activeMenu = ref([])
 
 const handleAvatarCommand = async (command) => {
   //如果是退出登录需要清除本地用户信息
-  // console.log('清除本地用户信息')
+  console.log('清除本地用户信息')
   if (command === '/login') {
     await ElMessageBox.confirm('你确认退出登录吗？', '温馨提示', {
       type: 'warning',
@@ -23,9 +23,9 @@ const handleAvatarCommand = async (command) => {
     })
     userStore.setToken('')
     // userStore.setUser({})
-    // router.push(`/login`)
+    router.push(`/login`)
   } else {
-    // router.push(`/user/${command}`)
+    router.push(`/user/${command}`)
   }
   router.push(command)
 }

@@ -4,28 +4,27 @@ import { ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { onMounted } from 'vue'
 import { useUserStore } from '@/stores/modules/user.js'
-const userStore = useUserStore()
 const route = useRoute()
 const router = useRouter()
 const isCollapse = ref(false)
 
 const activeIndex = ref('')
-// const activeMenu = ref([])
+const activeMenu = ref([])
 
 const handleAvatarCommand = async (command) => {
   //如果是退出登录需要清除本地用户信息
-  // console.log('清除本地用户信息')
+  console.log('清除本地用户信息')
   if (command === '/login') {
     await ElMessageBox.confirm('你确认退出登录吗？', '温馨提示', {
       type: 'warning',
       confirmButtonText: '确认',
       cancelButtonText: '取消'
     })
-    userStore.setToken('')
-    // userStore.setUser({})
-    // router.push(`/login`)
+    userStore.removeToken()
+    userStore.setUser({})
+    router.push(`/login`)
   } else {
-    // router.push(`/user/${command}`)
+    router.push(`/user/${command}`)
   }
   router.push(command)
 }

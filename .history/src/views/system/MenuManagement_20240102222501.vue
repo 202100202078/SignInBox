@@ -101,11 +101,6 @@ const title = ref('添加菜单')
 
 const data = ref([])
 
-const filterForm = ref({
-  moduleName: '',
-  status: ''
-})
-
 const formModel = ref({
   moduleName: '',
   status: '0',
@@ -116,21 +111,15 @@ const formModel = ref({
   moduleType: 'M'
 })
 
-const rules = ref({
-  moduleName: [{ required: true, message: '请输入菜单名称', trigger: 'blur' }]
-})
-
-const addMenuFn = async () => {
-  title.value = '添加菜单'
-  myDialogRef.value.open()
-}
-
 const handleConfirm = async () => {
   await addMenuItem(formModel.value)
   // console.log(res)
   ElMessage.success('操作成功')
-  getDataList()
 }
+
+const rules = ref({
+  moduleName: [{ required: true, message: '请输入菜单名称', trigger: 'blur' }]
+})
 
 const delModule = async (moduleId) => {
   // console.log(moduleId)
@@ -138,6 +127,12 @@ const delModule = async (moduleId) => {
   // console.log(res)
   getDataList()
   ElMessage.success('操作成功')
+}
+
+const addMenuFn = async () => {
+  title.value = '添加菜单'
+  myDialogRef.value.open()
+  getDataList()
 }
 
 const editMenuFn = async (moduleId) => {
@@ -225,12 +220,12 @@ getDataList()
     >
       <el-form-item label="菜单名称">
         <el-input
-          v-model="filterForm.moduleName"
+          v-model="formModel.moduleName"
           placeholder="请输入"
         ></el-input>
       </el-form-item>
       <el-form-item label="状态">
-        <el-select v-model="filterForm.status" placeholder="请选择">
+        <el-select v-model="formModel.status" placeholder="请选择">
           <el-option
             v-for="item in statusOptions"
             :key="item.value"

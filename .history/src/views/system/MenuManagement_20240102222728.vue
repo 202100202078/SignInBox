@@ -120,11 +120,6 @@ const rules = ref({
   moduleName: [{ required: true, message: '请输入菜单名称', trigger: 'blur' }]
 })
 
-const addMenuFn = async () => {
-  title.value = '添加菜单'
-  myDialogRef.value.open()
-}
-
 const handleConfirm = async () => {
   await addMenuItem(formModel.value)
   // console.log(res)

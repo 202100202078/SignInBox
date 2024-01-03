@@ -1,8 +1,6 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { useUserStore } from '@/stores/modules/user.js'
-const userStore = useUserStore()
 const router = useRouter()
 
 //当前处于menu哪个tab下

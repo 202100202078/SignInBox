@@ -10,7 +10,7 @@ const router = useRouter()
 const isCollapse = ref(false)
 
 const activeIndex = ref('')
-// const activeMenu = ref([])
+const activeMenu = ref([])
 
 const handleAvatarCommand = async (command) => {
   //如果是退出登录需要清除本地用户信息

@@ -8,7 +8,9 @@ export const filterMenuList = (params) =>
   })
 
 export const getMenuItem = (moduleId) =>
-  systemrequest.get(`/system/module/${moduleId}`)
+  systemrequest.get('/system/module/list', {
+    params
+  })
 
 export const addMenuItem = (params) =>
   systemrequest.post('/system/module', params)

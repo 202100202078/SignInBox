@@ -3,30 +3,16 @@ import variables from '@/assets/style/variables.module.scss'
 import { ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { onMounted } from 'vue'
-import { useUserStore } from '@/stores/modules/user.js'
-const userStore = useUserStore()
 const route = useRoute()
 const router = useRouter()
 const isCollapse = ref(false)
 
 const activeIndex = ref('')
-// const activeMenu = ref([])
+const activeMenu = ref([])
 
-const handleAvatarCommand = async (command) => {
+const handleAvatarCommand = (command) => {
   //如果是退出登录需要清除本地用户信息
-  // console.log('清除本地用户信息')
-  if (command === '/login') {
-    await ElMessageBox.confirm('你确认退出登录吗？', '温馨提示', {
-      type: 'warning',
-      confirmButtonText: '确认',
-      cancelButtonText: '取消'
-    })
-    userStore.setToken('')
-    // userStore.setUser({})
-    // router.push(`/login`)
-  } else {
-    // router.push(`/user/${command}`)
-  }
+  console.log('清除本地用户信息')
   router.push(command)
 }
 
@@ -190,7 +176,7 @@ onMounted(() => {
                     <el-dropdown-item command="/home/user"
                       >个人中心</el-dropdown-item
                     >
-                    <el-dropdown-item command="/login"
+                    <el-dropdown-item command="/login" @click=""
                       >退出登录</el-dropdown-item
                     >
                   </el-dropdown-menu>

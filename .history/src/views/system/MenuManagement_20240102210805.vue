@@ -1,11 +1,5 @@
 <script setup>
-import {
-  getMenuList,
-  addMenuItem,
-  removeMenuItem,
-  getMenuItem,
-  editMenuItem
-} from '@/api/system/menu.js'
+import { getMenuList, addMenuItem } from '@/api/system/menu.js'
 import MyDialog from './components/MyDialog.vue'
 import { ref } from 'vue'
 //筛选表单的显示隐藏
@@ -99,12 +93,84 @@ const tableData = ref([
 const myDialogRef = ref()
 const title = ref('添加菜单')
 
-const data = ref([])
+const addMenuFn = async () => {
+  title.value = '添加菜单'
+  myDialogRef.value.open()
+  // const res = await getMenuList()
+  // console.dir(res.data.data)
+  // data.value = res.data.data
+}
 
-const filterForm = ref({
-  moduleName: '',
-  status: ''
-})
+const data = ref([
+  {
+    value: '1',
+    label: 'Level one 1',
+    children: [
+      {
+        value: '1-1',
+        label: 'Level two 1-1',
+        children: [
+          {
+            value: '1-1-1',
+            label: 'Level three 1-1-1'
+          }
+        ]
+      }
+    ]
+  },
+  {
+    value: '2',
+    label: 'Level one 2',
+    children: [
+      {
+        value: '2-1',
+        label: 'Level two 2-1',
+        children: [
+          {
+            value: '2-1-1',
+            label: 'Level three 2-1-1'
+          }
+        ]
+      },
+      {
+        value: '2-2',
+        label: 'Level two 2-2',
+        children: [
+          {
+            value: '2-2-1',
+            label: 'Level three 2-2-1'
+          }
+        ]
+      }
+    ]
+  },
+  {
+    value: '3',
+    label: 'Level one 3',
+    children: [
+      {
+        value: '3-1',
+        label: 'Level two 3-1',
+        children: [
+          {
+            value: '3-1-1',
+            label: 'Level three 3-1-1'
+          }
+        ]
+      },
+      {
+        value: '3-2',
+        label: 'Level two 3-2',
+        children: [
+          {
+            value: '3-2-1',
+            label: 'Level three 3-2-1'
+          }
+        ]
+      }
+    ]
+  }
+])
 
 const formModel = ref({
   moduleName: '',
@@ -116,42 +182,23 @@ const formModel = ref({
   moduleType: 'M'
 })
 
+const handleConfirm = async () => {
+  const res = await addMenuItem(formModel.value)
+  console.log(res)
+}
+
 const rules = ref({
   moduleName: [{ required: true, message: '请输入菜单名称', trigger: 'blur' }]
 })
 
-const addMenuFn = async () => {
-  title.value = '添加菜单'
-  myDialogRef.value.open()
-}
-
-const handleConfirm = async () => {
-  await addMenuItem(formModel.value)
-  // console.log(res)
-  ElMessage.success('操作成功')
-  getDataList()
-}
-
-const delModule = async (moduleId) => {
-  // console.log(moduleId)
-  await removeMenuItem(moduleId)
-  // console.log(res)
-  getDataList()
-  ElMessage.success('操作成功')
-}
-
-const editMenuFn = async (moduleId) => {
-  title.value = '编辑菜单'
-  myDialogRef.value.open()
-  const res = await getMenuItem(moduleId)
-  console.log(res.data.data)
+const delModule = (moduleId) => {
+  console.log(moduleId)
 }
 
 const getDataList = async () => {
   const res = await getMenuList()
   tableData.value = res.data.data
   data.value = res.data.data
-  console.log(res)
 }
 
 getDataList()
@@ -225,12 +272,12 @@ getDataList()
     >
       <el-form-item label="菜单名称">
         <el-input
-          v-model="filterForm.moduleName"
+          v-model="formModel.moduleName"
           placeholder="请输入"
         ></el-input>
       </el-form-item>
       <el-form-item label="状态">
-        <el-select v-model="filterForm.status" placeholder="请选择">
+        <el-select v-model="formModel.status" placeholder="请选择">
           <el-option
             v-for="item in statusOptions"
             :key="item.value"
@@ -265,20 +312,14 @@ getDataList()
         show-overflow-tooltip
       />
       <el-table-column width="300" label="操作">
-        <template #default="scope">
+        <template #default="{ data }">
           <el-button size="small" plain type="primary">添加</el-button>
-          <el-button
-            size="small"
-            plain
-            type="success"
-            @click="editMenuFn(scope.row.moduleId)"
-            >修改</el-button
-          >
+          <el-button size="small" plain type="success">修改</el-button>
           <el-button
             size="small"
             plain
             type="danger"
-            @click="delModule(scope.row.moduleId)"
+            @click="delModule(data.moduleId)"
             >删除</el-button
           >
         </template>
