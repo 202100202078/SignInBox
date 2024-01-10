@@ -12,13 +12,11 @@ const open = () => {
 
 const confirm = () => {
   dialogFormVisible.value = false
-  console.log(props.title)
-  if (props.title === '添加菜单') {
+  console.log(title)
+  if (title === '添加菜单') {
     emit('onAddConfirm')
-  } else if (props.title === '编辑菜单') {
+  } else if (title === '编辑菜单') {
     emit('onEditConfirm')
-  } else if (props.title === '添加子菜单') {
-    emit('onAddChildConfirm')
   }
 }
 

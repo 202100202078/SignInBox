@@ -6,6 +6,7 @@ module.exports = {
   extends: [
     'plugin:vue/vue3-essential',
     'eslint:recommended',
+    // 'plugin:vue/vue3-recommended',
     '@vue/eslint-config-prettier/skip-formatting'
   ],
   parserOptions: {
@@ -31,7 +32,6 @@ module.exports = {
     'vue/no-setup-props-destructure': ['off'], // 关闭 props 解构的校验
     'no-undef': 'error'
   },
-  
   globals: {
     ElMessage: 'readonly',
     ElMessageBox: 'readonly',

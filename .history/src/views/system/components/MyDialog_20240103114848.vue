@@ -17,8 +17,6 @@ const confirm = () => {
     emit('onAddConfirm')
   } else if (props.title === '编辑菜单') {
     emit('onEditConfirm')
-  } else if (props.title === '添加子菜单') {
-    emit('onAddChildConfirm')
   }
 }
 

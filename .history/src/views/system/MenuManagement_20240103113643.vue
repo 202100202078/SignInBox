@@ -99,13 +99,7 @@ const tableData = ref([
 const myDialogRef = ref()
 const title = ref('添加菜单')
 
-const data = ref([
-  {
-    parentId: 0,
-    moduleName: '',
-    children: []
-  }
-])
+const data = ref([])
 
 const filterForm = ref({
   moduleName: '',
@@ -128,9 +122,14 @@ const rules = ref({
 
 const addMenuFn = async () => {
   title.value = '添加菜单'
-  //默认上级菜单id为0
-  formModel.value.parentId = 0
   myDialogRef.value.open()
+}
+
+const handleConfirm = async () => {
+  await addMenuItem(formModel.value)
+  // console.log(res)
+  ElMessage.success('操作成功')
+  getDataList()
 }
 
 const delModule = async (moduleId) => {
@@ -145,37 +144,7 @@ const editMenuFn = async (moduleId) => {
   title.value = '编辑菜单'
   myDialogRef.value.open()
   const res = await getMenuItem(moduleId)
-  // console.log(res.data.data)
-  formModel.value = res.data.data
-}
-
-const addChildMenuFn = (moduleId) => {
-  title.value = '添加子菜单'
-  //默认上级菜单id为当前菜单
-  console.log(moduleId)
-  formModel.value.parentId = moduleId
-  myDialogRef.value.open()
-}
-
-const handleAddConfirm = async () => {
-  await addMenuItem(formModel.value)
-  // console.log(res)
-  ElMessage.success('操作成功')
-  getDataList()
-}
-
-const handleEditConfirm = async () => {
-  await editMenuItem(formModel.value)
-  // console.log(res)
-  ElMessage.success('操作成功')
-  getDataList()
-}
-
-const handleAddChildConfirm = async () => {
-  await addMenuItem(formModel.value)
-  // console.log(res)
-  ElMessage.success('操作成功')
-  getDataList()
+  console.log(res.data.data)
 }
 
 const getDataList = async () => {
@@ -189,13 +158,7 @@ getDataList()
 </script>
 
 <template>
-  <MyDialog
-    ref="myDialogRef"
-    :title="title"
-    @onAddConfirm="handleAddConfirm"
-    @onEditConfirm="handleEditConfirm"
-    @onAddChildConfirm="handleAddChildConfirm"
-  >
+  <MyDialog :title="title" ref="myDialogRef" @onConfirm="handleConfirm">
     <template #form>
       <el-form
         :model="formModel"
@@ -208,7 +171,7 @@ getDataList()
             v-model="formModel.parentId"
             :data="data"
             check-strictly
-            :props="{ label: 'moduleName', value: 'moduleId' }"
+            :props="{ label: 'moduleName', value: 'parentId' }"
             :render-after-expand="false"
           />
         </el-form-item>
@@ -223,16 +186,16 @@ getDataList()
           <el-input v-model="formModel.moduleName" />
         </el-form-item>
         <el-form-item
-          v-show="formModel.moduleType !== 'M'"
           label="权限标识"
           prop="perms"
+          v-show="formModel.moduleType !== 'M'"
         >
           <el-input v-model="formModel.perms" />
         </el-form-item>
         <el-form-item label="显示排序">
           <el-input-number v-model="formModel.moduleSort" :min="0" />
         </el-form-item>
-        <el-form-item v-show="formModel.moduleType !== 'F'" label="显示状态">
+        <el-form-item label="显示状态" v-show="formModel.moduleType !== 'F'">
           <el-radio-group v-model="formModel.visible">
             <el-radio label="0">显示</el-radio>
             <el-radio label="1">隐藏</el-radio>
@@ -252,10 +215,10 @@ getDataList()
     <FilterLayout
       label1="菜单名称"
       label2="状态"
-      :default-show1="false"
-      :default-show2="false"
-      :is-show="isShow"
-      :show-collapse="false"
+      :defaultShow1="false"
+      :defaultShow2="false"
+      :isShow="isShow"
+      :showCollapse="false"
       @reset="handleReset"
       @query="handleQuery"
       @trigger="handleTrigger"
@@ -303,13 +266,7 @@ getDataList()
       />
       <el-table-column width="300" label="操作">
         <template #default="scope">
-          <el-button
-            size="small"
-            plain
-            type="primary"
-            @click="addChildMenuFn(scope.row.moduleId)"
-            >添加</el-button
-          >
+          <el-button size="small" plain type="primary">添加</el-button>
           <el-button
             size="small"
             plain

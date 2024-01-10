@@ -1,24 +1,20 @@
 <script setup>
 import { ref } from 'vue'
+// const emit = defineEmits([])
 const dialogFormVisible = ref(false)
 
-const props = defineProps({
+defineProps({
   title: String
 })
-
+console.log(title.value)
 const open = () => {
   dialogFormVisible.value = true
 }
 
 const confirm = () => {
   dialogFormVisible.value = false
-  console.log(props.title)
-  if (props.title === '添加菜单') {
-    emit('onAddConfirm')
-  } else if (props.title === '编辑菜单') {
-    emit('onEditConfirm')
-  } else if (props.title === '添加子菜单') {
-    emit('onAddChildConfirm')
+  if (title.value === '添加菜单') {
+    emit('onConfirm')
   }
 }
 

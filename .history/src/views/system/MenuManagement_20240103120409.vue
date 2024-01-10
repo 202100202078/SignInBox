@@ -129,7 +129,7 @@ const rules = ref({
 const addMenuFn = async () => {
   title.value = '添加菜单'
   //默认上级菜单id为0
-  formModel.value.parentId = 0
+  data.value.moduleId = 0
   myDialogRef.value.open()
 }
 
@@ -152,8 +152,7 @@ const editMenuFn = async (moduleId) => {
 const addChildMenuFn = (moduleId) => {
   title.value = '添加子菜单'
   //默认上级菜单id为当前菜单
-  console.log(moduleId)
-  formModel.value.parentId = moduleId
+  data.value.moduleId = moduleId
   myDialogRef.value.open()
 }
 

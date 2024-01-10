@@ -129,8 +129,24 @@ const rules = ref({
 const addMenuFn = async () => {
   title.value = '添加菜单'
   //默认上级菜单id为0
-  formModel.value.parentId = 0
+  data.value.moduleId = 0
   myDialogRef.value.open()
+}
+
+const addChildMenuFn = () => {}
+
+const handleAddConfirm = async () => {
+  await addMenuItem(formModel.value)
+  // console.log(res)
+  ElMessage.success('操作成功')
+  getDataList()
+}
+
+const handleEditConfirm = async () => {
+  await editMenuItem(formModel.value)
+  // console.log(res)
+  ElMessage.success('操作成功')
+  getDataList()
 }
 
 const delModule = async (moduleId) => {
@@ -147,35 +163,6 @@ const editMenuFn = async (moduleId) => {
   const res = await getMenuItem(moduleId)
   // console.log(res.data.data)
   formModel.value = res.data.data
-}
-
-const addChildMenuFn = (moduleId) => {
-  title.value = '添加子菜单'
-  //默认上级菜单id为当前菜单
-  console.log(moduleId)
-  formModel.value.parentId = moduleId
-  myDialogRef.value.open()
-}
-
-const handleAddConfirm = async () => {
-  await addMenuItem(formModel.value)
-  // console.log(res)
-  ElMessage.success('操作成功')
-  getDataList()
-}
-
-const handleEditConfirm = async () => {
-  await editMenuItem(formModel.value)
-  // console.log(res)
-  ElMessage.success('操作成功')
-  getDataList()
-}
-
-const handleAddChildConfirm = async () => {
-  await addMenuItem(formModel.value)
-  // console.log(res)
-  ElMessage.success('操作成功')
-  getDataList()
 }
 
 const getDataList = async () => {

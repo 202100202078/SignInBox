@@ -99,13 +99,7 @@ const tableData = ref([
 const myDialogRef = ref()
 const title = ref('添加菜单')
 
-const data = ref([
-  {
-    parentId: 0,
-    moduleName: '',
-    children: []
-  }
-])
+const data = ref([])
 
 const filterForm = ref({
   moduleName: '',
@@ -128,9 +122,14 @@ const rules = ref({
 
 const addMenuFn = async () => {
   title.value = '添加菜单'
-  //默认上级菜单id为0
-  formModel.value.parentId = 0
   myDialogRef.value.open()
+}
+
+const handleAddConfirm = async () => {
+  await addMenuItem(formModel.value)
+  // console.log(res)
+  ElMessage.success('操作成功')
+  getDataList()
 }
 
 const delModule = async (moduleId) => {
@@ -145,37 +144,7 @@ const editMenuFn = async (moduleId) => {
   title.value = '编辑菜单'
   myDialogRef.value.open()
   const res = await getMenuItem(moduleId)
-  // console.log(res.data.data)
-  formModel.value = res.data.data
-}
-
-const addChildMenuFn = (moduleId) => {
-  title.value = '添加子菜单'
-  //默认上级菜单id为当前菜单
-  console.log(moduleId)
-  formModel.value.parentId = moduleId
-  myDialogRef.value.open()
-}
-
-const handleAddConfirm = async () => {
-  await addMenuItem(formModel.value)
-  // console.log(res)
-  ElMessage.success('操作成功')
-  getDataList()
-}
-
-const handleEditConfirm = async () => {
-  await editMenuItem(formModel.value)
-  // console.log(res)
-  ElMessage.success('操作成功')
-  getDataList()
-}
-
-const handleAddChildConfirm = async () => {
-  await addMenuItem(formModel.value)
-  // console.log(res)
-  ElMessage.success('操作成功')
-  getDataList()
+  console.log(res.data.data)
 }
 
 const getDataList = async () => {
@@ -194,7 +163,6 @@ getDataList()
     :title="title"
     @onAddConfirm="handleAddConfirm"
     @onEditConfirm="handleEditConfirm"
-    @onAddChildConfirm="handleAddChildConfirm"
   >
     <template #form>
       <el-form
@@ -208,7 +176,7 @@ getDataList()
             v-model="formModel.parentId"
             :data="data"
             check-strictly
-            :props="{ label: 'moduleName', value: 'moduleId' }"
+            :props="{ label: 'moduleName', value: 'parentId' }"
             :render-after-expand="false"
           />
         </el-form-item>
@@ -303,13 +271,7 @@ getDataList()
       />
       <el-table-column width="300" label="操作">
         <template #default="scope">
-          <el-button
-            size="small"
-            plain
-            type="primary"
-            @click="addChildMenuFn(scope.row.moduleId)"
-            >添加</el-button
-          >
+          <el-button size="small" plain type="primary">添加</el-button>
           <el-button
             size="small"
             plain
