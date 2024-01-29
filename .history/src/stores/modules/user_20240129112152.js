@@ -5,7 +5,7 @@ export const useUserStore = defineStore(
   'interface-user',
   () => {
     //用户标识
-    const token = ref('1234')
+    const token = ref('12321')
     const setToken = (t) => {
       token.value = t
     }

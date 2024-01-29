@@ -8,7 +8,7 @@ const router = createRouter({
       path: '/login',
       name: 'login',
       component: () => import('@/views/login/LoginPage.vue')
-    }, //home
+    },
     {
       path: '/',
       name: 'home',
@@ -56,7 +56,7 @@ const router = createRouter({
           component: () => import('@/views/admin/UserPage.vue')
         }
       ]
-    }, //admin
+    },
     {
       path: '/admin',
       name: 'admin-index',
@@ -66,7 +66,7 @@ const router = createRouter({
         {
           path: '/admin/index',
           name: 'index',
-          component: () => import('@/views/admin/index/IndexPage.vue')
+          component: () => import('@/views/admin/layout/SystemPage.vue')
         },
         {
           path: '/admin/system',
@@ -88,6 +88,34 @@ const router = createRouter({
               component: () => import('@/views/admin/system/RoleManagement.vue')
             }
           ]
+        }
+      ]
+    },
+    {
+      path: '/system',
+      name: 'system',
+      component: () => import('@/views/system/SystemPage.vue'),
+      redirect: '/system/index',
+      children: [
+        {
+          path: '/system/index',
+          name: 'index',
+          component: () => import('@/views/system/IndexPage.vue')
+        },
+        {
+          path: '/system/usermanagement',
+          name: 'usermanagement',
+          component: () => import('@/views/system/UserManagement.vue')
+        },
+        {
+          path: '/system/rolemanagement',
+          name: 'rolemanagement',
+          component: () => import('@/views/system/RoleManagement.vue')
+        },
+        {
+          path: '/system/menumanagement',
+          name: 'menumanagement',
+          component: () => import('@/views/system/MenuManagement.vue')
         }
       ]
     },

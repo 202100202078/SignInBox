@@ -1,4 +1,5 @@
 <script setup>
+// import { router } from 'vue-router'
 import { login } from '@/api/login/login.js'
 import { ref } from 'vue'
 import { useUserStore } from '@/stores'
@@ -94,7 +95,7 @@ const onSubmit = async (type) => {
     // 目前只有账号登录
     const res = await login(formModel.value)
     // console.log(res)
-    userStore.setToken(res.data.token)
+    // userStore.setToken(res.data.token)
     // 清空表单
     formModel.value.account = formModel.value.password = ''
     router.push('/')

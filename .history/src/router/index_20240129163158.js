@@ -8,7 +8,7 @@ const router = createRouter({
       path: '/login',
       name: 'login',
       component: () => import('@/views/login/LoginPage.vue')
-    }, //home
+    },
     {
       path: '/',
       name: 'home',
@@ -56,38 +56,32 @@ const router = createRouter({
           component: () => import('@/views/admin/UserPage.vue')
         }
       ]
-    }, //admin
+    },
     {
-      path: '/admin',
-      name: 'admin-index',
-      component: () => import('@/views/admin/layout/SystemPage.vue'),
-      redirect: '/admin/index',
+      path: '/system',
+      name: 'system',
+      component: () => import('@/views/system/SystemPage.vue'),
+      redirect: '/system/index',
       children: [
         {
-          path: '/admin/index',
+          path: '/system/index',
           name: 'index',
-          component: () => import('@/views/admin/index/IndexPage.vue')
+          component: () => import('@/views/system/IndexPage.vue')
         },
         {
-          path: '/admin/system',
-          name: 'admin-system',
-          children: [
-            {
-              path: '/admin/system/menu',
-              name: 'admin-system-menu',
-              component: () => import('@/views/admin/system/MenuManagement.vue')
-            },
-            {
-              path: '/admin/system/user',
-              name: 'admin-system-user',
-              component: () => import('@/views/admin/system/UserManagement.vue')
-            },
-            {
-              path: '/admin/system/role',
-              name: 'admin-system-role',
-              component: () => import('@/views/admin/system/RoleManagement.vue')
-            }
-          ]
+          path: '/system/usermanagement',
+          name: 'usermanagement',
+          component: () => import('@/views/system/UserManagement.vue')
+        },
+        {
+          path: '/system/rolemanagement',
+          name: 'rolemanagement',
+          component: () => import('@/views/system/RoleManagement.vue')
+        },
+        {
+          path: '/system/menumanagement',
+          name: 'menumanagement',
+          component: () => import('@/views/system/MenuManagement.vue')
         }
       ]
     },
@@ -102,6 +96,7 @@ export default router
 
 router.beforeEach((to) => {
   const userStore = useUserStore()
+  console.log(userStore.value)
   if (
     // 检查在pinia用户是否有Token并且是否去往login
     !userStore.token &&

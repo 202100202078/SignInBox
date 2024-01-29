@@ -66,7 +66,7 @@ const router = createRouter({
         {
           path: '/admin/index',
           name: 'index',
-          component: () => import('@/views/admin/index/IndexPage.vue')
+          component: () => import('@/views/admin/index/SystemPage.vue')
         },
         {
           path: '/admin/system',

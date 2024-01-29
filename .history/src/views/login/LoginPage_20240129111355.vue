@@ -1,4 +1,5 @@
 <script setup>
+// import { router } from 'vue-router'
 import { login } from '@/api/login/login.js'
 import { ref } from 'vue'
 import { useUserStore } from '@/stores'
@@ -91,15 +92,15 @@ const onSubmit = async (type) => {
   //先表单预校验
   await (type === 1 ? emailForm.value.validate() : accountForm.value.validate())
   if (isLoginPage.value) {
+    // console.log('登录')
     // 目前只有账号登录
     const res = await login(formModel.value)
     // console.log(res)
     userStore.setToken(res.data.token)
-    // 清空表单
     formModel.value.account = formModel.value.password = ''
     router.push('/')
   } else {
-    console.log('进行用户注册')
+    console.log('注册')
   }
 }
 

@@ -56,7 +56,7 @@ const router = createRouter({
           component: () => import('@/views/admin/UserPage.vue')
         }
       ]
-    }, //admin
+    }, //damin
     {
       path: '/admin',
       name: 'admin-index',
@@ -66,7 +66,7 @@ const router = createRouter({
         {
           path: '/admin/index',
           name: 'index',
-          component: () => import('@/views/admin/index/IndexPage.vue')
+          component: () => import('@/views/admin/layout/SystemPage.vue')
         },
         {
           path: '/admin/system',

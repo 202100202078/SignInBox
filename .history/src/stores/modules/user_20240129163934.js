@@ -14,9 +14,5 @@ export const useUserStore = defineStore(
       setToken
     }
   },
-  {
-    persist: true,
-    key: 'interface-token',
-    paths: ['token']
-  }
+  persist
 )
