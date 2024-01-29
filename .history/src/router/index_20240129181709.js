@@ -68,7 +68,7 @@ const router = createRouter({
           name: 'index',
           component: () => import('@/views/admin/index/IndexPage.vue'),
           meta: {
-            breadInfo: ['首页']
+            title: '首页'
           }
         },
         {
@@ -81,26 +81,18 @@ const router = createRouter({
               component: () =>
                 import('@/views/admin/system/MenuManagement.vue'),
               meta: {
-                breadInfo: ['首页', '系统管理', '菜单管理']
+                title: '系统管理'
               }
             },
             {
               path: '/admin/system/user',
               name: 'admin-system-user',
-              component: () =>
-                import('@/views/admin/system/UserManagement.vue'),
-              meta: {
-                breadInfo: ['首页', '系统管理', '用户管理']
-              }
+              component: () => import('@/views/admin/system/UserManagement.vue')
             },
             {
               path: '/admin/system/role',
               name: 'admin-system-role',
-              component: () =>
-                import('@/views/admin/system/RoleManagement.vue'),
-              meta: {
-                breadInfo: ['首页', '系统管理', '角色管理']
-              }
+              component: () => import('@/views/admin/system/RoleManagement.vue')
             }
           ]
         }

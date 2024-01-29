@@ -99,7 +99,7 @@ const router = createRouter({
               component: () =>
                 import('@/views/admin/system/RoleManagement.vue'),
               meta: {
-                breadInfo: ['首页', '系统管理', '角色管理']
+                breadInfo: ['首页', '系统管理', '用户管理']
               }
             }
           ]

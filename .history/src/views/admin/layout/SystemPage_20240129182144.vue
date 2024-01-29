@@ -172,7 +172,7 @@ onMounted(() => {
                 <el-breadcrumb-item
                   v-for="(item, index) in $route.meta.breadInfo"
                   :key="index"
-                  >{{ item }}</el-breadcrumb-item
+                  >promotion list</el-breadcrumb-item
                 >
               </el-breadcrumb>
             </div>

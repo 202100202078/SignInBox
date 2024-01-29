@@ -96,11 +96,7 @@ const router = createRouter({
             {
               path: '/admin/system/role',
               name: 'admin-system-role',
-              component: () =>
-                import('@/views/admin/system/RoleManagement.vue'),
-              meta: {
-                breadInfo: ['首页', '系统管理', '角色管理']
-              }
+              component: () => import('@/views/admin/system/RoleManagement.vue')
             }
           ]
         }

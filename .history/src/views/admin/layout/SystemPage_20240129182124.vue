@@ -169,10 +169,8 @@ onMounted(() => {
                 <el-radio-button :label="true">collapse</el-radio-button>
               </el-radio-group>
               <el-breadcrumb separator="/">
-                <el-breadcrumb-item
-                  v-for="(item, index) in $route.meta.breadInfo"
-                  :key="index"
-                  >{{ item }}</el-breadcrumb-item
+                <el-breadcrumb-item v-for="item in $route.meta.breadInfo"
+                  >promotion list</el-breadcrumb-item
                 >
               </el-breadcrumb>
             </div>
