@@ -151,6 +151,8 @@ onMounted(() => {
 .system-layout {
   height: 100vh;
 
+  }
+
   .header-top {
     height: 50px;
     display: flex;
@@ -192,5 +194,12 @@ onMounted(() => {
     }
   }
 }
-
+.icon {
+  vertical-align: middle;
+  margin-right: 5px;
+  width: 24px;
+  text-align: center;
+  font-size: 18px;
+  color: #fff;
+}
 </style>

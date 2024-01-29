@@ -1,16 +1,9 @@
 <script setup>
-import { ref } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
-import { onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/modules/user.js'
 import MySlider from './conponents/MySlider.vue'
 const userStore = useUserStore()
-const route = useRoute()
 const router = useRouter()
-// 控制侧边栏是否折叠
-const isCollapse = ref(false)
-// 记录当前侧边栏
-const activeIndex = ref('')
 
 const handleAvatarCommand = async (command) => {
   //如果是退出登录需要清除本地用户信息
@@ -73,18 +66,14 @@ const handleAvatarCommand = async (command) => {
 //     editableTabs.value = tabs.filter((tab) => tab.name !== targetName)
 //   }
 // }
-
-onMounted(() => {
-  // 页面刷新使得侧边栏为当前激活路由
-  activeIndex.value = route.path
-})
 </script>
 
 <template>
   <div class="system-layout">
     <el-container style="height: 100%">
-      <MySlider :isCollapse="isCollapse" :activeIndex="activeIndex"></MySlider>
       <el-container>
+        <MySlider></MySlider>
+
         <el-header>
           <div class="header-top">
             <div class="header-top-left">
@@ -150,6 +139,30 @@ onMounted(() => {
 <style lang="scss" scoped>
 .system-layout {
   height: 100vh;
+  .el-aside {
+    transition: all 0.5s;
+  }
+  .system-layout-aside {
+    height: 100%;
+    .logo-show {
+      height: 50px;
+      text-align: center;
+      cursor: pointer;
+      .logo {
+        margin-right: 4px;
+        width: 28px;
+        vertical-align: middle;
+      }
+      .title {
+        display: inline-block;
+        font-size: 14px;
+        line-height: 50px;
+        font-weight: 600;
+        vertical-align: middle;
+        color: #fff;
+      }
+    }
+  }
 
   .header-top {
     height: 50px;
@@ -192,5 +205,12 @@ onMounted(() => {
     }
   }
 }
-
+.icon {
+  vertical-align: middle;
+  margin-right: 5px;
+  width: 24px;
+  text-align: center;
+  font-size: 18px;
+  color: #fff;
+}
 </style>

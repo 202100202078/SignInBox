@@ -150,6 +150,30 @@ onMounted(() => {
 <style lang="scss" scoped>
 .system-layout {
   height: 100vh;
+  .el-aside {
+    transition: all 0.5s;
+  }
+  .system-layout-aside {
+    height: 100%;
+    .logo-show {
+      height: 50px;
+      text-align: center;
+      cursor: pointer;
+      .logo {
+        margin-right: 4px;
+        width: 28px;
+        vertical-align: middle;
+      }
+      .title {
+        display: inline-block;
+        font-size: 14px;
+        line-height: 50px;
+        font-weight: 600;
+        vertical-align: middle;
+        color: #fff;
+      }
+    }
+  }
 
   .header-top {
     height: 50px;
@@ -192,5 +216,12 @@ onMounted(() => {
     }
   }
 }
-
+.icon {
+  vertical-align: middle;
+  margin-right: 5px;
+  width: 24px;
+  text-align: center;
+  font-size: 18px;
+  color: #fff;
+}
 </style>
