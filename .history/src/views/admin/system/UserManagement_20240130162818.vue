@@ -45,7 +45,7 @@ const tableData = [
     uname: 'zs',
     nickName: '张三',
     phone: '15888888888',
-    status: false,
+    state: false,
     createDate: '2023-04-23 16:11:38'
   },
   {
@@ -53,7 +53,7 @@ const tableData = [
     uname: 'zs',
     nickName: '张三',
     phone: '15888888888',
-    status: false,
+    state: false,
     createDate: '2023-04-23 16:11:38'
   },
   {
@@ -61,7 +61,7 @@ const tableData = [
     uname: 'zs',
     nickName: '张三',
     phone: '15888888888',
-    status: false,
+    state: false,
     createDate: '2023-04-23 16:11:38'
   },
   {
@@ -69,7 +69,7 @@ const tableData = [
     uname: 'zs',
     nickName: '张三',
     phone: '15888888888',
-    status: false,
+    state: false,
     createDate: '2023-04-23 16:11:38'
   },
   {
@@ -77,7 +77,7 @@ const tableData = [
     uname: 'zs',
     nickName: '张三',
     phone: '15888888888',
-    status: false,
+    state: false,
     createDate: '2023-04-23 16:11:38'
   },
   {
@@ -85,7 +85,7 @@ const tableData = [
     uname: 'zs',
     nickName: '张三',
     phone: '15888888888',
-    status: false,
+    state: false,
     createDate: '2023-04-23 16:11:38'
   }
 ]
@@ -269,7 +269,7 @@ const rules = {}
       />
       <el-table-column align="center" label="状态" width="120">
         <template #default="scope">
-          <el-switch v-model="scope.row.status" />
+          <el-switch v-model="scope.row.state" />
         </template>
       </el-table-column>
       <el-table-column

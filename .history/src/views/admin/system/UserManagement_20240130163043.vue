@@ -169,7 +169,7 @@ const rules = {}
         <el-form-item label="角色">
           <el-select v-model="formModel.role" placeholder="请选择角色">
             <el-option label="普通角色" value="normal" />
-          </el-select>
+          </el-select> 
         </el-form-item>
         <el-form-item label="状态">
           <el-radio-group v-model="formModel.status">
@@ -269,7 +269,7 @@ const rules = {}
       />
       <el-table-column align="center" label="状态" width="120">
         <template #default="scope">
-          <el-switch v-model="scope.row.status" />
+          <el-switch v-model="scope.row.state" />
         </template>
       </el-table-column>
       <el-table-column

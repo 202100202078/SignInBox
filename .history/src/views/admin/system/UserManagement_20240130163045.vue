@@ -269,7 +269,7 @@ const rules = {}
       />
       <el-table-column align="center" label="状态" width="120">
         <template #default="scope">
-          <el-switch v-model="scope.row.status" />
+          <el-switch v-model="scope.row.state" />
         </template>
       </el-table-column>
       <el-table-column

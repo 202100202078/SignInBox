@@ -37,7 +37,7 @@ const tableData = [
     uname: 'zs',
     nickName: '张三',
     phone: '15888888888',
-    status: false,
+    state: false,
     createDate: '2023-04-23 16:11:38'
   },
   {
@@ -45,7 +45,7 @@ const tableData = [
     uname: 'zs',
     nickName: '张三',
     phone: '15888888888',
-    status: false,
+    state: false,
     createDate: '2023-04-23 16:11:38'
   },
   {
@@ -53,7 +53,7 @@ const tableData = [
     uname: 'zs',
     nickName: '张三',
     phone: '15888888888',
-    status: false,
+    state: false,
     createDate: '2023-04-23 16:11:38'
   },
   {
@@ -61,7 +61,7 @@ const tableData = [
     uname: 'zs',
     nickName: '张三',
     phone: '15888888888',
-    status: false,
+    state: false,
     createDate: '2023-04-23 16:11:38'
   },
   {
@@ -69,7 +69,7 @@ const tableData = [
     uname: 'zs',
     nickName: '张三',
     phone: '15888888888',
-    status: false,
+    state: false,
     createDate: '2023-04-23 16:11:38'
   },
   {
@@ -77,7 +77,7 @@ const tableData = [
     uname: 'zs',
     nickName: '张三',
     phone: '15888888888',
-    status: false,
+    state: false,
     createDate: '2023-04-23 16:11:38'
   },
   {
@@ -85,7 +85,7 @@ const tableData = [
     uname: 'zs',
     nickName: '张三',
     phone: '15888888888',
-    status: false,
+    state: false,
     createDate: '2023-04-23 16:11:38'
   }
 ]
@@ -153,6 +153,9 @@ const rules = {}
         <el-form-item label="手机号码">
           <el-input v-model="formModel.phone" />
         </el-form-item>
+        <el-form-item label="邮箱">
+          <el-input v-model="formModel.email" />
+        </el-form-item>
         <el-form-item label="用户名称">
           <el-input v-model="formModel.uname" />
         </el-form-item>
@@ -173,8 +176,8 @@ const rules = {}
         </el-form-item>
         <el-form-item label="状态">
           <el-radio-group v-model="formModel.status">
-            <el-radio :label="true">正常</el-radio>
-            <el-radio :label="false">停用</el-radio>
+            <el-radio label="正常" />
+            <el-radio label="停用" />
           </el-radio-group>
         </el-form-item>
         <el-form-item label="备注">
@@ -269,7 +272,7 @@ const rules = {}
       />
       <el-table-column align="center" label="状态" width="120">
         <template #default="scope">
-          <el-switch v-model="scope.row.status" />
+          <el-switch v-model="scope.row.state" />
         </template>
       </el-table-column>
       <el-table-column
