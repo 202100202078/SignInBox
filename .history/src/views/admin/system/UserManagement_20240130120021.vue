@@ -13,17 +13,16 @@ const filterForm = ref({
 
 const statusOptions = [
   {
-    value: '正常',
+    value: 'Option1',
     label: '正常'
   },
   {
-    value: '停用',
+    value: 'Option2',
     label: '停用'
   }
 ]
 
 const handleReset = () => {
-  // 重置筛选表单
   filterForm.value = {}
 }
 const handleQuery = () => {

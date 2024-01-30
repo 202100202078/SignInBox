@@ -11,20 +11,23 @@ const filterForm = ref({
   datePicker: ''
 })
 
+// 时间选择器
+const datePicker = ref('')
+
+const status = ref('')
 const statusOptions = [
   {
-    value: '正常',
+    value: 'Option1',
     label: '正常'
   },
   {
-    value: '停用',
+    value: 'Option2',
     label: '停用'
   }
 ]
 
 const handleReset = () => {
-  // 重置筛选表单
-  filterForm.value = {}
+  console.log('reset')
 }
 const handleQuery = () => {
   console.log('query')
@@ -188,15 +191,15 @@ const rules = {}
     </template>
   </MyDialog>
   <div class="user-managemant-page">
-    <FilterForm @reset="handleReset" @query="handleQuery">
+    <FilterForm>
       <el-form-item label="用户名称">
-        <el-input placeholder="请输入" v-model="filterForm.uname"></el-input>
+        <el-input placeholder="请输入"></el-input>
       </el-form-item>
       <el-form-item label="手机号码">
-        <el-input placeholder="请输入" v-model="filterForm.phone"></el-input>
+        <el-input placeholder="请输入"></el-input>
       </el-form-item>
       <el-form-item label="状态">
-        <el-select v-model="filterForm.status" placeholder="请选择">
+        <el-select v-model="status" placeholder="请选择">
           <el-option
             v-for="item in statusOptions"
             :key="item.value"
@@ -207,7 +210,7 @@ const rules = {}
       </el-form-item>
       <el-form-item label="创建时间">
         <el-date-picker
-          v-model="filterForm.datePicker"
+          v-model="datePicker"
           type="daterange"
           range-separator="To"
           start-placeholder="Start date"

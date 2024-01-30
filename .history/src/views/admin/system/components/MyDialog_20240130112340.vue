@@ -23,7 +23,7 @@ const confirm = () => {
   }
 }
 
-const emit = defineEmits(['onAddConfirm', 'onEditConfirm', 'onAddChildConfirm'])
+const emit = defineEmits(['onConfirm'])
 
 defineExpose({
   open
@@ -32,7 +32,9 @@ defineExpose({
 
 <template>
   <el-dialog v-model="dialogFormVisible" :title="title" align-center>
-    <slot name="form"> </slot>
+    <slot name="form">
+      <div>我是内部表单</div>
+    </slot>
     <template #footer>
       <span class="dialog-footer">
         <el-button @click="dialogFormVisible = false">Cancel</el-button>

@@ -8,6 +8,10 @@ const router = useRouter()
 //当前处于menu哪个tab下
 const cur = ref(0)
 
+const handleManageCommand = (command) => {
+  router.push(command)
+}
+
 const handleAvatarCommand = async (command) => {
   //如果是退出登录需要清除本地用户信息
   // console.log('清除本地用户信息')

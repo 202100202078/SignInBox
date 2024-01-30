@@ -11,9 +11,8 @@ const open = () => {
 }
 
 const confirm = () => {
-  // 关闭dialog
   dialogFormVisible.value = false
-  // 根据title的不同向父级发送不同命令
+  console.log(props.title)
   if (props.title === '添加菜单') {
     emit('onAddConfirm')
   } else if (props.title === '编辑菜单') {
@@ -23,7 +22,7 @@ const confirm = () => {
   }
 }
 
-const emit = defineEmits(['onAddConfirm', 'onEditConfirm', 'onAddChildConfirm'])
+const emit = defineEmits(['onConfirm'])
 
 defineExpose({
   open
@@ -32,7 +31,9 @@ defineExpose({
 
 <template>
   <el-dialog v-model="dialogFormVisible" :title="title" align-center>
-    <slot name="form"> </slot>
+    <slot name="form">
+      <div>我是内部表单</div>
+    </slot>
     <template #footer>
       <span class="dialog-footer">
         <el-button @click="dialogFormVisible = false">Cancel</el-button>
