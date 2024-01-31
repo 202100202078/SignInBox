@@ -190,64 +190,6 @@ getDataList()
 
 <template>
   <div class="menu-management-page">
-    <MyDialog
-      ref="myDialogRef"
-      :title="title"
-      @onAddConfirm="handleAddConfirm"
-      @onEditConfirm="handleEditConfirm"
-      @onAddChildConfirm="handleAddChildConfirm"
-    >
-      <template #form>
-        <el-form
-          :model="formModel"
-          label-width="80px"
-          label-position="left"
-          :rules="rules"
-        >
-          <el-form-item label="上级菜单">
-            <el-tree-select
-              v-model="formModel.parentId"
-              :data="data"
-              check-strictly
-              :props="{ label: 'moduleName', value: 'moduleId' }"
-              :render-after-expand="false"
-            />
-          </el-form-item>
-          <el-form-item label="菜单类型">
-            <el-radio-group v-model="formModel.moduleType">
-              <el-radio label="M">目录</el-radio>
-              <el-radio label="C">菜单</el-radio>
-              <el-radio label="F">按钮</el-radio>
-            </el-radio-group>
-          </el-form-item>
-          <el-form-item label="菜单名称" prop="moduleName">
-            <el-input v-model="formModel.moduleName" />
-          </el-form-item>
-          <el-form-item
-            v-show="formModel.moduleType !== 'M'"
-            label="权限标识"
-            prop="perms"
-          >
-            <el-input v-model="formModel.perms" />
-          </el-form-item>
-          <el-form-item label="显示排序">
-            <el-input-number v-model="formModel.moduleSort" :min="0" />
-          </el-form-item>
-          <el-form-item v-show="formModel.moduleType !== 'F'" label="显示状态">
-            <el-radio-group v-model="formModel.visible">
-              <el-radio label="0">显示</el-radio>
-              <el-radio label="1">隐藏</el-radio>
-            </el-radio-group>
-          </el-form-item>
-          <el-form-item label="菜单状态">
-            <el-radio-group v-model="formModel.status">
-              <el-radio label="0">正常</el-radio>
-              <el-radio label="1">停用</el-radio>
-            </el-radio-group>
-          </el-form-item>
-        </el-form>
-      </template>
-    </MyDialog>
     <FilterLayout
       label1="菜单名称"
       label2="状态"

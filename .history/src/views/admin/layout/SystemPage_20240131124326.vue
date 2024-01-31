@@ -49,13 +49,11 @@ onMounted(() => {
                 <el-radio-button :label="true">collapse</el-radio-button>
               </el-radio-group>
               <el-breadcrumb separator="/">
-                <TransitionGroup name="fade-bread" appear>
-                  <el-breadcrumb-item
-                    v-for="(item, index) in $route.meta.breadInfo"
-                    :key="index"
-                    >{{ item }}</el-breadcrumb-item
-                  >
-                </TransitionGroup>
+                <el-breadcrumb-item
+                  v-for="(item, index) in $route.meta.breadInfo"
+                  :key="index"
+                  >{{ item }}</el-breadcrumb-item
+                >
               </el-breadcrumb>
             </div>
             <div class="header-top-right">
@@ -177,16 +175,6 @@ onMounted(() => {
 }
 
 .fade-leave-to {
-  opacity: 0;
-  transform: translateX(30px);
-}
-//面包屑动画
-.fade-bread-leave-active,
-.fade-bread-enter-active {
-  transition: all 0.5s;
-}
-.fade-bread-enter-from,
-.fade-bread-leave-to {
   opacity: 0;
   transform: translateX(30px);
 }

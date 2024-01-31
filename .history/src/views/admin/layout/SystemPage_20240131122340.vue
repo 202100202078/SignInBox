@@ -49,13 +49,11 @@ onMounted(() => {
                 <el-radio-button :label="true">collapse</el-radio-button>
               </el-radio-group>
               <el-breadcrumb separator="/">
-                <TransitionGroup name="fade-bread" appear>
-                  <el-breadcrumb-item
-                    v-for="(item, index) in $route.meta.breadInfo"
-                    :key="index"
-                    >{{ item }}</el-breadcrumb-item
-                  >
-                </TransitionGroup>
+                <el-breadcrumb-item
+                  v-for="(item, index) in $route.meta.breadInfo"
+                  :key="index"
+                  >{{ item }}</el-breadcrumb-item
+                >
               </el-breadcrumb>
             </div>
             <div class="header-top-right">
@@ -98,14 +96,12 @@ onMounted(() => {
           </div> -->
         </el-header>
         <el-main>
-          <router-view v-slot="{ Component, route }">
-            <template v-if="Component">
-              <Transition name="fade" mode="out-in" appear>
-                <KeepAlive>
-                  <component :is="Component" :key="route.name"></component>
-                </KeepAlive>
-              </Transition>
-            </template>
+          <router-view v-slot="{ Component }">
+            <transition name="fade" mode="in-out" appear>
+              <keep-alive>
+                <component :is="Component" />
+              </keep-alive>
+            </transition>
           </router-view>
         </el-main>
       </el-container>
@@ -159,35 +155,14 @@ onMounted(() => {
   }
 }
 
-/* 路由切换动画 */
-/* fade-transform */
-.fade-leave-active,
-.fade-enter-active {
-  transition: all 0.5s;
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.7s ease;
 }
 
-/* 可能为enter失效，拆分为 enter-from和enter-to */
-.fade-enter-from {
-  opacity: 0;
-  transform: translateX(-30px);
-}
-.fade-enter-to {
-  opacity: 1;
-  transform: translateX(0px);
-}
-
+.fade-enter-from,
 .fade-leave-to {
+  // transform: translateX(40px);
   opacity: 0;
-  transform: translateX(30px);
-}
-//面包屑动画
-.fade-bread-leave-active,
-.fade-bread-enter-active {
-  transition: all 0.5s;
-}
-.fade-bread-enter-from,
-.fade-bread-leave-to {
-  opacity: 0;
-  transform: translateX(30px);
 }
 </style>

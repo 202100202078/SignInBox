@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from 'vue'
-import FilterForm from './components/FilterForm.vue'
+
+// 一个响应式对象存储整个筛选表单的数据
+
 // 一个响应式对象存储整个筛选表单的数据
 const filterForm = ref({
   uname: '',
@@ -21,11 +23,14 @@ const statusOptions = [
 ]
 
 const handleReset = () => {
-  // 重置筛选表单
-  filterForm.value = {}
+  console.log('reset')
 }
 const handleQuery = () => {
   console.log('query')
+}
+const handleTrigger = () => {
+  // console.log('trigger')
+  isShow.value = !isShow.value
 }
 
 const tableData = [
@@ -97,21 +102,17 @@ const handleSelectionChange = (val) => {
 
 <template>
   <div class="role-management-page">
-    <FilterForm @reset="handleReset" @query="handleQuery">
-      <el-form-item label="角色名称">
-        <el-input
-          placeholder="请输入角色名称"
-          v-model="filterForm.uname"
-        ></el-input>
-      </el-form-item>
-      <el-form-item label="权限字符">
-        <el-input
-          placeholder="请输入权限字符"
-          v-model="filterForm.phone"
-        ></el-input>
-      </el-form-item>
-      <el-form-item label="状态">
-        <el-select v-model="filterForm.status" placeholder="请选择">
+    <FilterLayout
+      label1="角色名称"
+      label2="权限字段"
+      :isShow="isShow"
+      :showCollapse="false"
+      @reset="handleReset"
+      @query="handleQuery"
+      @trigger="handleTrigger"
+    >
+      <el-form-item label="状态" v-show="isShow">
+        <el-select v-model="status" placeholder="请选择">
           <el-option
             v-for="item in statusOptions"
             :key="item.value"
@@ -120,24 +121,21 @@ const handleSelectionChange = (val) => {
           />
         </el-select>
       </el-form-item>
-      <el-form-item label="创建时间">
+      <el-form-item label="创建时间" v-show="isShow">
         <el-date-picker
-          v-model="filterForm.datePicker"
+          v-model="datePicker"
           type="daterange"
           range-separator="To"
           start-placeholder="Start date"
           end-placeholder="End date"
         />
       </el-form-item>
-    </FilterForm>
+    </FilterLayout>
+
     <div class="role-management-page-btns">
       <el-button plain type="primary">添加</el-button>
-      <el-button plain type="success" :disabled="multipleSelection.length !== 1"
-        >修改</el-button
-      >
-      <el-button plain type="danger" :disabled="multipleSelection.length === 0"
-        >删除</el-button
-      >
+      <el-button plain type="success">修改</el-button>
+      <el-button plain type="danger">删除</el-button>
     </div>
     <el-table
       :ref="multipleTableRef"

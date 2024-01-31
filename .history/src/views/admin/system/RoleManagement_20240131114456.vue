@@ -135,9 +135,7 @@ const handleSelectionChange = (val) => {
       <el-button plain type="success" :disabled="multipleSelection.length !== 1"
         >修改</el-button
       >
-      <el-button plain type="danger" :disabled="multipleSelection.length === 0"
-        >删除</el-button
-      >
+      <el-button plain type="danger">删除</el-button>
     </div>
     <el-table
       :ref="multipleTableRef"

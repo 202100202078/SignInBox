@@ -139,55 +139,55 @@ const rules = {}
 </script>
 
 <template>
+  <MyDialog :title="dialogTitle" ref="myDialogRef">
+    <template #form>
+      <el-form
+        :model="formModel"
+        label-width="80px"
+        label-position="left"
+        :rules="rules"
+      >
+        <el-form-item label="用户昵称">
+          <el-input v-model="formModel.nickName" />
+        </el-form-item>
+        <el-form-item label="手机号码">
+          <el-input v-model="formModel.phone" />
+        </el-form-item>
+        <el-form-item label="用户名称">
+          <el-input v-model="formModel.uname" />
+        </el-form-item>
+        <el-form-item label="用户密码">
+          <el-input v-model="formModel.password" type="password" />
+        </el-form-item>
+        <el-form-item label="用户性别">
+          <el-select v-model="formModel.gender" placeholder="请选择性别">
+            <el-option label="男" value="1" />
+            <el-option label="女" value="2" />
+            <el-option label="未知" value="3" />
+          </el-select>
+        </el-form-item>
+        <el-form-item label="角色">
+          <el-select v-model="formModel.role" placeholder="请选择角色">
+            <el-option label="普通角色" value="normal" />
+          </el-select>
+        </el-form-item>
+        <el-form-item label="状态">
+          <el-radio-group v-model="formModel.status">
+            <el-radio :label="true">正常</el-radio>
+            <el-radio :label="false">停用</el-radio>
+          </el-radio-group>
+        </el-form-item>
+        <el-form-item label="备注">
+          <el-input
+            v-model="formModel.desc"
+            type="textarea"
+            placeholder="请输入内容"
+          />
+        </el-form-item>
+      </el-form>
+    </template>
+  </MyDialog>
   <div class="user-managemant-page">
-    <MyDialog :title="dialogTitle" ref="myDialogRef">
-      <template #form>
-        <el-form
-          :model="formModel"
-          label-width="80px"
-          label-position="left"
-          :rules="rules"
-        >
-          <el-form-item label="用户昵称">
-            <el-input v-model="formModel.nickName" />
-          </el-form-item>
-          <el-form-item label="手机号码">
-            <el-input v-model="formModel.phone" />
-          </el-form-item>
-          <el-form-item label="用户名称">
-            <el-input v-model="formModel.uname" />
-          </el-form-item>
-          <el-form-item label="用户密码">
-            <el-input v-model="formModel.password" type="password" />
-          </el-form-item>
-          <el-form-item label="用户性别">
-            <el-select v-model="formModel.gender" placeholder="请选择性别">
-              <el-option label="男" value="1" />
-              <el-option label="女" value="2" />
-              <el-option label="未知" value="3" />
-            </el-select>
-          </el-form-item>
-          <el-form-item label="角色">
-            <el-select v-model="formModel.role" placeholder="请选择角色">
-              <el-option label="普通角色" value="normal" />
-            </el-select>
-          </el-form-item>
-          <el-form-item label="状态">
-            <el-radio-group v-model="formModel.status">
-              <el-radio :label="true">正常</el-radio>
-              <el-radio :label="false">停用</el-radio>
-            </el-radio-group>
-          </el-form-item>
-          <el-form-item label="备注">
-            <el-input
-              v-model="formModel.desc"
-              type="textarea"
-              placeholder="请输入内容"
-            />
-          </el-form-item>
-        </el-form>
-      </template>
-    </MyDialog>
     <FilterForm @reset="handleReset" @query="handleQuery">
       <el-form-item label="用户名称">
         <el-input placeholder="请输入" v-model="filterForm.uname"></el-input>
@@ -273,10 +273,9 @@ const rules = {}
         </template>
       </el-table-column>
       <el-table-column
-        align="center"
         property="createDate"
         label="创建时间"
-        width="180"
+        width="170"
         show-overflow-tooltip
       />
       <el-table-column label="操作" show-overflow-tooltip align="center">

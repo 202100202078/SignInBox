@@ -48,15 +48,15 @@ onMounted(() => {
                 <el-radio-button :label="false">expand</el-radio-button>
                 <el-radio-button :label="true">collapse</el-radio-button>
               </el-radio-group>
-              <el-breadcrumb separator="/">
-                <TransitionGroup name="fade-bread" appear>
+              <Transition name="fade">
+                <el-breadcrumb separator="/">
                   <el-breadcrumb-item
                     v-for="(item, index) in $route.meta.breadInfo"
                     :key="index"
                     >{{ item }}</el-breadcrumb-item
                   >
-                </TransitionGroup>
-              </el-breadcrumb>
+                </el-breadcrumb>
+              </Transition>
             </div>
             <div class="header-top-right">
               <el-dropdown @command="handleAvatarCommand">
@@ -177,16 +177,6 @@ onMounted(() => {
 }
 
 .fade-leave-to {
-  opacity: 0;
-  transform: translateX(30px);
-}
-//面包屑动画
-.fade-bread-leave-active,
-.fade-bread-enter-active {
-  transition: all 0.5s;
-}
-.fade-bread-enter-from,
-.fade-bread-leave-to {
   opacity: 0;
   transform: translateX(30px);
 }

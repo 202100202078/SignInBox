@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import FilterForm from './components/FilterForm.vue'
+import FilterForm from './components/FilterForm'
 // 一个响应式对象存储整个筛选表单的数据
 const filterForm = ref({
   uname: '',
@@ -21,8 +21,7 @@ const statusOptions = [
 ]
 
 const handleReset = () => {
-  // 重置筛选表单
-  filterForm.value = {}
+  console.log('reset')
 }
 const handleQuery = () => {
   console.log('query')
@@ -99,10 +98,7 @@ const handleSelectionChange = (val) => {
   <div class="role-management-page">
     <FilterForm @reset="handleReset" @query="handleQuery">
       <el-form-item label="角色名称">
-        <el-input
-          placeholder="请输入角色名称"
-          v-model="filterForm.uname"
-        ></el-input>
+        <el-input placeholder="请输入" v-model="filterForm.uname"></el-input>
       </el-form-item>
       <el-form-item label="权限字符">
         <el-input
@@ -132,12 +128,8 @@ const handleSelectionChange = (val) => {
     </FilterForm>
     <div class="role-management-page-btns">
       <el-button plain type="primary">添加</el-button>
-      <el-button plain type="success" :disabled="multipleSelection.length !== 1"
-        >修改</el-button
-      >
-      <el-button plain type="danger" :disabled="multipleSelection.length === 0"
-        >删除</el-button
-      >
+      <el-button plain type="success">修改</el-button>
+      <el-button plain type="danger">删除</el-button>
     </div>
     <el-table
       :ref="multipleTableRef"

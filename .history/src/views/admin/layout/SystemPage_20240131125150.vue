@@ -49,7 +49,7 @@ onMounted(() => {
                 <el-radio-button :label="true">collapse</el-radio-button>
               </el-radio-group>
               <el-breadcrumb separator="/">
-                <TransitionGroup name="fade-bread" appear>
+                <TransitionGroup name="fade-bread">
                   <el-breadcrumb-item
                     v-for="(item, index) in $route.meta.breadInfo"
                     :key="index"
@@ -181,13 +181,8 @@ onMounted(() => {
   transform: translateX(30px);
 }
 //面包屑动画
-.fade-bread-leave-active,
-.fade-bread-enter-active {
+.fade-leave-active,
+.fade-enter-active {
   transition: all 0.5s;
-}
-.fade-bread-enter-from,
-.fade-bread-leave-to {
-  opacity: 0;
-  transform: translateX(30px);
 }
 </style>

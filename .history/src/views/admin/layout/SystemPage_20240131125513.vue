@@ -49,7 +49,7 @@ onMounted(() => {
                 <el-radio-button :label="true">collapse</el-radio-button>
               </el-radio-group>
               <el-breadcrumb separator="/">
-                <TransitionGroup name="fade-bread" appear>
+                <TransitionGroup name="fade-bread" appear="">
                   <el-breadcrumb-item
                     v-for="(item, index) in $route.meta.breadInfo"
                     :key="index"
