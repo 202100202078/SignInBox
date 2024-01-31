@@ -6,13 +6,14 @@ import {
   getMenuItem,
   editMenuItem
 } from '@/api/system/menu.js'
-import FilterForm from './components/FilterForm.vue'
 import MyDialog from './components/MyDialog.vue'
 import { ref } from 'vue'
 // 一个响应式对象存储整个筛选表单的数据
 const filterForm = ref({
-  moduleName: '',
-  status: ''
+  uname: '',
+  phone: '',
+  status: '',
+  datePicker: ''
 })
 
 const statusOptions = [
@@ -33,98 +34,81 @@ const handleQuery = () => {
   console.log('query')
 }
 
+
 const tableData = ref([
   {
-    moduleId: 0,
-    moduleName: '主目录',
-    moduleSort: 1,
+    id: 1,
+    menuName: '首页',
+    order: 1,
     authority: 'system:user:list',
-    perms: 'system/user/index',
-    status: '正常',
-    createTime: '2023-04-23 16:11:49',
+    comPath: 'system/user/index',
+    state: '正常',
+    createDate: '2023-04-23 16:11:49'
+  },
+  {
+    id: 2,
+    menuName: '首页',
+    order: 1,
+    authority: 'system:user:list',
+    comPath: 'system/user/index',
+    state: '正常',
+    createDate: '2023-04-23 16:11:49'
+  },
+  {
+    id: 3,
+    menuName: '首页',
+    order: 1,
+    authority: '',
+    comPath: '',
+    state: '',
+    createDate: '2023-04-23 16:11:49',
     children: [
       {
-        moduleId: 1,
-        moduleName: '系统管理',
-        moduleSort: 1,
+        id: 31,
+        menuName: '首页',
+        order: 1,
         authority: 'system:user:list',
-        perms: 'system/user/index',
-        status: '正常',
-        createTime: '2023-04-23 16:11:49',
-        children: [
-          {
-            moduleId: 11,
-            moduleName: '用户管理',
-            moduleSort: 1,
-            authority: 'system:user:list',
-            perms: 'system/user/index',
-            status: '正常',
-            createTime: '2023-04-23 16:11:49'
-          },
-          {
-            moduleId: 12,
-            moduleName: '角色管理',
-            moduleSort: 1,
-            authority: 'system:user:list',
-            perms: 'system/user/index',
-            status: '正常',
-            createTime: '2023-04-23 16:11:49'
-          },
-          {
-            moduleId: 13,
-            moduleName: '菜单管理',
-            moduleSort: 1,
-            authority: 'system:user:list',
-            perms: 'system/user/index',
-            status: '正常',
-            createTime: '2023-04-23 16:11:49'
-          }
-        ]
+        comPath: 'system/user/index',
+        state: '正常',
+        createDate: '2023-04-23 16:11:49'
       },
       {
-        moduleId: 2,
-        moduleName: '系统监控',
-        moduleSort: 1,
+        id: 32,
+        menuName: '首页',
+        order: 1,
         authority: 'system:user:list',
-        perms: 'system/user/index',
-        status: '正常',
-        createTime: '2023-04-23 16:11:49'
-      },
-      {
-        moduleId: 3,
-        moduleName: '系统工具',
-        moduleSort: 1,
-        authority: 'system:user:list',
-        perms: 'system/user/index',
-        status: '正常',
-        createTime: '2023-04-23 16:11:49'
+        comPath: 'system/user/index',
+        state: '正常',
+        createDate: '2023-04-23 16:11:49'
       }
     ]
+  },
+  {
+    id: 4,
+    menuName: '首页',
+    order: 1,
+    authority: 'system:user:list',
+    comPath: 'system/user/index',
+    state: '正常',
+    createDate: '2023-04-23 16:11:49'
   }
 ])
 
 const myDialogRef = ref()
 const title = ref('添加菜单')
 
-const treeData = ref([
+const data = ref([
   {
-    moduleId: 0,
-    moduleName: '主类目',
-    children: [
-      {
-        moduleId: 1,
-        moduleName: '系统管理',
-        children: [
-          { moduleId: 11, moduleName: '用户管理' },
-          { moduleId: 12, moduleName: '角色管理' },
-          { moduleId: 13, moduleName: '菜单管理' }
-        ]
-      },
-      { moduleId: 2, moduleName: '系统监控' },
-      { moduleId: 3, moduleName: '系统工具' }
-    ]
+    parentId: 0,
+    moduleName: '',
+    children: []
   }
 ])
+
+const filterForm = ref({
+  moduleName: '',
+  status: ''
+})
 
 const formModel = ref({
   moduleName: '',
@@ -165,6 +149,7 @@ const editMenuFn = async (moduleId) => {
 
 const addChildMenuFn = (moduleId) => {
   title.value = '添加子菜单'
+  //默认上级菜单id为当前菜单
   console.log(moduleId)
   formModel.value.parentId = moduleId
   myDialogRef.value.open()
@@ -194,7 +179,7 @@ const handleAddChildConfirm = async () => {
 const getDataList = async () => {
   const res = await getMenuList()
   tableData.value = res.data.data
-  treeData.value = res.data.data
+  data.value = res.data.data
   console.log(res)
 }
 
@@ -216,12 +201,11 @@ getDataList()
           label-width="80px"
           label-position="left"
           :rules="rules"
-          class="dialog-form"
         >
           <el-form-item label="上级菜单">
             <el-tree-select
               v-model="formModel.parentId"
-              :data="treeData"
+              :data="data"
               check-strictly
               :props="{ label: 'moduleName', value: 'moduleId' }"
               :render-after-expand="false"
@@ -263,11 +247,11 @@ getDataList()
       </template>
     </MyDialog>
     <FilterForm @reset="handleReset" @query="handleQuery">
-      <el-form-item label="菜单名称">
-        <el-input
-          placeholder="请输入菜单名称"
-          v-model="filterForm.moduleName"
-        ></el-input>
+      <el-form-item label="用户名称">
+        <el-input placeholder="请输入" v-model="filterForm.uname"></el-input>
+      </el-form-item>
+      <el-form-item label="手机号码">
+        <el-input placeholder="请输入" v-model="filterForm.phone"></el-input>
       </el-form-item>
       <el-form-item label="状态">
         <el-select v-model="filterForm.status" placeholder="请选择">
@@ -279,16 +263,24 @@ getDataList()
           />
         </el-select>
       </el-form-item>
+      <el-form-item label="创建时间">
+        <el-date-picker
+          v-model="filterForm.datePicker"
+          type="daterange"
+          range-separator="To"
+          start-placeholder="Start date"
+          end-placeholder="End date"
+        />
+      </el-form-item>
     </FilterForm>
     <div class="menu-management-page-btns">
       <el-button plain type="primary" @click="addMenuFn">添加</el-button>
     </div>
-
     <el-table
       :data="tableData"
       style="width: 100%"
-      row-key="moduleId"
-      :bmoduleSort="true"
+      row-key="parentId"
+      border
       :header-cell-style="{
         background: '#F5F7FA',
         color: '#909399'
@@ -298,15 +290,14 @@ getDataList()
       <el-table-column prop="moduleSort" label="排序" />
       <el-table-column prop="perms" label="权限标识" />
       <el-table-column prop="status" label="状态">
-        <template #default="scope"> {{ scope.row.status }} </template>
+        <template #default="scope"> {{ scope.row.state }} </template>
       </el-table-column>
       <el-table-column
-        align="center"
         prop="createTime"
         label="创建时间"
         show-overflow-tooltip
       />
-      <el-table-column width="300" label="操作" align="center">
+      <el-table-column width="300" label="操作">
         <template #default="scope">
           <el-button
             size="small"
@@ -342,9 +333,6 @@ getDataList()
     .el-select {
       width: 100%;
     }
-  }
-  .dialog-form .el-form-item {
-    width: 100%;
   }
   .menu-management-page-btns {
     margin-bottom: 16px;

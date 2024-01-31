@@ -35,55 +35,43 @@ const handleQuery = () => {
 
 const tableData = ref([
   {
-    moduleId: 0,
-    moduleName: '主目录',
+    moduleId: 1,
+    moduleName: '首页',
     moduleSort: 1,
     authority: 'system:user:list',
     perms: 'system/user/index',
     status: '正常',
+    createTime: '2023-04-23 16:11:49'
+  },
+  {
+    moduleId: 1,
+    moduleName: '首页',
+    moduleSort: 1,
+    authority: 'system:user:list',
+    perms: 'system/user/index',
+    status: '正常',
+    createTime: '2023-04-23 16:11:49'
+  },
+  {
+    moduleId: 2,
+    moduleName: '首页',
+    moduleSort: 1,
+    perms: 'system:user:list',
+    status: '正常',
+    createTime: '2023-04-23 16:11:49'
+  },
+  {
+    moduleId: 3,
+    moduleName: '首页',
+    moduleSort: 1,
+    authority: '',
+    perms: '',
+    status: '',
     createTime: '2023-04-23 16:11:49',
     children: [
       {
-        moduleId: 1,
-        moduleName: '系统管理',
-        moduleSort: 1,
-        authority: 'system:user:list',
-        perms: 'system/user/index',
-        status: '正常',
-        createTime: '2023-04-23 16:11:49',
-        children: [
-          {
-            moduleId: 11,
-            moduleName: '用户管理',
-            moduleSort: 1,
-            authority: 'system:user:list',
-            perms: 'system/user/index',
-            status: '正常',
-            createTime: '2023-04-23 16:11:49'
-          },
-          {
-            moduleId: 12,
-            moduleName: '角色管理',
-            moduleSort: 1,
-            authority: 'system:user:list',
-            perms: 'system/user/index',
-            status: '正常',
-            createTime: '2023-04-23 16:11:49'
-          },
-          {
-            moduleId: 13,
-            moduleName: '菜单管理',
-            moduleSort: 1,
-            authority: 'system:user:list',
-            perms: 'system/user/index',
-            status: '正常',
-            createTime: '2023-04-23 16:11:49'
-          }
-        ]
-      },
-      {
-        moduleId: 2,
-        moduleName: '系统监控',
+        moduleId: 31,
+        moduleName: '首页',
         moduleSort: 1,
         authority: 'system:user:list',
         perms: 'system/user/index',
@@ -91,8 +79,8 @@ const tableData = ref([
         createTime: '2023-04-23 16:11:49'
       },
       {
-        moduleId: 3,
-        moduleName: '系统工具',
+        moduleId: 32,
+        moduleName: '首页',
         moduleSort: 1,
         authority: 'system:user:list',
         perms: 'system/user/index',
@@ -100,6 +88,15 @@ const tableData = ref([
         createTime: '2023-04-23 16:11:49'
       }
     ]
+  },
+  {
+    moduleId: 4,
+    moduleName: '首页',
+    moduleSort: 1,
+    authority: 'system:user:list',
+    perms: 'system/user/index',
+    status: '正常',
+    createTime: '2023-04-23 16:11:49'
   }
 ])
 
@@ -287,7 +284,7 @@ getDataList()
     <el-table
       :data="tableData"
       style="width: 100%"
-      row-key="moduleId"
+      row-key="id"
       :bmoduleSort="true"
       :header-cell-style="{
         background: '#F5F7FA',

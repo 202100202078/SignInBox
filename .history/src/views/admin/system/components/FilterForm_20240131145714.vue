@@ -4,9 +4,7 @@ defineProps({
     type: Boolean,
     default: false
   },
-  rules: {
-    type: Object
-  }
+  rules
 })
 const emit = defineEmits(['reset', 'query', 'trigger'])
 //暴露重置方法和查询方法以及展开

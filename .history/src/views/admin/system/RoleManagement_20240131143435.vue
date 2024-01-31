@@ -1,6 +1,5 @@
 <script setup>
 import { ref } from 'vue'
-import MyDialog from './components/MyDialog.vue'
 import FilterForm from './components/FilterForm.vue'
 // 一个响应式对象存储整个筛选表单的数据
 const filterForm = ref({
@@ -27,30 +26,6 @@ const handleReset = () => {
 }
 const handleQuery = () => {
   console.log('query')
-}
-
-// dialog组件ref
-const myDialogRef = ref()
-// dialog的标题
-const dialogTitle = ref('添加角色')
-
-// 点击添加角色
-const addUserFn = () => {
-  dialogTitle.value = '添加角色'
-  myDialogRef.value.open()
-}
-// 点击修改角色
-const editUserFn = () => {
-  dialogTitle.value = '修改角色'
-  // 将当前多选框选中数据渲染到dialog中
-  const curSelection = multipleSelection.value[0]
-  formModel.value = curSelection
-  myDialogRef.value.open()
-}
-// 点击删除角色
-const delUserFn = () => {
-  dialogTitle.value = '系统提示'
-  myDialogRef.value.open()
 }
 
 const tableData = [
@@ -118,91 +93,10 @@ const multipleSelection = ref([])
 const handleSelectionChange = (val) => {
   multipleSelection.value = val
 }
-
-// dialog表单
-const formModel = ref({
-  nickName: '',
-  phone: '',
-  email: '',
-  uname: '',
-  password: '',
-  role: '',
-  gender: '',
-  status: '',
-  desc: ''
-})
-
-const treeData = ref([
-  {
-    moduleId: 0,
-    moduleName: '主类目',
-    children: [
-      {
-        moduleId: 1,
-        moduleName: '系统管理',
-        children: [
-          { moduleId: 11, moduleName: '用户管理' },
-          { moduleId: 12, moduleName: '角色管理' },
-          { moduleId: 13, moduleName: '菜单管理' }
-        ]
-      },
-      { moduleId: 2, moduleName: '系统监控' },
-      { moduleId: 3, moduleName: '系统工具' }
-    ]
-  }
-])
-
-// const rules = {}
 </script>
 
 <template>
   <div class="role-management-page">
-    <MyDialog :title="dialogTitle" ref="myDialogRef">
-      <template #form>
-        <el-form
-          :model="formModel"
-          label-width="80px"
-          label-position="left"
-          :rules="rules"
-          class="dialog-form"
-        >
-          <el-form-item label="角色名称">
-            <el-input v-model="formModel.nickName" />
-          </el-form-item>
-          <el-form-item label="权限字段">
-            <el-input v-model="formModel.phone" />
-          </el-form-item>
-          <el-form-item label="角色顺序">
-            <el-input-number v-model="formModel.moduleSort" :min="0" />
-          </el-form-item>
-          <el-form-item label="状态">
-            <el-radio-group v-model="formModel.status">
-              <el-radio :label="true">正常</el-radio>
-              <el-radio :label="false">停用</el-radio>
-            </el-radio-group>
-          </el-form-item>
-          <el-form-item label="菜单权限">
-            <el-tree
-              v-model="formModel.moduleAuth"
-              :data="treeData"
-              :props="{ label: 'moduleName', value: 'moduleId' }"
-              show-checkbox
-              :style="{
-                width: '100%',
-                border: '1px solid var(--el-border-color)'
-              }"
-            />
-          </el-form-item>
-          <el-form-item label="备注">
-            <el-input
-              v-model="formModel.desc"
-              type="textarea"
-              placeholder="请输入内容"
-            />
-          </el-form-item>
-        </el-form>
-      </template>
-    </MyDialog>
     <FilterForm @reset="handleReset" @query="handleQuery">
       <el-form-item label="角色名称">
         <el-input
@@ -237,19 +131,11 @@ const treeData = ref([
       </el-form-item>
     </FilterForm>
     <div class="role-management-page-btns">
-      <el-button plain type="primary" @click="addUserFn">添加</el-button>
-      <el-button
-        plain
-        type="success"
-        @click="editUserFn"
-        :disabled="multipleSelection.length !== 1"
+      <el-button plain type="primary">添加</el-button>
+      <el-button plain type="success" :disabled="multipleSelection.length !== 1"
         >修改</el-button
       >
-      <el-button
-        plain
-        type="danger"
-        @click="delUserFn"
-        :disabled="multipleSelection.length === 0"
+      <el-button plain type="danger" :disabled="multipleSelection.length === 0"
         >删除</el-button
       >
     </div>
@@ -317,9 +203,6 @@ const treeData = ref([
     .el-select {
       width: 100%;
     }
-  }
-  .dialog-form .el-form-item {
-    width: 100%;
   }
   .role-management-page-btns {
     margin-bottom: 16px;

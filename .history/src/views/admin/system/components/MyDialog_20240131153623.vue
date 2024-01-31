@@ -42,4 +42,4 @@ defineExpose({
   </el-dialog>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="less"></style>

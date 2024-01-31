@@ -5,7 +5,8 @@ defineProps({
     default: false
   },
   rules: {
-    type: Object
+    type: Object,
+    required: true
   }
 })
 const emit = defineEmits(['reset', 'query', 'trigger'])

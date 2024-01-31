@@ -42,4 +42,8 @@ defineExpose({
   </el-dialog>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="less" scoped>
+.el-select {
+  width: 100%;
+}
+</style>

@@ -1,7 +1,8 @@
 <script setup>
-import { ref } from 'vue'
 import MyDialog from './components/MyDialog.vue'
 import FilterForm from './components/FilterForm.vue'
+import { ref } from 'vue'
+
 // 一个响应式对象存储整个筛选表单的数据
 const filterForm = ref({
   uname: '',
@@ -29,94 +30,96 @@ const handleQuery = () => {
   console.log('query')
 }
 
-// dialog组件ref
-const myDialogRef = ref()
-// dialog的标题
-const dialogTitle = ref('添加角色')
-
-// 点击添加角色
-const addUserFn = () => {
-  dialogTitle.value = '添加角色'
-  myDialogRef.value.open()
-}
-// 点击修改角色
-const editUserFn = () => {
-  dialogTitle.value = '修改角色'
-  // 将当前多选框选中数据渲染到dialog中
-  const curSelection = multipleSelection.value[0]
-  formModel.value = curSelection
-  myDialogRef.value.open()
-}
-// 点击删除角色
-const delUserFn = () => {
-  dialogTitle.value = '系统提示'
-  myDialogRef.value.open()
-}
-
+// 渲染的表格
 const tableData = [
   {
-    roleId: 1,
-    rname: 'zs',
-    displayOrder: '15888888888',
-    authority: 'admin',
-    state: false,
+    userId: 1,
+    uname: 'zs',
+    nickName: '张三',
+    phone: '15888888888',
+    status: false,
     createDate: '2023-04-23 16:11:38'
   },
   {
-    roleId: 1,
-    rname: 'zs',
-    displayOrder: '15888888888',
-    authority: 'admin',
-    state: false,
+    userId: 1,
+    uname: 'zs',
+    nickName: '张三',
+    phone: '15888888888',
+    status: false,
     createDate: '2023-04-23 16:11:38'
   },
   {
-    roleId: 1,
-    rname: 'zs',
-    displayOrder: '15888888888',
-    authority: 'admin',
-    state: false,
+    userId: 1,
+    uname: 'zs',
+    nickName: '张三',
+    phone: '15888888888',
+    status: false,
     createDate: '2023-04-23 16:11:38'
   },
   {
-    roleId: 1,
-    rname: 'zs',
-    displayOrder: '15888888888',
-    authority: 'admin',
-    state: false,
+    userId: 1,
+    uname: 'zs',
+    nickName: '张三',
+    phone: '15888888888',
+    status: false,
     createDate: '2023-04-23 16:11:38'
   },
   {
-    roleId: 1,
-    rname: 'zs',
-    displayOrder: '15888888888',
-    authority: 'admin',
-    state: false,
+    userId: 1,
+    uname: 'zs',
+    nickName: '张三',
+    phone: '15888888888',
+    status: false,
     createDate: '2023-04-23 16:11:38'
   },
   {
-    roleId: 1,
-    rname: 'zs',
-    displayOrder: '15888888888',
-    authority: 'admin',
-    state: false,
+    userId: 1,
+    uname: 'zs',
+    nickName: '张三',
+    phone: '15888888888',
+    status: false,
     createDate: '2023-04-23 16:11:38'
   },
   {
-    roleId: 1,
-    rname: 'zs',
-    displayOrder: '15888888888',
-    authority: 'admin',
-    state: false,
+    userId: 1,
+    uname: 'zs',
+    nickName: '张三',
+    phone: '15888888888',
+    status: false,
     createDate: '2023-04-23 16:11:38'
   }
 ]
 
+//表格多选
 const multipleTableRef = ref()
 const multipleSelection = ref([])
 
 const handleSelectionChange = (val) => {
   multipleSelection.value = val
+}
+
+// dialog组件ref
+const myDialogRef = ref()
+// dialog的标题
+const dialogTitle = ref('添加用户')
+
+// 点击添加用户
+const addUserFn = () => {
+  dialogTitle.value = '添加用户'
+  myDialogRef.value.open()
+}
+// 点击修改用户
+const editUserFn = () => {
+  dialogTitle.value = '修改用户'
+  // 将当前多选框选中数据渲染到dialog中
+  const curSelection = multipleSelection.value[0]
+  formModel.value = curSelection
+  myDialogRef.value.open()
+}
+// 点击删除用户
+const delUserFn = () => {
+  dialogTitle.value = '系统提示'
+  myDialogRef.value.open()
 }
 
 // dialog表单
@@ -132,31 +135,11 @@ const formModel = ref({
   desc: ''
 })
 
-const treeData = ref([
-  {
-    moduleId: 0,
-    moduleName: '主类目',
-    children: [
-      {
-        moduleId: 1,
-        moduleName: '系统管理',
-        children: [
-          { moduleId: 11, moduleName: '用户管理' },
-          { moduleId: 12, moduleName: '角色管理' },
-          { moduleId: 13, moduleName: '菜单管理' }
-        ]
-      },
-      { moduleId: 2, moduleName: '系统监控' },
-      { moduleId: 3, moduleName: '系统工具' }
-    ]
-  }
-])
-
-// const rules = {}
+const rules = {}
 </script>
 
 <template>
-  <div class="role-management-page">
+  <div class="user-managemant-page">
     <MyDialog :title="dialogTitle" ref="myDialogRef">
       <template #form>
         <el-form
@@ -164,34 +147,36 @@ const treeData = ref([
           label-width="80px"
           label-position="left"
           :rules="rules"
-          class="dialog-form"
         >
-          <el-form-item label="角色名称">
+          <el-form-item label="用户昵称">
             <el-input v-model="formModel.nickName" />
           </el-form-item>
-          <el-form-item label="权限字段">
+          <el-form-item label="手机号码">
             <el-input v-model="formModel.phone" />
           </el-form-item>
-          <el-form-item label="角色顺序">
-            <el-input-number v-model="formModel.moduleSort" :min="0" />
+          <el-form-item label="用户名称">
+            <el-input v-model="formModel.uname" />
+          </el-form-item>
+          <el-form-item label="用户密码">
+            <el-input v-model="formModel.password" type="password" />
+          </el-form-item>
+          <el-form-item label="用户性别">
+            <el-select v-model="formModel.gender" placeholder="请选择性别">
+              <el-option label="男" value="1" />
+              <el-option label="女" value="2" />
+              <el-option label="未知" value="3" />
+            </el-select>
+          </el-form-item>
+          <el-form-item label="角色">
+            <el-select v-model="formModel.role" placeholder="请选择角色">
+              <el-option label="普通角色" value="normal" />
+            </el-select>
           </el-form-item>
           <el-form-item label="状态">
             <el-radio-group v-model="formModel.status">
               <el-radio :label="true">正常</el-radio>
               <el-radio :label="false">停用</el-radio>
             </el-radio-group>
-          </el-form-item>
-          <el-form-item label="菜单权限">
-            <el-tree
-              v-model="formModel.moduleAuth"
-              :data="treeData"
-              :props="{ label: 'moduleName', value: 'moduleId' }"
-              show-checkbox
-              :style="{
-                width: '100%',
-                border: '1px solid var(--el-border-color)'
-              }"
-            />
           </el-form-item>
           <el-form-item label="备注">
             <el-input
@@ -203,18 +188,12 @@ const treeData = ref([
         </el-form>
       </template>
     </MyDialog>
-    <FilterForm @reset="handleReset" @query="handleQuery">
-      <el-form-item label="角色名称">
-        <el-input
-          placeholder="请输入角色名称"
-          v-model="filterForm.uname"
-        ></el-input>
+    <FilterForm @reset="handleReset" @query="handleQuery" :rules="rules">
+      <el-form-item label="用户名称">
+        <el-input placeholder="请输入" v-model="filterForm.uname"></el-input>
       </el-form-item>
-      <el-form-item label="权限字符">
-        <el-input
-          placeholder="请输入权限字符"
-          v-model="filterForm.phone"
-        ></el-input>
+      <el-form-item label="手机号码">
+        <el-input placeholder="请输入" v-model="filterForm.phone"></el-input>
       </el-form-item>
       <el-form-item label="状态">
         <el-select v-model="filterForm.status" placeholder="请选择">
@@ -236,7 +215,7 @@ const treeData = ref([
         />
       </el-form-item>
     </FilterForm>
-    <div class="role-management-page-btns">
+    <div class="user-managemant-page-btns">
       <el-button plain type="primary" @click="addUserFn">添加</el-button>
       <el-button
         plain
@@ -266,44 +245,44 @@ const treeData = ref([
       <el-table-column align="center" type="selection" width="55" />
       <el-table-column
         align="center"
-        property="roleId"
-        label="角色编号"
+        property="userId"
+        label="用户编号"
         width="120"
       />
       <el-table-column
         align="center"
-        property="rname"
-        label="角色名称"
+        property="uname"
+        label="用户名称"
         width="120"
       />
       <el-table-column
         align="center"
-        property="authority"
-        label="权限字段"
+        property="nickName"
+        label="用户昵称"
         width="120"
       />
       <el-table-column
         align="center"
-        property="displayOrder"
-        label="显示顺序"
+        property="phone"
+        label="手机号码"
         width="120"
       />
-      <el-table-column align="center" label="状态" width="120">
+      <el-table-column label="状态" align="center" width="120">
         <template #default="scope">
-          <el-switch v-model="scope.row.state" />
+          <el-switch v-model="scope.row.status" />
         </template>
       </el-table-column>
       <el-table-column
         align="center"
         property="createDate"
         label="创建时间"
-        width="170"
+        width="180"
         show-overflow-tooltip
       />
       <el-table-column label="操作" show-overflow-tooltip align="center">
         <template #default="scope">
-          <el-button size="small" type="info" plain>数据权限</el-button>
-          <el-button size="small" type="info" plain>分配用户</el-button>
+          <el-button size="small" type="info" plain>重置密码</el-button>
+          <el-button size="small" type="info" plain>分配角色</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -311,17 +290,14 @@ const treeData = ref([
 </template>
 
 <style lang="scss" scoped>
-.role-management-page {
+.user-managemant-page {
   .el-form-item {
     width: 30%;
     .el-select {
       width: 100%;
     }
   }
-  .dialog-form .el-form-item {
-    width: 100%;
-  }
-  .role-management-page-btns {
+  .user-managemant-page-btns {
     margin-bottom: 16px;
   }
 }

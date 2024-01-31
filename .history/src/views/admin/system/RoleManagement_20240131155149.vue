@@ -132,26 +132,6 @@ const formModel = ref({
   desc: ''
 })
 
-const treeData = ref([
-  {
-    moduleId: 0,
-    moduleName: '主类目',
-    children: [
-      {
-        moduleId: 1,
-        moduleName: '系统管理',
-        children: [
-          { moduleId: 11, moduleName: '用户管理' },
-          { moduleId: 12, moduleName: '角色管理' },
-          { moduleId: 13, moduleName: '菜单管理' }
-        ]
-      },
-      { moduleId: 2, moduleName: '系统监控' },
-      { moduleId: 3, moduleName: '系统工具' }
-    ]
-  }
-])
-
 // const rules = {}
 </script>
 
@@ -173,7 +153,7 @@ const treeData = ref([
             <el-input v-model="formModel.phone" />
           </el-form-item>
           <el-form-item label="角色顺序">
-            <el-input-number v-model="formModel.moduleSort" :min="0" />
+            <el-input v-model="formModel.uname" />
           </el-form-item>
           <el-form-item label="状态">
             <el-radio-group v-model="formModel.status">
@@ -182,16 +162,9 @@ const treeData = ref([
             </el-radio-group>
           </el-form-item>
           <el-form-item label="菜单权限">
-            <el-tree
-              v-model="formModel.moduleAuth"
-              :data="treeData"
-              :props="{ label: 'moduleName', value: 'moduleId' }"
-              show-checkbox
-              :style="{
-                width: '100%',
-                border: '1px solid var(--el-border-color)'
-              }"
-            />
+            <el-select v-model="formModel.role" placeholder="请选择角色">
+              <el-option label="普通角色" value="normal" />
+            </el-select>
           </el-form-item>
           <el-form-item label="备注">
             <el-input

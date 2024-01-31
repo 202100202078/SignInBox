@@ -287,7 +287,7 @@ getDataList()
     <el-table
       :data="tableData"
       style="width: 100%"
-      row-key="moduleId"
+      row-key="id"
       :bmoduleSort="true"
       :header-cell-style="{
         background: '#F5F7FA',

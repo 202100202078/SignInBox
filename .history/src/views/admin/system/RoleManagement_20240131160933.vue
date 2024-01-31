@@ -184,13 +184,17 @@ const treeData = ref([
           <el-form-item label="菜单权限">
             <el-tree
               v-model="formModel.moduleAuth"
-              :data="treeData"
               :props="{ label: 'moduleName', value: 'moduleId' }"
               show-checkbox
-              :style="{
-                width: '100%',
-                border: '1px solid var(--el-border-color)'
-              }"
+            />
+            <el-tree-select
+              :data="treeData"
+              multiple
+              show-checkbox
+              check-strictly
+              check-on-click-node
+              :props="{ label: 'moduleName', value: 'moduleId' }"
+              style="width: 100%"
             />
           </el-form-item>
           <el-form-item label="备注">

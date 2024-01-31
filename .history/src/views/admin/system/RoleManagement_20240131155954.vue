@@ -132,26 +132,6 @@ const formModel = ref({
   desc: ''
 })
 
-const treeData = ref([
-  {
-    moduleId: 0,
-    moduleName: '主类目',
-    children: [
-      {
-        moduleId: 1,
-        moduleName: '系统管理',
-        children: [
-          { moduleId: 11, moduleName: '用户管理' },
-          { moduleId: 12, moduleName: '角色管理' },
-          { moduleId: 13, moduleName: '菜单管理' }
-        ]
-      },
-      { moduleId: 2, moduleName: '系统监控' },
-      { moduleId: 3, moduleName: '系统工具' }
-    ]
-  }
-])
-
 // const rules = {}
 </script>
 
@@ -182,15 +162,15 @@ const treeData = ref([
             </el-radio-group>
           </el-form-item>
           <el-form-item label="菜单权限">
-            <el-tree
-              v-model="formModel.moduleAuth"
-              :data="treeData"
-              :props="{ label: 'moduleName', value: 'moduleId' }"
+            <el-tree-select
+              v-model="valueStrictly"
+              :data="data"
+              multiple
+              :render-after-expand="false"
               show-checkbox
-              :style="{
-                width: '100%',
-                border: '1px solid var(--el-border-color)'
-              }"
+              check-strictly
+              check-on-click-node
+              style="width: 240px"
             />
           </el-form-item>
           <el-form-item label="备注">

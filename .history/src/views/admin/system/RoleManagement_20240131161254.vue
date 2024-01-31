@@ -187,11 +187,14 @@ const treeData = ref([
               :data="treeData"
               :props="{ label: 'moduleName', value: 'moduleId' }"
               show-checkbox
-              :style="{
-                width: '100%',
-                border: '1px solid var(--el-border-color)'
-              }"
+              style="width: 100%"
             />
+            <!-- <el-tree-select
+              multiple
+              show-checkbox
+              check-strictly
+              :props="{ label: 'moduleName', value: 'moduleId' }"
+            /> -->
           </el-form-item>
           <el-form-item label="备注">
             <el-input
