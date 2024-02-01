@@ -1,7 +1,6 @@
 <script setup>
 import {
   getMenuList,
-  filterMenuList,
   getTreeSelect,
   addMenuItem,
   removeMenuItem,
@@ -194,15 +193,11 @@ const handleAddChildConfirm = async () => {
 }
 
 const getDataList = async () => {
-  const res = await getMenuList()
-  tableData.value = res.data.data
-}
-
-const getTreeSelectData = async () => {
   const res = await getTreeSelect()
-  treeData.value = res.data.data
+  // tableData.value = res.data.data
+  // treeData.value = res.data.data
+  console.log(res)
 }
-getTreeSelectData()
 
 getDataList()
 </script>
@@ -229,7 +224,7 @@ getDataList()
               v-model="formModel.parentId"
               :data="treeData"
               check-strictly
-              :props="{ label: 'name', value: 'id' }"
+              :props="{ label: 'moduleName', value: 'moduleId' }"
               :render-after-expand="false"
             />
           </el-form-item>

@@ -1,13 +1,11 @@
 <script setup>
 import {
   getMenuList,
-  filterMenuList,
-  getTreeSelect,
   addMenuItem,
   removeMenuItem,
   getMenuItem,
   editMenuItem
-} from '@/api/admin/system/menu.js'
+} from '@/api/system/menu.js'
 import FilterForm from './components/FilterForm.vue'
 import MyDialog from './components/MyDialog.vue'
 import { ref } from 'vue'
@@ -153,7 +151,7 @@ const delModule = async (moduleId) => {
   // console.log(moduleId)
   await removeMenuItem(moduleId)
   // console.log(res)
-  // getDataList()
+  getDataList()
   ElMessage.success('操作成功')
 }
 
@@ -176,33 +174,29 @@ const handleAddConfirm = async () => {
   await addMenuItem(formModel.value)
   // console.log(res)
   ElMessage.success('操作成功')
-  // getDataList()
+  getDataList()
 }
 
 const handleEditConfirm = async () => {
   await editMenuItem(formModel.value)
   // console.log(res)
   ElMessage.success('操作成功')
-  // getDataList()
+  getDataList()
 }
 
 const handleAddChildConfirm = async () => {
   await addMenuItem(formModel.value)
   // console.log(res)
   ElMessage.success('操作成功')
-  // getDataList()
+  getDataList()
 }
 
 const getDataList = async () => {
   const res = await getMenuList()
   tableData.value = res.data.data
-}
-
-const getTreeSelectData = async () => {
-  const res = await getTreeSelect()
   treeData.value = res.data.data
+  console.log(res)
 }
-getTreeSelectData()
 
 getDataList()
 </script>
@@ -229,7 +223,7 @@ getDataList()
               v-model="formModel.parentId"
               :data="treeData"
               check-strictly
-              :props="{ label: 'name', value: 'id' }"
+              :props="{ label: 'moduleName', value: 'moduleId' }"
               :render-after-expand="false"
             />
           </el-form-item>

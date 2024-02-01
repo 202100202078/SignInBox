@@ -92,7 +92,7 @@ const onSubmit = async (type) => {
   await (type === 1 ? emailForm.value.validate() : accountForm.value.validate())
   if (isLoginPage.value) {
     // 目前只有账号登录
-    // const res = await login(formModel.value)
+    const res = await login(formModel.value)
     // console.log(res)
     // userStore.setToken(res.data.token)
     userStore.setToken(

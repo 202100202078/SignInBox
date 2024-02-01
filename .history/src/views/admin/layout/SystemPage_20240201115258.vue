@@ -30,7 +30,11 @@ const handleAvatarCommand = async (command) => {
   router.push(command)
 }
 
-// 监听路由变化修改侧边栏，注意需要immediate来使得刷新不丢失侧边栏选项
+// onMounted(() => {
+//   // 页面刷新使得侧边栏为当前激活路由
+//   activeIndex.value = route.path
+// })
+
 watch(
   () => route.path,
   () => {

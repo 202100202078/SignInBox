@@ -30,7 +30,7 @@ instance.interceptors.request.use(
 instance.interceptors.response.use(
   (res) => {
     // return res
-    if (res.data.code === 'ok') {
+    if (res.data.msg === 200) {
       // ElMessage.success(res.data.msg)
       // 响应正常
       return res

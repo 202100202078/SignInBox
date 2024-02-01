@@ -195,7 +195,9 @@ const handleAddChildConfirm = async () => {
 
 const getDataList = async () => {
   const res = await getMenuList()
-  tableData.value = res.data.data
+  // tableData.value = res.data.data
+  // treeData.value = res.data.data
+  console.log(res)
 }
 
 const getTreeSelectData = async () => {

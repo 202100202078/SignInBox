@@ -15,7 +15,7 @@ const instance = axios.create({
 instance.interceptors.request.use(
   (config) => {
     // 避免6024错误ngrok
-    config.headers['ngrok-skip-browser-warning'] = 69420
+    config.headers.'ngrok-skip-browser-warning'
     // 携带token
     const userStore = useUserStore()
     if (userStore.token) {
@@ -30,7 +30,7 @@ instance.interceptors.request.use(
 instance.interceptors.response.use(
   (res) => {
     // return res
-    if (res.data.code === 'ok') {
+    if (res.status === 200) {
       // ElMessage.success(res.data.msg)
       // 响应正常
       return res

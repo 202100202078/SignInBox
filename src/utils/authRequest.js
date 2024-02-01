@@ -3,7 +3,7 @@ import { useUserStore } from '@/stores/index'
 import router from '@/router'
 import { ElMessage } from 'element-plus'
 
-const baseURL = 'http://10.161.119.50:9601'
+const baseURL = 'https://mammoth-cute-roughly.ngrok-free.app'
 
 const instance = axios.create({
   // 基础地址，超时时间
