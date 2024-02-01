@@ -1,5 +1,4 @@
 <script setup>
-import { Refresh } from '@element-plus/icons-vue'
 import {
   getMenuList,
   filterMenuList,
@@ -9,7 +8,6 @@ import {
   getMenuItem,
   editMenuItem
 } from '@/api/admin/system/menu.js'
-import { handleTree } from '@/utils/utils.js'
 import FilterForm from './components/FilterForm.vue'
 import MyDialog from './components/MyDialog.vue'
 import { ref } from 'vue'
@@ -148,7 +146,6 @@ const addMenuFn = async () => {
   title.value = '添加菜单'
   //默认上级菜单id为0
   formModel.value.parentId = 0
-  getTreeSelect()
   myDialogRef.value.open()
 }
 
@@ -164,7 +161,6 @@ const delModule = async (moduleId) => {
 const editMenuFn = async (moduleId) => {
   title.value = '编辑菜单'
   myDialogRef.value.open()
-  getTreeSelect()
   const res = await getMenuItem(moduleId)
   // console.log(res.data.data)
   formModel.value = res.data.data
@@ -172,13 +168,14 @@ const editMenuFn = async (moduleId) => {
 
 const addChildMenuFn = (moduleId) => {
   title.value = '添加子菜单'
-  getTreeSelect()
+  console.log(moduleId)
   formModel.value.parentId = moduleId
   myDialogRef.value.open()
 }
 
 const handleAddConfirm = async () => {
   await addMenuItem(formModel.value)
+  // console.log(res)
   getDataList()
   ElMessage.success('操作成功')
   // 初始化表单
@@ -195,7 +192,7 @@ const handleAddConfirm = async () => {
 
 const handleEditConfirm = async () => {
   await editMenuItem(formModel.value)
-  getDataList()
+  // console.log(res)
   ElMessage.success('操作成功')
   // 初始化表单
   formModel.value = {
@@ -211,9 +208,7 @@ const handleEditConfirm = async () => {
 
 const handleAddChildConfirm = async () => {
   await addMenuItem(formModel.value)
-  getDataList()
   ElMessage.success('操作成功')
-  // 初始化表单
   formModel.value = {
     moduleName: '',
     status: '0',
@@ -227,11 +222,7 @@ const handleAddChildConfirm = async () => {
 
 const getDataList = async () => {
   const res = await getMenuList()
-  // console.log(res)
-  // 构造树形结构
-  const result = handleTree(res.data.data, 'moduleId')
-  console.log(result)
-  tableData.value = result
+  tableData.value = res.data.data
 }
 
 const getTreeSelectData = async () => {
@@ -324,9 +315,6 @@ getDataList()
     </FilterForm>
     <div class="menu-management-page-btns">
       <el-button plain type="primary" @click="addMenuFn">添加</el-button>
-      <el-tooltip effect="dark" content="刷新" placement="top">
-        <el-button :icon="Refresh" circle @click="getDataList" />
-      </el-tooltip>
     </div>
 
     <el-table
@@ -397,8 +385,6 @@ getDataList()
   }
   .menu-management-page-btns {
     margin-bottom: 16px;
-    display: flex;
-    justify-content: space-between;
   }
 }
 </style>

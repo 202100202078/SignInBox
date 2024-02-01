@@ -227,7 +227,7 @@ const handleAddChildConfirm = async () => {
 
 const getDataList = async () => {
   const res = await getMenuList()
-  // console.log(res)
+  console.log(res)
   // 构造树形结构
   const result = handleTree(res.data.data, 'moduleId')
   console.log(result)
@@ -324,9 +324,7 @@ getDataList()
     </FilterForm>
     <div class="menu-management-page-btns">
       <el-button plain type="primary" @click="addMenuFn">添加</el-button>
-      <el-tooltip effect="dark" content="刷新" placement="top">
-        <el-button :icon="Refresh" circle @click="getDataList" />
-      </el-tooltip>
+      <el-button :icon="Refresh" circle />
     </div>
 
     <el-table
