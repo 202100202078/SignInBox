@@ -2,6 +2,7 @@
 import { Refresh } from '@element-plus/icons-vue'
 import {
   getMenuList,
+  filterMenuList,
   getTreeSelect,
   addMenuItem,
   removeMenuItem,
@@ -20,11 +21,11 @@ const filterForm = ref({
 
 const statusOptions = [
   {
-    value: '0',
+    value: '正常',
     label: '正常'
   },
   {
-    value: '1',
+    value: '停用',
     label: '停用'
   }
 ]
@@ -228,11 +229,9 @@ const handleAddChildConfirm = async () => {
 
 const getDataList = async (params) => {
   isLoading.value = true
-  console.log(params)
   const res = await getMenuList(params)
   // 构造树形结构
   const result = handleTree(res.data.data, 'moduleId')
-  console.log(res)
   tableData.value = result
   isLoading.value = false
 }

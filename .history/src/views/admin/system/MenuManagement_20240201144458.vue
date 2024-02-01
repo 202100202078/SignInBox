@@ -2,6 +2,7 @@
 import { Refresh } from '@element-plus/icons-vue'
 import {
   getMenuList,
+  filterMenuList,
   getTreeSelect,
   addMenuItem,
   removeMenuItem,
@@ -20,11 +21,11 @@ const filterForm = ref({
 
 const statusOptions = [
   {
-    value: '0',
+    value: '正常',
     label: '正常'
   },
   {
-    value: '1',
+    value: '停用',
     label: '停用'
   }
 ]
