@@ -44,4 +44,7 @@ declare module 'vue' {
     TableLayout: typeof import('./components/TableLayout.vue')['default']
     ToolTip: typeof import('./components/ToolTip.vue')['default']
   }
+  export interface ComponentCustomProperties {
+    vLoading: typeof import('element-plus/es')['ElLoadingDirective']
+  }
 }

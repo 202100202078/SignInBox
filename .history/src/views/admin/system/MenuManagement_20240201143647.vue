@@ -228,12 +228,12 @@ const handleAddChildConfirm = async () => {
 }
 
 const getDataList = async () => {
-  isLoading.value = true
   const res = await getMenuList()
+  // console.log(res)
   // 构造树形结构
   const result = handleTree(res.data.data, 'moduleId')
+  console.log(result)
   tableData.value = result
-  isLoading.value = false
 }
 
 const getTreeSelectData = async () => {
