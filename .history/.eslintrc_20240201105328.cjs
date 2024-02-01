@@ -26,11 +26,12 @@ module.exports = {
     'vue/multi-word-component-names': [
       'warn',
       {
-        ignores: ['index', 'Logo'] // vue组件名称多单词组成（忽略index.vue）
+        ignores: ['index'] // vue组件名称多单词组成（忽略index.vue）
       }
     ],
     'vue/no-setup-props-destructure': ['off'], // 关闭 props 解构的校验
-    'no-undef': 'error'
+    'no-undef': 'error',
+    'vue/multi-word-component-names': 0
   },
   globals: {
     ElMessage: 'readonly',

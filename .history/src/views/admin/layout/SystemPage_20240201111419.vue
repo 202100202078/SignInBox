@@ -35,9 +35,7 @@ onMounted(() => {
   activeIndex.value = route.path
 })
 
-watch(route.path, () => {
-  console.log(route.path)
-})
+watch(route.path, () => {})
 </script>
 
 <template>

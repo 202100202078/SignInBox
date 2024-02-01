@@ -1,6 +1,5 @@
 <script setup>
 import variables from '@/assets/style/variables.module.scss'
-import Logo from './Logo.vue'
 defineProps({
   isCollapse: {
     type: Boolean,
@@ -26,7 +25,7 @@ defineProps({
       }"
       class="system-layout-aside"
     >
-      <Logo :collapse="isCollapse"></Logo>
+      
       <el-menu
         active-text-color="#ffd04b"
         background-color="#545c64"

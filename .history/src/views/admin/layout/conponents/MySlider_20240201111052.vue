@@ -1,6 +1,5 @@
 <script setup>
 import variables from '@/assets/style/variables.module.scss'
-import Logo from './Logo.vue'
 defineProps({
   isCollapse: {
     type: Boolean,
