@@ -29,6 +29,7 @@ const statusOptions = [
 ]
 
 const handleReset = () => {
+  confirmRef.value.open()
   // 重置筛选表单
   filterForm.value = {}
 }

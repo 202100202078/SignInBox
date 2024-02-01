@@ -2,13 +2,7 @@
 import { ref } from 'vue'
 import { getTreeSelect } from '@/api/admin/system/menu.js'
 import MyDialog from './components/MyDialog.vue'
-import ConfirmDialog from './components/ConfirmDialog.vue'
 import FilterForm from './components/FilterForm.vue'
-// 确认提示框ref
-const confirmRef = ref()
-// 确认提示框内容
-const dialogContent = ref('测试')
-
 // 一个响应式对象存储整个筛选表单的数据
 const filterForm = ref({
   uname: '',
@@ -59,20 +53,65 @@ const delUserFn = () => {
   dialogTitle.value = '系统提示'
   myDialogRef.value.open()
 }
-// 确认添加角色
-const handleAddConfirm = () => {
-  formModel.value.ids = treeRef.value.getCheckedKeys(false)
-}
-// 确认编辑角色
+
+const handleAddConfirm = () => {}
 const handleEditConfirm = () => {}
 
 const tableData = [
   {
     roleId: 1,
-    roleName: 'zs',
-    roleSort: '15888888888',
-    roleKey: 'admin',
-    status: false,
+    rname: 'zs',
+    displayOrder: '15888888888',
+    authority: 'admin',
+    state: false,
+    createDate: '2023-04-23 16:11:38'
+  },
+  {
+    roleId: 1,
+    rname: 'zs',
+    displayOrder: '15888888888',
+    authority: 'admin',
+    state: false,
+    createDate: '2023-04-23 16:11:38'
+  },
+  {
+    roleId: 1,
+    rname: 'zs',
+    displayOrder: '15888888888',
+    authority: 'admin',
+    state: false,
+    createDate: '2023-04-23 16:11:38'
+  },
+  {
+    roleId: 1,
+    rname: 'zs',
+    displayOrder: '15888888888',
+    authority: 'admin',
+    state: false,
+    createDate: '2023-04-23 16:11:38'
+  },
+  {
+    roleId: 1,
+    rname: 'zs',
+    displayOrder: '15888888888',
+    authority: 'admin',
+    state: false,
+    createDate: '2023-04-23 16:11:38'
+  },
+  {
+    roleId: 1,
+    rname: 'zs',
+    displayOrder: '15888888888',
+    authority: 'admin',
+    state: false,
+    createDate: '2023-04-23 16:11:38'
+  },
+  {
+    roleId: 1,
+    rname: 'zs',
+    displayOrder: '15888888888',
+    authority: 'admin',
+    state: false,
     createDate: '2023-04-23 16:11:38'
   }
 ]
@@ -86,8 +125,9 @@ const handleSelectionChange = (val) => {
 
 // dialog表单
 const formModel = ref({
-  moduleIds: [],
+  ids: [],
   remark: '',
+  roleId: 0,
   roleKey: '',
   roleName: '',
   roleSort: 0,
@@ -126,7 +166,6 @@ getTreeSelectData()
 
 <template>
   <div class="role-management-page">
-    <ConfirmDialog ref="confirmRef" :content="dialogContent"></ConfirmDialog>
     <MyDialog
       :title="dialogTitle"
       ref="myDialogRef"
@@ -248,36 +287,36 @@ getTreeSelectData()
       <el-table-column align="center" type="selection" width="55" />
       <el-table-column
         align="center"
-        prop="roleId"
+        property="roleId"
         label="角色编号"
         width="120"
       />
       <el-table-column
         align="center"
-        prop="roleName"
+        property="rname"
         label="角色名称"
         width="120"
       />
       <el-table-column
         align="center"
-        prop="roleKey"
+        property="authority"
         label="权限字段"
         width="120"
       />
       <el-table-column
         align="center"
-        prop="roleSort"
+        property="displayOrder"
         label="显示顺序"
         width="120"
       />
-      <el-table-column prop="status" align="center" label="状态" width="120">
+      <el-table-column align="center" label="状态" width="120">
         <template #default="scope">
           <el-switch v-model="scope.row.state" />
         </template>
       </el-table-column>
       <el-table-column
         align="center"
-        prop="createDate"
+        property="createDate"
         label="创建时间"
         width="170"
         show-overflow-tooltip

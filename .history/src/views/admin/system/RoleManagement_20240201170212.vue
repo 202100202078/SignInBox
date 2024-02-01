@@ -8,6 +8,7 @@ import FilterForm from './components/FilterForm.vue'
 const confirmRef = ref()
 // 确认提示框内容
 const dialogContent = ref('测试')
+confirmRef.value.open()
 
 // 一个响应式对象存储整个筛选表单的数据
 const filterForm = ref({

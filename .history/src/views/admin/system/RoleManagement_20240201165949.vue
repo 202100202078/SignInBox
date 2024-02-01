@@ -6,8 +6,6 @@ import ConfirmDialog from './components/ConfirmDialog.vue'
 import FilterForm from './components/FilterForm.vue'
 // 确认提示框ref
 const confirmRef = ref()
-// 确认提示框内容
-const dialogContent = ref('测试')
 
 // 一个响应式对象存储整个筛选表单的数据
 const filterForm = ref({

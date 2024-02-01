@@ -2,13 +2,7 @@
 import { ref } from 'vue'
 import { getTreeSelect } from '@/api/admin/system/menu.js'
 import MyDialog from './components/MyDialog.vue'
-import ConfirmDialog from './components/ConfirmDialog.vue'
 import FilterForm from './components/FilterForm.vue'
-// 确认提示框ref
-const confirmRef = ref()
-// 确认提示框内容
-const dialogContent = ref('测试')
-
 // 一个响应式对象存储整个筛选表单的数据
 const filterForm = ref({
   uname: '',
@@ -59,11 +53,10 @@ const delUserFn = () => {
   dialogTitle.value = '系统提示'
   myDialogRef.value.open()
 }
-// 确认添加角色
+
 const handleAddConfirm = () => {
   formModel.value.ids = treeRef.value.getCheckedKeys(false)
 }
-// 确认编辑角色
 const handleEditConfirm = () => {}
 
 const tableData = [
@@ -126,7 +119,6 @@ getTreeSelectData()
 
 <template>
   <div class="role-management-page">
-    <ConfirmDialog ref="confirmRef" :content="dialogContent"></ConfirmDialog>
     <MyDialog
       :title="dialogTitle"
       ref="myDialogRef"
@@ -266,11 +258,11 @@ getTreeSelectData()
       />
       <el-table-column
         align="center"
-        prop="roleSort"
+        prop="roleOrder"
         label="显示顺序"
         width="120"
       />
-      <el-table-column prop="status" align="center" label="状态" width="120">
+      <el-table-column align="center" label="状态" width="120">
         <template #default="scope">
           <el-switch v-model="scope.row.state" />
         </template>

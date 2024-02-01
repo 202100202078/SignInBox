@@ -2,13 +2,7 @@
 import { ref } from 'vue'
 import { getTreeSelect } from '@/api/admin/system/menu.js'
 import MyDialog from './components/MyDialog.vue'
-import ConfirmDialog from './components/ConfirmDialog.vue'
 import FilterForm from './components/FilterForm.vue'
-// 确认提示框ref
-const confirmRef = ref()
-// 确认提示框内容
-const dialogContent = ref('测试')
-
 // 一个响应式对象存储整个筛选表单的数据
 const filterForm = ref({
   uname: '',
@@ -45,6 +39,8 @@ const dialogTitle = ref('添加角色')
 const addUserFn = () => {
   dialogTitle.value = '添加角色'
   myDialogRef.value.open()
+  console.log(treeRef.value.getCheckedKeys(false))
+  // formModel.value.moduleIds = treeRef.value.getCheckedKeys(false)
 }
 // 点击修改角色
 const editUserFn = () => {
@@ -59,20 +55,62 @@ const delUserFn = () => {
   dialogTitle.value = '系统提示'
   myDialogRef.value.open()
 }
-// 确认添加角色
-const handleAddConfirm = () => {
-  formModel.value.ids = treeRef.value.getCheckedKeys(false)
-}
-// 确认编辑角色
-const handleEditConfirm = () => {}
 
 const tableData = [
   {
     roleId: 1,
-    roleName: 'zs',
-    roleSort: '15888888888',
-    roleKey: 'admin',
-    status: false,
+    rname: 'zs',
+    displayOrder: '15888888888',
+    authority: 'admin',
+    state: false,
+    createDate: '2023-04-23 16:11:38'
+  },
+  {
+    roleId: 1,
+    rname: 'zs',
+    displayOrder: '15888888888',
+    authority: 'admin',
+    state: false,
+    createDate: '2023-04-23 16:11:38'
+  },
+  {
+    roleId: 1,
+    rname: 'zs',
+    displayOrder: '15888888888',
+    authority: 'admin',
+    state: false,
+    createDate: '2023-04-23 16:11:38'
+  },
+  {
+    roleId: 1,
+    rname: 'zs',
+    displayOrder: '15888888888',
+    authority: 'admin',
+    state: false,
+    createDate: '2023-04-23 16:11:38'
+  },
+  {
+    roleId: 1,
+    rname: 'zs',
+    displayOrder: '15888888888',
+    authority: 'admin',
+    state: false,
+    createDate: '2023-04-23 16:11:38'
+  },
+  {
+    roleId: 1,
+    rname: 'zs',
+    displayOrder: '15888888888',
+    authority: 'admin',
+    state: false,
+    createDate: '2023-04-23 16:11:38'
+  },
+  {
+    roleId: 1,
+    rname: 'zs',
+    displayOrder: '15888888888',
+    authority: 'admin',
+    state: false,
     createDate: '2023-04-23 16:11:38'
   }
 ]
@@ -88,6 +126,7 @@ const handleSelectionChange = (val) => {
 const formModel = ref({
   moduleIds: [],
   remark: '',
+  roleId: 0,
   roleKey: '',
   roleName: '',
   roleSort: 0,
@@ -96,20 +135,20 @@ const formModel = ref({
 
 const treeData = ref([
   {
-    id: 0,
-    name: '主类目',
+    moduleId: 0,
+    moduleName: '主类目',
     children: [
       {
-        id: 1,
-        name: '系统管理',
+        moduleId: 1,
+        moduleName: '系统管理',
         children: [
-          { id: 11, name: '用户管理' },
-          { id: 12, name: '角色管理' },
-          { id: 13, name: '菜单管理' }
+          { moduleId: 11, moduleName: '用户管理' },
+          { moduleId: 12, moduleName: '角色管理' },
+          { moduleId: 13, moduleName: '菜单管理' }
         ]
       },
-      { id: 2, name: '系统监控' },
-      { id: 3, name: '系统工具' }
+      { moduleId: 2, moduleName: '系统监控' },
+      { moduleId: 3, moduleName: '系统工具' }
     ]
   }
 ])
@@ -126,13 +165,7 @@ getTreeSelectData()
 
 <template>
   <div class="role-management-page">
-    <ConfirmDialog ref="confirmRef" :content="dialogContent"></ConfirmDialog>
-    <MyDialog
-      :title="dialogTitle"
-      ref="myDialogRef"
-      @onAddConfirm="handleAddConfirm"
-      @onEditConfirm="handleEditConfirm"
-    >
+    <MyDialog :title="dialogTitle" ref="myDialogRef">
       <template #form>
         <el-form
           :model="formModel"
@@ -248,36 +281,36 @@ getTreeSelectData()
       <el-table-column align="center" type="selection" width="55" />
       <el-table-column
         align="center"
-        prop="roleId"
+        property="roleId"
         label="角色编号"
         width="120"
       />
       <el-table-column
         align="center"
-        prop="roleName"
+        property="rname"
         label="角色名称"
         width="120"
       />
       <el-table-column
         align="center"
-        prop="roleKey"
+        property="authority"
         label="权限字段"
         width="120"
       />
       <el-table-column
         align="center"
-        prop="roleSort"
+        property="displayOrder"
         label="显示顺序"
         width="120"
       />
-      <el-table-column prop="status" align="center" label="状态" width="120">
+      <el-table-column align="center" label="状态" width="120">
         <template #default="scope">
           <el-switch v-model="scope.row.state" />
         </template>
       </el-table-column>
       <el-table-column
         align="center"
-        prop="createDate"
+        property="createDate"
         label="创建时间"
         width="170"
         show-overflow-tooltip

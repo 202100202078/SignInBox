@@ -14,9 +14,10 @@ const confirm = () => {
   // 关闭dialog
   dialogFormVisible.value = false
   // 根据title的不同向父级发送不同命令
-  if (props.title === '添加菜单' || props.title === '添加角色') {
+  console.log();
+  if (props.title === '添加菜单') {
     emit('onAddConfirm')
-  } else if (props.title === '编辑菜单' || props.title === '编辑角色') {
+  } else if (props.title === '编辑菜单') {
     emit('onEditConfirm')
   } else if (props.title === '添加子菜单') {
     emit('onAddChildConfirm')
