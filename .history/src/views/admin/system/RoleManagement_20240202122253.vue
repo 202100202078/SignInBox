@@ -114,7 +114,6 @@ const handleStatusChange = (row) => {
 }
 // 确认角色状态改变
 const handleTriggerConfirm = (row) => {
-  // console.log(row)
   // 修改角色状态
   row.status = !row.status
   // 发请求修改后台数据
@@ -351,14 +350,6 @@ getTreeSelectData()
   }
   .role-management-page-btns {
     margin-bottom: 16px;
-  }
-  // 去除switch禁用 css
-  :deep .el-switch.is-disabled {
-    opacity: 1;
-  }
-  :deep .el-switch.is-disabled .el-switch__core,
-  :deep .el-switch.is-disabled .el-switch__label {
-    cursor: pointer;
   }
 }
 </style>

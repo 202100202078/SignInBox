@@ -106,7 +106,6 @@ const handleSelectionChange = (val) => {
 // 角色状态改变
 const handleStatusChange = (row) => {
   mode.value = 'edit'
-  cueRole.value = row
   confirmContent.value = `确认要"${row.status === false ? '启用' : '停用'}""${
     row.roleName
   }"角色吗？`
@@ -114,7 +113,6 @@ const handleStatusChange = (row) => {
 }
 // 确认角色状态改变
 const handleTriggerConfirm = (row) => {
-  // console.log(row)
   // 修改角色状态
   row.status = !row.status
   // 发请求修改后台数据
@@ -165,7 +163,6 @@ getTreeSelectData()
       ref="confirmRef"
       :content="confirmContent"
       :mode="mode"
-      :curRole="cueRole"
       @confirmDelete="handleDeleteConfirm"
       @confirmTrigger="handleTriggerConfirm"
     ></ConfirmDialog>
@@ -351,14 +348,6 @@ getTreeSelectData()
   }
   .role-management-page-btns {
     margin-bottom: 16px;
-  }
-  // 去除switch禁用 css
-  :deep .el-switch.is-disabled {
-    opacity: 1;
-  }
-  :deep .el-switch.is-disabled .el-switch__core,
-  :deep .el-switch.is-disabled .el-switch__label {
-    cursor: pointer;
   }
 }
 </style>

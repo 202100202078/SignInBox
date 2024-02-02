@@ -353,12 +353,12 @@ getTreeSelectData()
     margin-bottom: 16px;
   }
   // 去除switch禁用 css
-  :deep .el-switch.is-disabled {
-    opacity: 1;
+  .el-switch.is-disabled {
+    opacity: 1 !important;
   }
-  :deep .el-switch.is-disabled .el-switch__core,
-  :deep .el-switch.is-disabled .el-switch__label {
-    cursor: pointer;
+  .el-switch.is-disabled .el-switch__core,
+  .el-switch.is-disabled .el-switch__label {
+    cursor: pointer !important;
   }
 }
 </style>

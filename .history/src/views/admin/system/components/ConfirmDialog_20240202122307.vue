@@ -21,8 +21,8 @@ const prop = defineProps({
     type: String,
     required: true
   },
-  curRole: {
-    type: Object,
+  mode: {
+    type: String,
     required: true
   }
 })
@@ -32,7 +32,7 @@ const emit = defineEmits(['confirmDelete', 'confirmTrigger'])
 const onConfirm = () => {
   dialogVisible.value = false
   if (prop.mode === 'edit') {
-    emit('confirmTrigger', prop.curRole)
+    emit('confirmTrigger')
   } else if (prop.mode === 'delete') {
     emit('confirmDelete')
   }

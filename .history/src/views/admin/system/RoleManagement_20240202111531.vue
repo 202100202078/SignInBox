@@ -8,10 +8,6 @@ import FilterForm from './components/FilterForm.vue'
 const confirmRef = ref()
 // 确认提示框内容
 const confirmContent = ref('测试')
-// 提示框用途
-const mode = ref('edit')
-// 当前点击角色
-const cueRole = ref({})
 
 // 一个响应式对象存储整个筛选表单的数据
 const filterForm = ref({
@@ -60,36 +56,20 @@ const editUserFn = () => {
 }
 // 点击删除角色
 const delUserFn = () => {
-  mode.value = 'delete'
-  const roleIds = multipleSelection.value.map((item) => item.roleId).join(',')
-  confirmContent.value = `是否确认删除角色编号为"${roleIds}"的数据项？`
-  confirmRef.value.open()
+  dialogTitle.value = '系统提示'
+  myDialogRef.value.open()
 }
 // 确认添加角色
 const handleAddConfirm = () => {
   formModel.value.ids = treeRef.value.getCheckedKeys(false)
 }
 // 确认编辑角色
-const handleEditConfirm = () => {
-  // 从multipleSelection获取当前角色id，及从formModel获取当前角色新信息后发请求并重新获取table数据
-}
-// 确认删除角色
-const handleDeleteConfirm = () => {
-  // 从multipleSelection获取所有角色id，发请求并重新获取table数据
-}
+const handleEditConfirm = () => {}
 
 const tableData = [
   {
     roleId: 1,
     roleName: 'zs',
-    roleSort: '15888888888',
-    roleKey: 'admin',
-    status: false,
-    createDate: '2023-04-23 16:11:38'
-  },
-  {
-    roleId: 2,
-    roleName: 'ls',
     roleSort: '15888888888',
     roleKey: 'admin',
     status: false,
@@ -103,22 +83,14 @@ const multipleSelection = ref([])
 const handleSelectionChange = (val) => {
   multipleSelection.value = val
 }
-// 角色状态改变
-const handleStatusChange = (row) => {
-  mode.value = 'edit'
-  cueRole.value = row
-  confirmContent.value = `确认要"${row.status === false ? '启用' : '停用'}""${
-    row.roleName
-  }"角色吗？`
+
+const handleStatusChange = (roleName, newVal) => {
+  confirmContent.value = `确认要"${
+    newVal === true ? '启用' : '停用'
+  }""${roleName}"角色吗？`
   confirmRef.value.open()
 }
-// 确认角色状态改变
-const handleTriggerConfirm = (row) => {
-  // console.log(row)
-  // 修改角色状态
-  row.status = !row.status
-  // 发请求修改后台数据
-}
+
 // dialog表单
 const formModel = ref({
   moduleIds: [],
@@ -161,14 +133,7 @@ getTreeSelectData()
 
 <template>
   <div class="role-management-page">
-    <ConfirmDialog
-      ref="confirmRef"
-      :content="confirmContent"
-      :mode="mode"
-      :curRole="cueRole"
-      @confirmDelete="handleDeleteConfirm"
-      @confirmTrigger="handleTriggerConfirm"
-    ></ConfirmDialog>
+    <ConfirmDialog ref="confirmRef" :content="confirmContent"></ConfirmDialog>
     <MyDialog
       :title="dialogTitle"
       ref="myDialogRef"
@@ -315,9 +280,8 @@ getTreeSelectData()
       <el-table-column prop="status" align="center" label="状态" width="120">
         <template #default="scope">
           <el-switch
-            v-model="scope.row.status"
-            disabled
-            @click="handleStatusChange(scope.row, $event)"
+            v-model="scope.row.state"
+            @change="handleStatusChange(scope.row.roleName, $event)"
           />
         </template>
       </el-table-column>
@@ -351,14 +315,6 @@ getTreeSelectData()
   }
   .role-management-page-btns {
     margin-bottom: 16px;
-  }
-  // 去除switch禁用 css
-  :deep .el-switch.is-disabled {
-    opacity: 1;
-  }
-  :deep .el-switch.is-disabled .el-switch__core,
-  :deep .el-switch.is-disabled .el-switch__label {
-    cursor: pointer;
   }
 }
 </style>

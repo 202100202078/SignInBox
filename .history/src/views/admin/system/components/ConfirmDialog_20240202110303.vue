@@ -7,7 +7,7 @@ const open = () => {
   dialogVisible.value = true
 }
 
-const prop = defineProps({
+defineProps({
   title: {
     type: String,
     required: true,
@@ -16,31 +16,10 @@ const prop = defineProps({
   content: {
     type: String,
     required: true
-  },
-  mode: {
-    type: String,
-    required: true
-  },
-  curRole: {
-    type: Object,
-    required: true
   }
 })
 
-const emit = defineEmits(['confirmDelete', 'confirmTrigger'])
-
-const onConfirm = () => {
-  dialogVisible.value = false
-  if (prop.mode === 'edit') {
-    emit('confirmTrigger', prop.curRole)
-  } else if (prop.mode === 'delete') {
-    emit('confirmDelete')
-  }
-}
-
-const onCancel = () => {
-  dialogVisible.value = false
-}
+const emit = defineEmits([''])
 
 defineExpose({
   open
@@ -55,8 +34,10 @@ defineExpose({
     </div>
     <template #footer>
       <span class="dialog-footer">
-        <el-button @click="onCancel">Cancel</el-button>
-        <el-button type="primary" @click="onConfirm"> Confirm </el-button>
+        <el-button @click="dialogVisible = false">Cancel</el-button>
+        <el-button type="primary" @click="dialogVisible = false">
+          Confirm
+        </el-button>
       </span>
     </template>
   </el-dialog>

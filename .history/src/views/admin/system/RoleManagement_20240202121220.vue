@@ -10,8 +10,6 @@ const confirmRef = ref()
 const confirmContent = ref('测试')
 // 提示框用途
 const mode = ref('edit')
-// 当前点击角色
-const cueRole = ref({})
 
 // 一个响应式对象存储整个筛选表单的数据
 const filterForm = ref({
@@ -103,22 +101,15 @@ const multipleSelection = ref([])
 const handleSelectionChange = (val) => {
   multipleSelection.value = val
 }
-// 角色状态改变
+
 const handleStatusChange = (row) => {
   mode.value = 'edit'
-  cueRole.value = row
   confirmContent.value = `确认要"${row.status === false ? '启用' : '停用'}""${
     row.roleName
   }"角色吗？`
   confirmRef.value.open()
 }
-// 确认角色状态改变
-const handleTriggerConfirm = (row) => {
-  // console.log(row)
-  // 修改角色状态
-  row.status = !row.status
-  // 发请求修改后台数据
-}
+
 // dialog表单
 const formModel = ref({
   moduleIds: [],
@@ -165,9 +156,8 @@ getTreeSelectData()
       ref="confirmRef"
       :content="confirmContent"
       :mode="mode"
-      :curRole="cueRole"
       @confirmDelete="handleDeleteConfirm"
-      @confirmTrigger="handleTriggerConfirm"
+      @confirmTrigger="handleEditConfirm"
     ></ConfirmDialog>
     <MyDialog
       :title="dialogTitle"
@@ -351,14 +341,6 @@ getTreeSelectData()
   }
   .role-management-page-btns {
     margin-bottom: 16px;
-  }
-  // 去除switch禁用 css
-  :deep .el-switch.is-disabled {
-    opacity: 1;
-  }
-  :deep .el-switch.is-disabled .el-switch__core,
-  :deep .el-switch.is-disabled .el-switch__label {
-    cursor: pointer;
   }
 }
 </style>

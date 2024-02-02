@@ -352,13 +352,5 @@ getTreeSelectData()
   .role-management-page-btns {
     margin-bottom: 16px;
   }
-  // 去除switch禁用 css
-  :deep .el-switch.is-disabled {
-    opacity: 1;
-  }
-  :deep .el-switch.is-disabled .el-switch__core,
-  :deep .el-switch.is-disabled .el-switch__label {
-    cursor: pointer;
-  }
 }
 </style>

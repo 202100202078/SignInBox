@@ -20,10 +20,6 @@ const prop = defineProps({
   mode: {
     type: String,
     required: true
-  },
-  curRole: {
-    type: Object,
-    required: true
   }
 })
 
@@ -32,14 +28,10 @@ const emit = defineEmits(['confirmDelete', 'confirmTrigger'])
 const onConfirm = () => {
   dialogVisible.value = false
   if (prop.mode === 'edit') {
-    emit('confirmTrigger', prop.curRole)
+    emit('confirmTrigger')
   } else if (prop.mode === 'delete') {
     emit('confirmDelete')
   }
-}
-
-const onCancel = () => {
-  dialogVisible.value = false
 }
 
 defineExpose({
@@ -55,7 +47,7 @@ defineExpose({
     </div>
     <template #footer>
       <span class="dialog-footer">
-        <el-button @click="onCancel">Cancel</el-button>
+        <el-button @click="dialogVisible = false">Cancel</el-button>
         <el-button type="primary" @click="onConfirm"> Confirm </el-button>
       </span>
     </template>
