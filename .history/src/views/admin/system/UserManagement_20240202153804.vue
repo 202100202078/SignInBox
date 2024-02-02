@@ -11,7 +11,7 @@ const confirmContent = ref('测试')
 // 提示框用途
 const mode = ref('edit')
 // 当前点击用户
-const curUser = ref({})
+const cueUser = ref({})
 
 // 一个响应式对象存储整个筛选表单的数据
 const filterForm = ref({
@@ -105,31 +105,13 @@ const editUserFn = () => {
 }
 // 点击删除用户
 const delUserFn = () => {
-  mode.value = 'delete'
-  const userIds = multipleSelection.value.map((item) => item.userId).join(',')
-  confirmContent.value = `是否确认删除角色编号为"${userIds}"的数据项？`
-  confirmRef.value.open()
-}
-
-// 用户状态改变
-const handleStatusChange = (row) => {
-  mode.value = 'edit'
-  curUser.value = row
-  confirmContent.value = `确认要"${row.status === false ? '启用' : '停用'}""${
-    row.username
-  }"用户吗？`
-  confirmRef.value.open()
-}
-// 确认用户状态改变
-const handleTriggerConfirm = (row) => {
-  // console.log(row)
-  // 修改用户状态
-  row.status = !row.status
-  // 发请求修改后台数据
+  dialogTitle.value = '系统提示'
+  myDialogRef.value.open()
 }
 
 // dialog表单
 const formModel = ref({
+  nickName: '',
   nickName: '',
   email: '',
   username: '',
@@ -145,14 +127,6 @@ const rules = {}
 
 <template>
   <div class="user-managemant-page">
-    <ConfirmDialog
-      ref="confirmRef"
-      :content="confirmContent"
-      :mode="mode"
-      :cur="curUser"
-      @confirmDelete="handleDeleteConfirm"
-      @confirmTrigger="handleTriggerConfirm"
-    ></ConfirmDialog>
     <MyDialog :title="dialogTitle" ref="myDialogRef">
       <template #form>
         <el-form
@@ -290,11 +264,7 @@ const rules = {}
       />
       <el-table-column label="状态" align="center" width="120">
         <template #default="scope">
-          <el-switch
-            v-model="scope.row.status"
-            disabled
-            @click="handleStatusChange(scope.row, $event)"
-          />
+          <el-switch v-model="scope.row.status" />
         </template>
       </el-table-column>
       <el-table-column
@@ -328,6 +298,11 @@ const rules = {}
 
 <style lang="scss" scoped>
 .user-managemant-page {
+  .user-managemant-page-btns {
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+  }
   .pagination {
     margin-top: 16px;
     display: flex;
@@ -344,16 +319,6 @@ const rules = {}
   }
   .user-managemant-page-btns {
     margin-bottom: 16px;
-    display: flex;
-    justify-content: space-between;
-  }
-  // 去除switch禁用 css
-  :deep .el-switch.is-disabled {
-    opacity: 1;
-  }
-  :deep .el-switch.is-disabled .el-switch__core,
-  :deep .el-switch.is-disabled .el-switch__label {
-    cursor: pointer;
   }
 }
 </style>

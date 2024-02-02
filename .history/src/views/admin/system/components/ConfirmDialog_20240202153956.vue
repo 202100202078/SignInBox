@@ -32,7 +32,7 @@ const emit = defineEmits(['confirmDelete', 'confirmTrigger'])
 const onConfirm = () => {
   dialogVisible.value = false
   if (prop.mode === 'edit') {
-    emit('confirmTrigger', prop.cur)
+    emit('confirmTrigger', prop.curRole)
   } else if (prop.mode === 'delete') {
     emit('confirmDelete')
   }

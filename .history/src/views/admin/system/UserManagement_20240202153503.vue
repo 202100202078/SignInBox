@@ -11,7 +11,7 @@ const confirmContent = ref('测试')
 // 提示框用途
 const mode = ref('edit')
 // 当前点击用户
-const curUser = ref({})
+const cueUser = ref({})
 
 // 一个响应式对象存储整个筛选表单的数据
 const filterForm = ref({
@@ -36,21 +36,6 @@ const statusOptions = [
   }
 ]
 
-const handleSizeChange = (size) => {
-  //当每页条数变化时，可能当前页数已经不存在了
-  //因此我们统一重新请求渲染第一页数据
-  filterForm.value.current = 1
-  filterForm.value.pageSize = size
-  // 重新获取当前页数据
-}
-const handleCurrentChange = (page) => {
-  //当每页条数变化时，可能当前页数已经不存在了
-  //因此我们统一重新请求渲染第一页数据
-  //根据页数重新请求渲染即可
-  filterForm.value.pagenum = page
-  // 重新请求数据
-}
-
 const handleReset = () => {
   // 重置筛选表单
   filterForm.value = {}
@@ -61,6 +46,41 @@ const handleQuery = () => {
 
 // 渲染的表格
 const tableData = [
+  {
+    userId: 1,
+    username: 'zs',
+    nickName: '张三',
+    status: false,
+    createDate: '2023-04-23 16:11:38'
+  },
+  {
+    userId: 1,
+    username: 'zs',
+    nickName: '张三',
+    status: false,
+    createDate: '2023-04-23 16:11:38'
+  },
+  {
+    userId: 1,
+    username: 'zs',
+    nickName: '张三',
+    status: false,
+    createDate: '2023-04-23 16:11:38'
+  },
+  {
+    userId: 1,
+    username: 'zs',
+    nickName: '张三',
+    status: false,
+    createDate: '2023-04-23 16:11:38'
+  },
+  {
+    userId: 1,
+    username: 'zs',
+    nickName: '张三',
+    status: false,
+    createDate: '2023-04-23 16:11:38'
+  },
   {
     userId: 1,
     username: 'zs',
@@ -105,31 +125,13 @@ const editUserFn = () => {
 }
 // 点击删除用户
 const delUserFn = () => {
-  mode.value = 'delete'
-  const userIds = multipleSelection.value.map((item) => item.userId).join(',')
-  confirmContent.value = `是否确认删除角色编号为"${userIds}"的数据项？`
-  confirmRef.value.open()
-}
-
-// 用户状态改变
-const handleStatusChange = (row) => {
-  mode.value = 'edit'
-  curUser.value = row
-  confirmContent.value = `确认要"${row.status === false ? '启用' : '停用'}""${
-    row.username
-  }"用户吗？`
-  confirmRef.value.open()
-}
-// 确认用户状态改变
-const handleTriggerConfirm = (row) => {
-  // console.log(row)
-  // 修改用户状态
-  row.status = !row.status
-  // 发请求修改后台数据
+  dialogTitle.value = '系统提示'
+  myDialogRef.value.open()
 }
 
 // dialog表单
 const formModel = ref({
+  nickName: '',
   nickName: '',
   email: '',
   username: '',
@@ -145,14 +147,6 @@ const rules = {}
 
 <template>
   <div class="user-managemant-page">
-    <ConfirmDialog
-      ref="confirmRef"
-      :content="confirmContent"
-      :mode="mode"
-      :cur="curUser"
-      @confirmDelete="handleDeleteConfirm"
-      @confirmTrigger="handleTriggerConfirm"
-    ></ConfirmDialog>
     <MyDialog :title="dialogTitle" ref="myDialogRef">
       <template #form>
         <el-form
@@ -230,28 +224,21 @@ const rules = {}
       </el-form-item>
     </FilterForm>
     <div class="user-managemant-page-btns">
-      <div class="left">
-        <el-button plain type="primary" @click="addUserFn">添加</el-button>
-        <el-button
-          plain
-          type="success"
-          @click="editUserFn"
-          :disabled="multipleSelection.length !== 1"
-          >修改</el-button
-        >
-        <el-button
-          plain
-          type="danger"
-          @click="delUserFn"
-          :disabled="multipleSelection.length === 0"
-          >删除</el-button
-        >
-      </div>
-      <div class="right">
-        <el-tooltip effect="dark" content="刷新" placement="top">
-          <el-button :icon="Refresh" circle @click="getDataList" />
-        </el-tooltip>
-      </div>
+      <el-button plain type="primary" @click="addUserFn">添加</el-button>
+      <el-button
+        plain
+        type="success"
+        @click="editUserFn"
+        :disabled="multipleSelection.length !== 1"
+        >修改</el-button
+      >
+      <el-button
+        plain
+        type="danger"
+        @click="delUserFn"
+        :disabled="multipleSelection.length === 0"
+        >删除</el-button
+      >
     </div>
     <el-table
       :ref="multipleTableRef"
@@ -290,11 +277,7 @@ const rules = {}
       />
       <el-table-column label="状态" align="center" width="120">
         <template #default="scope">
-          <el-switch
-            v-model="scope.row.status"
-            disabled
-            @click="handleStatusChange(scope.row, $event)"
-          />
+          <el-switch v-model="scope.row.status" />
         </template>
       </el-table-column>
       <el-table-column
@@ -311,28 +294,11 @@ const rules = {}
         </template>
       </el-table-column>
     </el-table>
-    <div class="pagination">
-      <el-pagination
-        v-model:current-page="filterForm.current"
-        v-model:page-size="filterForm.pageSize"
-        :page-sizes="[5, 10, 15, 20, 25]"
-        :background="true"
-        layout="total, sizes, prev, pager, next, jumper"
-        :total="40"
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
-      />
-    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .user-managemant-page {
-  .pagination {
-    margin-top: 16px;
-    display: flex;
-    justify-content: flex-end;
-  }
   .el-form-item {
     width: 30%;
     .el-select {
@@ -344,16 +310,6 @@ const rules = {}
   }
   .user-managemant-page-btns {
     margin-bottom: 16px;
-    display: flex;
-    justify-content: space-between;
-  }
-  // 去除switch禁用 css
-  :deep .el-switch.is-disabled {
-    opacity: 1;
-  }
-  :deep .el-switch.is-disabled .el-switch__core,
-  :deep .el-switch.is-disabled .el-switch__label {
-    cursor: pointer;
   }
 }
 </style>
