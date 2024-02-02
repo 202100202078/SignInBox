@@ -37,19 +37,11 @@ const statusOptions = [
   }
 ]
 
-const handleSizeChange = (size) => {
-  //当每页条数变化时，可能当前页数已经不存在了
-  //因此我们统一重新请求渲染第一页数据
-  filterForm.value.current = 1
-  filterForm.value.pageSize = size
-  // 重新获取当前页数据
+const handleSizeChange = () => {
+  
 }
-const handleCurrentChange = (page) => {
-  //当每页条数变化时，可能当前页数已经不存在了
-  //因此我们统一重新请求渲染第一页数据
-  //根据页数重新请求渲染即可
-  filterForm.value.pagenum = page
-  // 重新请求数据
+const handleCurrentChange = () => {
+  
 }
 
 const handleReset = () => {
@@ -367,8 +359,8 @@ getTreeSelectData()
     </el-table>
     <div class="pagination">
       <el-pagination
-        v-model:current-page="filterForm.current"
-        v-model:page-size="filterForm.pageSize"
+        v-model:current-page="currentPage4"
+        v-model:page-size="pageSize4"
         :page-sizes="[5, 10, 15, 20, 25]"
         :background="true"
         layout="total, sizes, prev, pager, next, jumper"

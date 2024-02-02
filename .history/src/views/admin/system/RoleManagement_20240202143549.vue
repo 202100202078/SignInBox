@@ -1,6 +1,5 @@
 <script setup>
 import { ref } from 'vue'
-import { Refresh } from '@element-plus/icons-vue'
 import { getTreeSelect } from '@/api/admin/system/menu.js'
 import MyDialog from './components/MyDialog.vue'
 import ConfirmDialog from './components/ConfirmDialog.vue'
@@ -16,14 +15,10 @@ const cueRole = ref({})
 
 // 一个响应式对象存储整个筛选表单的数据
 const filterForm = ref({
-  roleName: '',
-  roleKey: '',
+  uname: '',
+  phone: '',
   status: '',
-  datePicker: '',
-  beginTime: '',
-  endTime: '',
-  pageSize: 5,
-  current: 1
+  datePicker: ''
 })
 
 const statusOptions = [
@@ -36,21 +31,6 @@ const statusOptions = [
     label: '停用'
   }
 ]
-
-const handleSizeChange = (size) => {
-  //当每页条数变化时，可能当前页数已经不存在了
-  //因此我们统一重新请求渲染第一页数据
-  filterForm.value.current = 1
-  filterForm.value.pageSize = size
-  // 重新获取当前页数据
-}
-const handleCurrentChange = (page) => {
-  //当每页条数变化时，可能当前页数已经不存在了
-  //因此我们统一重新请求渲染第一页数据
-  //根据页数重新请求渲染即可
-  filterForm.value.pagenum = page
-  // 重新请求数据
-}
 
 const handleReset = () => {
   // 重置筛选表单
@@ -148,8 +128,7 @@ const formModel = ref({
   roleKey: '',
   roleName: '',
   roleSort: 0,
-  status: '',
-  roleId: 0
+  status: ''
 })
 
 const treeData = ref([
@@ -284,28 +263,24 @@ getTreeSelectData()
       </el-form-item>
     </FilterForm>
     <div class="role-management-page-btns">
-      <div class="left">
-        <el-button plain type="primary" @click="addUserFn">添加</el-button>
-        <el-button
-          plain
-          type="success"
-          @click="editUserFn"
-          :disabled="multipleSelection.length !== 1"
-          >修改</el-button
-        >
-        <el-button
-          plain
-          type="danger"
-          @click="delUserFn"
-          :disabled="multipleSelection.length === 0"
-          >删除</el-button
-        >
-      </div>
-      <div class="right">
-        <el-tooltip effect="dark" content="刷新" placement="top">
-          <el-button :icon="Refresh" circle @click="getDataList" />
-        </el-tooltip>
-      </div>
+      <el-button plain type="primary" @click="addUserFn">添加</el-button>
+      <el-button
+        plain
+        type="success"
+        @click="editUserFn"
+        :disabled="multipleSelection.length !== 1"
+        >修改</el-button
+      >
+      <el-button
+        plain
+        type="danger"
+        @click="delUserFn"
+        :disabled="multipleSelection.length === 0"
+        >删除</el-button
+      >
+      <el-tooltip effect="dark" content="刷新" placement="top">
+        <el-button :icon="Refresh" circle @click="getDataList" />
+      </el-tooltip>
     </div>
     <el-table
       :ref="multipleTableRef"
@@ -365,33 +340,11 @@ getTreeSelectData()
         </template>
       </el-table-column>
     </el-table>
-    <div class="pagination">
-      <el-pagination
-        v-model:current-page="filterForm.current"
-        v-model:page-size="filterForm.pageSize"
-        :page-sizes="[5, 10, 15, 20, 25]"
-        :background="true"
-        layout="total, sizes, prev, pager, next, jumper"
-        :total="40"
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
-      />
-    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .role-management-page {
-  .role-management-page-btns {
-    margin-bottom: 16px;
-    display: flex;
-    justify-content: space-between;
-  }
-  .pagination {
-    margin-top: 16px;
-    display: flex;
-    justify-content: flex-end;
-  }
   .el-form-item {
     width: 30%;
     .el-select {

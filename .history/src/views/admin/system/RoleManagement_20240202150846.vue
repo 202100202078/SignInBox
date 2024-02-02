@@ -367,8 +367,8 @@ getTreeSelectData()
     </el-table>
     <div class="pagination">
       <el-pagination
-        v-model:current-page="filterForm.current"
-        v-model:page-size="filterForm.pageSize"
+        v-model:current-page="currentPage4"
+        v-model:page-size="pageSize4"
         :page-sizes="[5, 10, 15, 20, 25]"
         :background="true"
         layout="total, sizes, prev, pager, next, jumper"

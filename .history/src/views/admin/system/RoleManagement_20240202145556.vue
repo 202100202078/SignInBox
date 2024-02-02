@@ -16,14 +16,10 @@ const cueRole = ref({})
 
 // 一个响应式对象存储整个筛选表单的数据
 const filterForm = ref({
-  roleName: '',
-  roleKey: '',
+  uname: '',
+  phone: '',
   status: '',
-  datePicker: '',
-  beginTime: '',
-  endTime: '',
-  pageSize: 5,
-  current: 1
+  datePicker: ''
 })
 
 const statusOptions = [
@@ -36,21 +32,6 @@ const statusOptions = [
     label: '停用'
   }
 ]
-
-const handleSizeChange = (size) => {
-  //当每页条数变化时，可能当前页数已经不存在了
-  //因此我们统一重新请求渲染第一页数据
-  filterForm.value.current = 1
-  filterForm.value.pageSize = size
-  // 重新获取当前页数据
-}
-const handleCurrentChange = (page) => {
-  //当每页条数变化时，可能当前页数已经不存在了
-  //因此我们统一重新请求渲染第一页数据
-  //根据页数重新请求渲染即可
-  filterForm.value.pagenum = page
-  // 重新请求数据
-}
 
 const handleReset = () => {
   // 重置筛选表单
@@ -148,8 +129,7 @@ const formModel = ref({
   roleKey: '',
   roleName: '',
   roleSort: 0,
-  status: '',
-  roleId: 0
+  status: ''
 })
 
 const treeData = ref([
@@ -367,12 +347,13 @@ getTreeSelectData()
     </el-table>
     <div class="pagination">
       <el-pagination
-        v-model:current-page="filterForm.current"
-        v-model:page-size="filterForm.pageSize"
-        :page-sizes="[5, 10, 15, 20, 25]"
-        :background="true"
+        v-model:current-page="currentPage4"
+        v-model:page-size="pageSize4"
+        :page-sizes="[100, 200, 300, 400]"
+        :disabled="disabled"
+        :background="background"
         layout="total, sizes, prev, pager, next, jumper"
-        :total="40"
+        :total="400"
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
       />
