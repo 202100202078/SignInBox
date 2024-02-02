@@ -131,10 +131,8 @@ const handleTriggerConfirm = (row) => {
 }
 
 // 确认修改密码
-const handleResetConfirm = () => {
-  // 从formModel.password获取数据后发请求修改用户curUser密码
-}
-// 点击重置密码
+const handleResetConfirm = () => {}
+
 const resetPassword = (row) => {
   mode.value = 'reset'
   curUser.value = row

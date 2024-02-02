@@ -105,7 +105,6 @@ const editUserFn = () => {
 }
 // 点击删除用户
 const delUserFn = () => {
-  dialogTitle.value = '系统提示'
   mode.value = 'delete'
   const userIds = multipleSelection.value.map((item) => item.userId).join(',')
   confirmContent.value = `是否确认删除角色编号为"${userIds}"的数据项？`
@@ -128,18 +127,6 @@ const handleTriggerConfirm = (row) => {
   // 修改用户状态
   row.status = !row.status
   // 发请求修改后台数据
-}
-
-// 确认修改密码
-const handleResetConfirm = () => {
-  // 从formModel.password获取数据后发请求修改用户curUser密码
-}
-// 点击重置密码
-const resetPassword = (row) => {
-  mode.value = 'reset'
-  curUser.value = row
-  confirmContent.value = `请输入"${row.username}"的新密码`
-  confirmRef.value.open()
 }
 
 // dialog表单
@@ -166,19 +153,14 @@ const rules = {}
       :cur="curUser"
       @confirmDelete="handleDeleteConfirm"
       @confirmTrigger="handleTriggerConfirm"
-      @confirmResetPassword="handleResetConfirm"
     >
-      <template #form>
-        <el-form
-          :model="formModel"
-          v-if="mode === 'reset'"
-          class="confirmDialogForm"
-        >
+      <slot #form>
+        <el-form>
           <el-form-item>
-            <el-input v-model="formModel.password"></el-input>
+            <el-input></el-input>
           </el-form-item>
         </el-form>
-      </template>
+      </slot>
     </ConfirmDialog>
     <MyDialog :title="dialogTitle" ref="myDialogRef">
       <template #form>
@@ -333,13 +315,7 @@ const rules = {}
       />
       <el-table-column label="操作" show-overflow-tooltip align="center">
         <template #default="scope">
-          <el-button
-            size="small"
-            type="info"
-            plain
-            @click="resetPassword(scope.row)"
-            >重置密码</el-button
-          >
+          <el-button size="small" type="info" plain>重置密码</el-button>
           <el-button size="small" type="info" plain>分配角色</el-button>
         </template>
       </el-table-column>
@@ -361,15 +337,6 @@ const rules = {}
 
 <style lang="scss" scoped>
 .user-managemant-page {
-  .confirmDialogForm {
-    .el-form-item {
-      width: 100%;
-      .el-input {
-        margin-top: 16px;
-        --el-input-width: 100%;
-      }
-    }
-  }
   .pagination {
     margin-top: 16px;
     display: flex;

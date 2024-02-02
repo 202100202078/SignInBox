@@ -27,11 +27,7 @@ const prop = defineProps({
   }
 })
 
-const emit = defineEmits([
-  'confirmDelete',
-  'confirmTrigger',
-  'confirmResetPassword'
-])
+const emit = defineEmits(['confirmDelete', 'confirmTrigger'])
 
 const onConfirm = () => {
   dialogVisible.value = false
@@ -39,8 +35,6 @@ const onConfirm = () => {
     emit('confirmTrigger', prop.cur)
   } else if (prop.mode === 'delete') {
     emit('confirmDelete')
-  } else if (prop.mode === 'reset') {
-    emit('confirmResetPassword')
   }
 }
 
@@ -60,7 +54,7 @@ defineExpose({
       <span>{{ content }}</span>
     </div>
     <slot name="form"> </slot>
-    <template #footer>
+    <templatename="footer">
       <span class="dialog-footer">
         <el-button @click="onCancel">Cancel</el-button>
         <el-button type="primary" @click="onConfirm"> Confirm </el-button>

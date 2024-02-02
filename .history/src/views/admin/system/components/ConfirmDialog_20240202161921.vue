@@ -27,11 +27,7 @@ const prop = defineProps({
   }
 })
 
-const emit = defineEmits([
-  'confirmDelete',
-  'confirmTrigger',
-  'confirmResetPassword'
-])
+const emit = defineEmits(['confirmDelete', 'confirmTrigger'])
 
 const onConfirm = () => {
   dialogVisible.value = false

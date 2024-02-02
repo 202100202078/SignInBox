@@ -130,18 +130,6 @@ const handleTriggerConfirm = (row) => {
   // 发请求修改后台数据
 }
 
-// 确认修改密码
-const handleResetConfirm = () => {
-  // 从formModel.password获取数据后发请求修改用户curUser密码
-}
-// 点击重置密码
-const resetPassword = (row) => {
-  mode.value = 'reset'
-  curUser.value = row
-  confirmContent.value = `请输入"${row.username}"的新密码`
-  confirmRef.value.open()
-}
-
 // dialog表单
 const formModel = ref({
   nickName: '',
@@ -166,14 +154,9 @@ const rules = {}
       :cur="curUser"
       @confirmDelete="handleDeleteConfirm"
       @confirmTrigger="handleTriggerConfirm"
-      @confirmResetPassword="handleResetConfirm"
     >
       <template #form>
-        <el-form
-          :model="formModel"
-          v-if="mode === 'reset'"
-          class="confirmDialogForm"
-        >
+        <el-form :model="formModel">
           <el-form-item>
             <el-input v-model="formModel.password"></el-input>
           </el-form-item>
@@ -361,15 +344,6 @@ const rules = {}
 
 <style lang="scss" scoped>
 .user-managemant-page {
-  .confirmDialogForm {
-    .el-form-item {
-      width: 100%;
-      .el-input {
-        margin-top: 16px;
-        --el-input-width: 100%;
-      }
-    }
-  }
   .pagination {
     margin-top: 16px;
     display: flex;
